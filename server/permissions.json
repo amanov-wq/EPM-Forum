@@ -1,0 +1,23 @@
+{
+    "[Protection]": "protection",
+    "[Fly]": "fly",
+    "[VIP]": "vip",
+    "[MVP]": "mvp",
+    "[Premium]": "premium",
+    "[Creative]": "creative",
+    "[Deluxe]": "deluxe",
+    "[Ultra]": "ultra",
+    "[Legenda]": "legenda",
+    "[FULL]": "full",
+    "[Infinite]": "infinite",
+    "[Recource]": "recource",
+
+    "🛡 Страж": "strazh",
+    "👑 Принц": "princ",
+    "👑 Король": "korol",
+    "🔥 Эрандор": "erandor",
+    "⚔️ Стафф": "staff",
+    "🏰 Староста": "starosta",
+    "💎 Повелитель": "povelitel",
+    "⚡ Экстрактор": "extractor"
+}

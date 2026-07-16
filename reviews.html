@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ESTAMON — Отзывы</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+
+<header>
+
+
+<div class="logo">
+ESTAMON
+</div>
+
+
+
+<nav>
+
+<a href="index.html">Главная</a>
+
+<a href="forum.html">Форум</a>
+
+<a href="news.html">Новости</a>
+
+<a href="rules.html">Правила</a>
+
+<a href="reviews.html">Отзывы</a>
+
+</nav>
+
+
+</header>
+
+
+
+
+
+
+
+<div class="reviews-page">
+
+
+
+<h1>
+Отзывы игроков
+</h1>
+
+
+
+
+
+<div class="review-create">
+
+
+
+<textarea 
+id="reviewText"
+placeholder="Напишите свой отзыв">
+</textarea>
+
+
+
+
+<select id="rating">
+
+<option value="5">
+⭐⭐⭐⭐⭐
+</option>
+
+<option value="4">
+⭐⭐⭐⭐
+</option>
+
+<option value="3">
+⭐⭐⭐
+</option>
+
+<option value="2">
+⭐⭐
+</option>
+
+<option value="1">
+⭐
+</option>
+
+</select>
+
+
+
+
+<button onclick="sendReview()">
+
+Оставить отзыв
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div id="reviews">
+
+Загрузка...
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+
+async function loadReviews(){
+
+
+let res =
+await fetch("/reviews");
+
+
+
+let reviews =
+await res.json();
+
+
+
+let box =
+document.getElementById("reviews");
+
+
+
+box.innerHTML="";
+
+
+
+
+if(reviews.length===0){
+
+
+box.innerHTML=
+"Отзывов пока нет";
+
+
+return;
+
+
+}
+
+
+
+
+
+reviews.reverse().forEach(r=>{
+
+
+box.innerHTML+=`
+
+
+<div class="review-card">
+
+
+<h3>
+${r.author}
+</h3>
+
+
+<div class="stars">
+
+${"⭐".repeat(r.rating)}
+
+</div>
+
+
+
+<p>
+
+${r.text}
+
+</p>
+
+
+
+<small>
+
+${r.date}
+
+</small>
+
+
+
+</div>
+
+
+
+`;
+
+
+
+});
+
+
+
+}
+
+
+
+
+
+
+
+
+function sendReview(){
+
+
+
+let user =
+JSON.parse(localStorage.getItem("user"));
+
+
+
+if(!user){
+
+
+alert("Войдите в аккаунт");
+
+
+return;
+
+
+}
+
+
+
+
+
+let text =
+document.getElementById("reviewText").value;
+
+
+
+let rating =
+document.getElementById("rating").value;
+
+
+
+
+
+fetch("/reviews",{
+
+
+method:"POST",
+
+
+headers:{
+
+
+"Content-Type":"application/json"
+
+
+},
+
+
+body:JSON.stringify({
+
+
+author:user.login,
+
+
+text:text,
+
+
+rating:rating
+
+
+})
+
+
+})
+
+
+.then(res=>res.json())
+
+
+.then(data=>{
+
+
+alert(data.message);
+
+
+
+if(data.success){
+
+
+document.getElementById("reviewText").value="";
+
+
+loadReviews();
+
+
+}
+
+
+
+});
+
+
+
+}
+
+
+
+
+
+loadReviews();
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

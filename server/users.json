@@ -1,0 +1,32 @@
+[
+    {
+        "login": "Amanov",
+        "email": "example@mail.com",
+        "password": "12345",
+        "role": "Создатель",
+        "avatar": "https://avatars.mds.yandex.net/i?id=10421c733ecec88506d392e1f4946d589302731f-5232350-images-thumbs&n=13",
+        "level": 25,
+        "status": "🟢 Онлайн",
+        "registerDate": "11.07.2026",
+        "xp": 4500,
+        "maxXp": 6000,
+        "messages": 125,
+        "topics": 15,
+        "likes": 50,
+        "medals": [
+            "🏆 Первый игрок",
+            "🛡️ Команда проекта"
+        ]
+    },
+    {
+        "login": "TEST",
+        "email": "mineganyt01@gmail.com",
+        "password": "652222284",
+        "role": "Пользователь",
+        "level": 1,
+        "money": 0,
+        "messages": 0,
+        "date": "14.07.2026",
+        "avatar": "images/default-avatar.png"
+    }
+]

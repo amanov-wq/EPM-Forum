@@ -1,0 +1,27 @@
+[
+  {
+    "id":"news",
+    "name":"📢 Новости проекта",
+    "access":"team"
+  },
+  {
+    "id":"help",
+    "name":"🆘 Помощь игрокам",
+    "access":"all"
+  },
+  {
+    "id":"complaints",
+    "name":"⚠️ Жалобы",
+    "access":"all"
+  },
+  {
+    "id":"ideas",
+    "name":"💡 Предложения",
+    "access":"all"
+  },
+  {
+    "id":"admin",
+    "name":"🛡️ Администрация",
+    "access":"team"
+  }
+]

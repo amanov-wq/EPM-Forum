@@ -1,0 +1,959 @@
+.profile-page{
+
+    min-height:calc(100vh - 100px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:50px 20px;
+
+}
+
+
+
+.profile-card{
+
+    width:430px;
+
+    padding:35px;
+
+    border-radius:24px;
+
+    background:rgba(18,22,35,.72);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    text-align:center;
+
+    box-shadow:
+    0 0 35px rgba(155,92,255,.35);
+
+}
+
+
+
+.avatar{
+
+    width:140px;
+
+    height:140px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:4px solid #9b5cff;
+
+    box-shadow:
+    0 0 25px #9b5cff;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.profile-card h1{
+
+    font-size:34px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.role-badge{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    font-weight:700;
+
+    margin-bottom:30px;
+
+    background:#6b7280;
+
+    color:#fff;
+
+}
+
+
+
+.profile-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+
+
+.profile-info div{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.05);
+
+}
+
+
+
+.profile-info span{
+
+    font-weight:700;
+
+}
+
+
+
+.profile-buttons{
+
+    margin-top:30px;
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+
+
+.profile-buttons button{
+
+    flex:1;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    color:white;
+
+    background:linear-gradient(135deg,#8a4dff,#c47cff);
+
+    box-shadow:0 0 20px rgba(155,92,255,.5);
+
+    transition:.25s;
+
+}
+
+
+
+.profile-buttons button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 0 35px #9b5cff;
+
+}
+/* ==========================================================
+   ESTAMON Legendary Role System
+========================================================== */
+
+.role-badge{
+
+    position:relative;
+
+    overflow:hidden;
+
+    isolation:isolate;
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-width:220px;
+
+    height:52px;
+
+    padding:0 28px;
+
+    border-radius:999px;
+
+    font-size:17px;
+
+    font-weight:800;
+
+    letter-spacing:.4px;
+
+    color:#fff;
+
+    border:1px solid rgba(255,255,255,.18);
+
+    backdrop-filter:blur(18px);
+
+    transition:.35s;
+
+}
+
+
+
+.role-badge::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-2px;
+
+    border-radius:999px;
+
+    background-size:300% 300%;
+
+    animation:roleGradient 8s linear infinite;
+
+    z-index:-2;
+
+}
+
+
+
+.role-badge::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:-120%;
+
+    top:0;
+
+    width:70%;
+
+    height:100%;
+
+    transform:skewX(-25deg);
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        rgba(255,255,255,.55),
+
+        transparent
+
+    );
+
+    animation:shine 4.5s infinite;
+
+    z-index:-1;
+
+}
+
+
+
+.role-badge:hover{
+
+    transform:translateY(-2px) scale(1.04);
+
+}
+
+
+
+@keyframes shine{
+
+    0%{
+
+        left:-120%;
+
+    }
+
+    100%{
+
+        left:170%;
+
+    }
+
+}
+
+
+
+@keyframes roleGradient{
+
+    0%{
+
+        background-position:0% 50%;
+
+    }
+
+    100%{
+
+        background-position:100% 50%;
+
+    }
+
+}
+
+
+
+@keyframes stars{
+
+    from{
+
+        background-position:0 0;
+
+    }
+
+    to{
+
+        background-position:0 400px;
+
+    }
+
+}
+
+
+
+@keyframes pulseGlow{
+
+    0%{
+
+        filter:brightness(1);
+
+    }
+
+    50%{
+
+        filter:brightness(1.25);
+
+    }
+
+    100%{
+
+        filter:brightness(1);
+
+    }
+
+}
+/* ===========================
+          ИГРОК
+=========================== */
+
+.role-player::before{
+
+    background:
+
+    linear-gradient(
+
+        135deg,
+
+        #505050,
+
+        #8d8d8d,
+
+        #5a5a5a
+
+    );
+
+}
+
+.role-player{
+
+    box-shadow:
+
+    0 0 18px rgba(180,180,180,.35);
+
+}
+
+
+
+/* ===========================
+          СТАЖЁР
+=========================== */
+
+.role-trainee{
+
+    box-shadow:
+
+    0 0 25px rgba(120,170,255,.55);
+
+    animation:pulseGlow 3s infinite;
+
+}
+
+
+
+.role-trainee::before{
+
+    background:
+
+    linear-gradient(
+
+        135deg,
+
+        #09182f,
+
+        #284f91,
+
+        #060f22
+
+    );
+
+}
+
+
+
+.role-trainee::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:999px;
+
+    background-image:
+
+    radial-gradient(circle,#fff 1px,transparent 2px);
+
+    background-size:24px 24px;
+
+    opacity:.45;
+
+    animation:stars 18s linear infinite;
+
+}
+
+
+
+/* ===========================
+       МЛ. ХЕЛПЕР
+=========================== */
+
+.role-jhelper::before{
+
+    background:
+
+    linear-gradient(
+
+        135deg,
+
+        #00a650,
+
+        #47ff8e,
+
+        #00a650
+
+    );
+
+}
+
+
+
+.role-jhelper{
+
+    box-shadow:
+
+    0 0 22px #37ff90;
+
+}
+
+
+
+/* ===========================
+          ХЕЛПЕР
+=========================== */
+
+.role-helper::before{
+
+    background:
+
+    linear-gradient(
+
+        135deg,
+
+        #00d37d,
+
+        #00ffb3,
+
+        #00d37d
+
+    );
+
+}
+
+
+
+.role-helper{
+
+    box-shadow:
+
+    0 0 28px #00ffb3;
+
+    animation:pulseGlow 2.5s infinite;
+
+}
+/* ==========================================================
+            СТ. ХЕЛПЕР
+========================================================== */
+
+.role-shelper{
+
+    box-shadow:
+    0 0 18px #49ff8f,
+    0 0 40px rgba(73,255,143,.45);
+
+    animation:pulseGlow 2.5s infinite;
+
+}
+
+.role-shelper::before{
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f7a44,
+        #6dffad,
+        #12a659,
+        #0f7a44
+    );
+
+}
+
+.role-shelper::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:999px;
+
+    background:
+    radial-gradient(circle at 15% 50%,rgba(255,255,255,.35),transparent 10%),
+    radial-gradient(circle at 40% 30%,rgba(255,255,255,.20),transparent 8%),
+    radial-gradient(circle at 75% 65%,rgba(255,255,255,.30),transparent 9%);
+
+    animation:stars 10s linear infinite;
+
+}
+
+
+
+/* ==========================================================
+            МЛ. МОДЕРАТОР
+========================================================== */
+
+.role-jmoder{
+
+    box-shadow:
+    0 0 22px #53b8ff,
+    0 0 45px rgba(83,184,255,.45);
+
+}
+
+.role-jmoder::before{
+
+    background:
+    linear-gradient(
+        135deg,
+        #0d3c75,
+        #4eb6ff,
+        #7fd5ff,
+        #0d3c75
+    );
+
+}
+
+.role-jmoder::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:999px;
+
+    background:
+    linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.35),
+        transparent
+    );
+
+    animation:shine 2.8s infinite;
+
+}
+
+
+
+/* ==========================================================
+                 МОДЕРАТОР
+========================================================== */
+
+.role-moder{
+
+    box-shadow:
+    0 0 25px #8e4dff,
+    0 0 55px rgba(142,77,255,.45);
+
+    animation:pulseGlow 2s infinite;
+
+}
+
+.role-moder::before{
+
+    background:
+    linear-gradient(
+        135deg,
+        #32135b,
+        #9d5cff,
+        #cc8bff,
+        #32135b
+    );
+
+}
+
+.role-moder::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:999px;
+
+    background:
+    radial-gradient(circle at 20% 50%,rgba(255,255,255,.20),transparent 12%),
+    radial-gradient(circle at 50% 30%,rgba(255,255,255,.25),transparent 10%),
+    radial-gradient(circle at 80% 70%,rgba(255,255,255,.20),transparent 12%);
+
+    animation:stars 12s linear infinite;
+
+}
+
+
+
+/* ==========================================================
+             СТ. МОДЕРАТОР
+========================================================== */
+
+.role-smoder{
+
+    box-shadow:
+    0 0 25px #6ad7ff,
+    0 0 60px rgba(106,215,255,.55);
+
+    animation:pulseGlow 1.8s infinite;
+
+}
+
+.role-smoder::before{
+
+    background:
+    linear-gradient(
+        135deg,
+        #0d5f8d,
+        #7be4ff,
+        #d8fbff,
+        #0d5f8d
+    );
+
+}
+
+.role-smoder::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:999px;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.5),
+        transparent
+    );
+
+    animation:shine 2.2s infinite;
+
+}
+/* ==========================================================
+                    СОЗДАТЕЛЬ
+========================================================== */
+
+.role-founder{
+
+    color:#fff8d6;
+
+    box-shadow:
+    0 0 25px #ffd34d,
+    0 0 55px rgba(255,190,0,.65),
+    0 0 90px rgba(255,170,0,.35);
+
+    animation:pulseGlow 1.5s infinite;
+
+}
+
+.role-founder::before{
+
+    background:
+    linear-gradient(
+        135deg,
+        #7a4700,
+        #ffb300,
+        #fff4a3,
+        #ffb300,
+        #7a4700
+    );
+
+}
+
+.role-founder::after{
+
+    content:"✨";
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-around;
+
+    font-size:13px;
+
+    opacity:.45;
+
+    animation:stars 8s linear infinite;
+
+}
+
+
+
+/* ==========================================================
+                 КУРАТОР РЕЖИМА
+========================================================== */
+
+.role-mode-curator{
+
+    box-shadow:
+    0 0 30px #8b5cff,
+    0 0 70px rgba(139,92,255,.6);
+
+    animation:pulseGlow 2s infinite;
+
+}
+
+.role-mode-curator::before{
+
+    background:
+    linear-gradient(
+        135deg,
+        #06091d,
+        #43287f,
+        #965bff,
+        #181d52,
+        #06091d
+    );
+
+}
+
+.role-mode-curator::after{
+
+    content:"✦ ✧ ✦";
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:space-evenly;
+
+    align-items:center;
+
+    font-size:10px;
+
+    color:white;
+
+    opacity:.55;
+
+    animation:stars 15s linear infinite;
+
+}
+
+
+
+/* ==========================================================
+                  ЗАМ. КУРАТОРА
+========================================================== */
+
+.role-deputy-curator{
+
+    box-shadow:
+    0 0 30px #43b7ff,
+    0 0 60px rgba(67,183,255,.55);
+
+}
+
+.role-deputy-curator::before{
+
+    background:
+    linear-gradient(
+        135deg,
+        #00355d,
+        #2dbbff,
+        #b2f3ff,
+        #00355d
+    );
+
+}
+
+.role-deputy-curator::after{
+
+    content:"⚡";
+
+    position:absolute;
+
+    right:20px;
+
+    font-size:18px;
+
+    opacity:.5;
+
+    animation:pulseGlow 1s infinite;
+
+}
+
+
+
+/* ==========================================================
+          КУРАТОР КОМАНДЫ ПРОЕКТА
+========================================================== */
+
+.role-team-curator{
+
+    box-shadow:
+    0 0 28px #47ff8d,
+    0 0 60px rgba(71,255,141,.5);
+
+}
+
+.role-team-curator::before{
+
+    background:
+    linear-gradient(
+        135deg,
+        #005d38,
+        #1cff8e,
+        #a8ffd5,
+        #005d38
+    );
+
+}
+
+.role-team-curator::after{
+
+    content:"✦";
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    align-items:center;
+
+    padding-right:22px;
+
+    font-size:16px;
+
+    animation:pulseGlow 2s infinite;
+
+}
+
+
+
+/* ==========================================================
+             КУРАТОР ПО РЕКЛАМЕ
+========================================================== */
+
+.role-ads-curator{
+
+    box-shadow:
+    0 0 25px #ffd54d,
+    0 0 60px rgba(255,213,77,.55);
+
+}
+
+.role-ads-curator::before{
+
+    background:
+    linear-gradient(
+        135deg,
+        #7b5b00,
+        #ffd94f,
+        #fff5b2,
+        #7b5b00
+    );
+
+}
+
+.role-ads-curator::after{
+
+    content:"★";
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:14px;
+
+    opacity:.35;
+
+    animation:pulseGlow 1.8s infinite;
+
+}

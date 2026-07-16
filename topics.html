@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ESTAMON — Форум</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700;900&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<div class="forum-page">
+
+
+<header>
+
+<div class="logo">
+ESTAMON
+</div>
+
+
+<nav>
+
+<a href="index.html">Главная</a>
+<a href="topics.html">Форум</a>
+<a href="news.html">Новости</a>
+<a href="rules.html">Правила</a>
+<a href="donate.html">Донат</a>
+
+</nav>
+
+
+<div class="profile-button">
+
+<a href="profile.html">
+👤
+</a>
+
+</div>
+
+
+</header>
+
+
+
+
+
+<div class="forum-title">
+
+<h1>
+Форум ESTAMON
+</h1>
+
+<p>
+Обсуждения игроков сервера
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="profile-container">
+
+
+<div class="profile-card" style="width:700px;">
+
+
+
+<a href="create-topic.html" class="profile-card-button">
+
+Создать тему
+
+</a>
+
+
+
+
+<div id="topics">
+
+Загрузка тем...
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+async function loadTopics(){
+
+
+try{
+
+
+let response = await fetch("/api/topics");
+
+
+let topics = await response.json();
+
+
+
+let box = document.getElementById("topics");
+
+
+box.innerHTML="";
+
+
+
+if(topics.length === 0){
+
+
+box.innerHTML = `
+
+<h3>
+Тем пока нет
+</h3>
+
+`;
+
+return;
+
+
+}
+
+
+
+
+topics.sort((a,b)=>{
+
+return (b.pinned===true)-(a.pinned===true);
+
+}).forEach(topic=>{
+
+
+box.innerHTML += `
+
+
+<div style="
+
+margin-top:25px;
+
+padding:20px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,.08);
+
+text-align:left;
+
+">
+
+
+
+<h2>
+
+${topic.title}
+
+</h2>
+
+
+
+<p>
+
+👤 Автор:
+${topic.author}
+
+</p>
+
+
+
+<p>
+
+📅 ${topic.date}
+
+</p>
+
+
+
+<p>
+
+💬 Ответов:
+${topic.answers ? topic.answers.length : 0}
+
+</p>
+
+
+
+<button onclick="openTopic(${topic.id})">
+
+Открыть тему
+
+</button>
+
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+
+}
+
+catch(error){
+
+
+document.getElementById("topics").innerHTML =
+
+"Ошибка загрузки тем";
+
+
+console.log(error);
+
+
+}
+
+
+}
+
+
+
+
+
+function openTopic(id){
+
+
+window.location.href =
+
+"topic.html?id="+id;
+
+
+}
+
+
+
+
+loadTopics();
+
+
+
+</script>
+
+
+
+
+</body>
+
+</html>

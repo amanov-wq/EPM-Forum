@@ -1,0 +1,223 @@
+/* =============================
+   ESTAMON RP NEWS DESIGN
+============================= */
+
+
+body.news-page {
+
+    margin:0;
+
+    min-height:100vh;
+
+
+    background:
+
+    linear-gradient(
+        rgba(15,20,50,0.25),
+        rgba(15,20,50,0.35)
+    ),
+
+    url("images/background.jpg");
+
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-attachment:fixed;
+
+
+    font-family:'Rajdhani', sans-serif;
+
+    color:white;
+
+}
+
+
+
+
+.news-title {
+
+    text-align:center;
+
+    padding:100px 20px 50px;
+
+}
+
+
+
+.news-title h1 {
+
+
+    font-size:60px;
+
+    font-weight:800;
+
+
+    text-shadow:
+
+    0 0 15px #a855f7,
+
+    0 0 35px #9333ea;
+
+
+}
+
+
+
+.news-title p {
+
+
+    font-size:24px;
+
+}
+
+
+
+
+.news-container {
+
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding-bottom:80px;
+
+
+}
+
+
+
+
+
+.news-card {
+
+
+    background:
+
+    rgba(20,20,50,0.65);
+
+
+    backdrop-filter:blur(10px);
+
+
+    border:
+
+    1px solid rgba(190,120,255,0.6);
+
+
+    border-radius:25px;
+
+
+    padding:30px;
+
+
+    margin-bottom:30px;
+
+
+    box-shadow:
+
+    0 0 30px rgba(150,70,255,0.45);
+
+
+    transition:0.3s;
+
+
+}
+
+
+
+.news-card:hover {
+
+
+    transform:translateY(-8px);
+
+
+    box-shadow:
+
+    0 0 50px rgba(170,80,255,0.8);
+
+
+}
+
+
+
+
+.news-card h2 {
+
+
+    color:#d8b4fe;
+
+
+    font-size:35px;
+
+
+    margin-top:0;
+
+
+}
+
+
+
+.news-info {
+
+
+    color:#c4b5fd;
+
+    font-size:18px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.news-card p {
+
+
+    font-size:21px;
+
+    line-height:1.6;
+
+
+}
+
+
+
+
+.news-tag {
+
+
+    display:inline-block;
+
+
+    padding:8px 18px;
+
+
+    border-radius:20px;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #9333ea,
+        #c084fc
+    );
+
+
+    box-shadow:
+
+    0 0 15px #9333ea;
+
+
+    margin-bottom:15px;
+
+
+    font-weight:700;
+
+
+}

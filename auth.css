@@ -1,0 +1,158 @@
+/* =========================
+        ESTAMON AUTH
+========================= */
+
+.auth-page{
+
+    min-height:calc(100vh - 100px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+
+.auth-card{
+
+    width:420px;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    background:rgba(15,20,35,.75);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+    0 0 40px rgba(155,92,255,.45);
+
+    text-align:center;
+
+}
+
+
+
+.auth-card h1{
+
+    color:white;
+
+    font-size:32px;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.auth-card form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+
+
+.auth-card input{
+
+    height:52px;
+
+    padding:0 20px;
+
+    border-radius:15px;
+
+    border:1px solid rgba(255,255,255,.2);
+
+    background:rgba(255,255,255,.08);
+
+    color:white;
+
+    font-size:16px;
+
+    outline:none;
+
+}
+
+
+
+.auth-card input:focus{
+
+    border-color:#9b5cff;
+
+    box-shadow:
+    0 0 20px #9b5cff;
+
+}
+
+
+
+.auth-card button{
+
+    height:52px;
+
+    border:none;
+
+    border-radius:15px;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #8a4dff,
+        #c47cff
+    );
+
+
+    box-shadow:
+
+    0 0 25px rgba(155,92,255,.6);
+
+}
+
+
+
+.auth-card button:hover{
+
+    transform:scale(1.03);
+
+}
+
+
+
+.auth-card p{
+
+    margin-top:25px;
+
+    color:white;
+
+}
+
+
+
+.auth-card a{
+
+    color:#c47cff;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+}

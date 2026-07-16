@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ESTAMON — Форум</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body class="forum-page">
+
+
+<header>
+
+<div class="logo">
+ESTAMON
+</div>
+
+
+<nav>
+
+<a href="index.html">Главная</a>
+
+<a href="forum.html">Форум</a>
+
+<a href="news.html">Новости</a>
+
+<a href="rules.html">Правила</a>
+
+<a href="donate.html">Донат</a>
+
+</nav>
+
+
+<div class="profile-button">
+
+<a href="profile.html">
+👤
+</a>
+
+</div>
+
+
+</header>
+
+
+
+
+
+
+<div class="forum-wrapper">
+
+
+
+<div class="forum-title">
+
+
+<h1>
+Форум ESTAMON
+</h1>
+
+
+<a href="create-topic.html" class="create-topic">
+Создать тему
+</a>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="forum-sections">
+
+
+
+<div class="forum-box">
+<a class="section-link" href="section.html?name=Общение">
+<h2>💬 Общение</h2>
+</a>
+</div>
+
+
+
+
+<div class="forum-box">
+<a class="section-link" href="section.html?name=Жалобы">
+<h2>⚖ Жалобы</h2>
+</a>
+</div>
+
+
+
+
+<div class="forum-box">
+<a class="section-link" href="section.html?name=Баг-репорты">
+<h2>🐞 Баг-репорты</h2>
+</a>
+</div>
+
+
+
+
+<div class="forum-box">
+<a class="section-link" href="section.html?name=Конкурсы">
+<h2>🏆 Конкурсы</h2>
+</a>
+</div>
+
+
+
+
+<div class="forum-box">
+<a class="section-link" href="section.html?name=Отзывы">
+<h2>⭐ Отзывы</h2>
+</a>
+</div>
+
+
+
+
+<div class="forum-box">
+<a class="section-link" href="section.html?name=История наказаний">
+<h2>🔨 История наказаний</h2>
+</a>
+</div>
+
+
+
+
+<div class="forum-box">
+<a class="section-link" href="section.html?name=Команда">
+<h2>👥 Команда</h2>
+</a>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="forum-box">
+<a class="section-link" href="admin.html">
+<h2>🛡 Админ-панель</h2>
+</a>
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<script>
+
+const user = JSON.parse(localStorage.getItem("user"));
+
+const staffRoles = [
+"Мл.Хелпер",
+"Хелпер",
+"Ст.Хелпер",
+"Мл.Модератор",
+"Модератор",
+"Ст.Модератор",
+"Куратор по рекламе",
+"Куратор по команде проекта",
+"Зам Куратор",
+"Куратор режима",
+"Создатель"
+];
+
+const userSections = [
+"Общение",
+"Жалобы",
+"Баг-репорты",
+"Отзывы"
+];
+
+document.querySelectorAll(".section-link").forEach(link=>{
+
+const href = link.getAttribute("href");
+
+if(href==="admin.html"){
+
+if(!user || !staffRoles.includes(user.role)){
+link.parentElement.style.display="none";
+}
+
+return;
+
+}
+
+if(!user)return;
+
+if(staffRoles.includes(user.role))return;
+
+const name = new URLSearchParams(href.split("?")[1]).get("name");
+
+if(!userSections.includes(name)){
+
+link.parentElement.style.opacity="0.45";
+link.style.pointerEvents="none";
+
+link.innerHTML += `
+<br>
+<span style="
+color:#ff5555;
+font-size:15px;
+font-weight:700;
+">
+🔒 Только для персонала
+</span>
+`;
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>

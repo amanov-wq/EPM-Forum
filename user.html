@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Профиль пользователя - ESTAMON</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="topbar">
+
+
+<a href="index.html" class="logo">
+
+ESTAMON
+
+</a>
+
+
+</header>
+
+
+
+
+
+
+<section class="server-card profile-card">
+
+
+<div class="avatar-box">
+
+
+<img id="avatar"
+src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
+
+
+</div>
+
+
+
+
+
+<h2 id="nickname">
+Игрок
+</h2>
+
+
+
+
+<div id="role"></div>
+
+
+
+
+<p id="email"></p>
+
+
+<p id="about"></p>
+
+
+<p id="date"></p>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<script>
+
+
+
+const params =
+new URLSearchParams(location.search);
+
+
+
+const login =
+params.get("user");
+
+
+
+
+
+fetch("/profile/"+login)
+
+
+
+.then(res=>res.json())
+
+
+
+.then(data=>{
+
+
+
+if(!data.success){
+
+return;
+
+}
+
+
+
+const user=data.user;
+
+
+
+
+document.getElementById("nickname").innerHTML=
+
+user.login;
+
+
+
+
+
+document.getElementById("email").innerHTML=
+
+"📧 "+user.email;
+
+
+
+
+
+document.getElementById("about").innerHTML=
+
+"📝 "+(user.about || "Нет информации");
+
+
+
+
+
+document.getElementById("avatar").src=
+
+user.avatar || 
+"https://cdn-icons-png.flaticon.com/512/149/149071.png";
+
+
+
+
+
+
+
+const roles={
+
+
+player:"🟢 ИГРОК",
+
+trainee:"🔰 СТАЖЕР",
+
+junior_helper:"🛡️ МЛ.ХЕЛПЕР",
+
+helper:"🛡️ ХЕЛПЕР",
+
+senior_helper:"🛡️ СТ.ХЕЛПЕР",
+
+junior_moderator:"⚔️ МЛ.МОДЕРАТОР",
+
+moderator:"⚔️ МОДЕРАТОР",
+
+senior_moderator:"⚔️ СТ.МОДЕРАТОР",
+
+creator:"👑 СОЗДАТЕЛЬ"
+
+
+};
+
+
+
+
+
+document.getElementById("role").innerHTML=
+
+`
+
+<span class="role-tag role-${user.role}">
+
+${roles[user.role] || "🟢 ИГРОК"}
+
+</span>
+
+`;
+
+
+
+});
+
+
+
+
+</script>
+
+
+
+
+</body>
+
+</html>

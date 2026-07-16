@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ESTAMON — Профиль</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<div class="profile-page">
+
+
+<header>
+
+
+<div class="logo">
+ESTAMON
+</div>
+
+
+
+<nav>
+
+<a href="index.html">Главная</a>
+
+<a href="forum.html">Форум</a>
+
+<a href="news.html">Новости</a>
+
+<a href="rules.html">Правила</a>
+
+<a href="donate.html">Донат</a>
+
+</nav>
+
+
+
+<div class="profile-button">
+
+<a href="profile.html">
+👤
+</a>
+
+</div>
+
+
+</header>
+
+
+
+
+
+<div class="profile-wrapper">
+
+
+
+<div class="game-profile">
+
+
+
+<img 
+class="game-avatar"
+id="avatar"
+src="https://i.imgur.com/8Km9tLL.png"
+>
+
+
+
+<h1 id="nickname">
+Игрок
+</h1>
+
+
+
+
+<div class="role role-user" id="role">
+
+Игрок
+
+</div>
+
+
+
+
+
+<div class="stats">
+
+
+
+<div class="stat">
+
+<span>Уровень</span>
+
+<b id="level">
+1
+</b>
+
+</div>
+
+
+
+
+<div class="stat">
+
+<span>Сообщения</span>
+
+<b id="messages">
+0
+</b>
+
+</div>
+
+
+
+
+<div class="stat">
+
+<span>Дата регистрации</span>
+
+<b id="date">
+2026
+</b>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="avatar-change">
+
+
+<input 
+id="avatarInput"
+placeholder="Ссылка на аватар">
+
+
+<button onclick="changeAvatar()">
+
+Сменить аватар
+
+</button>
+
+
+</div>
+
+<div class="profile-actions">
+
+
+<a href="forum.html">
+Форум
+</a>
+
+
+<button onclick="logout()">
+Выйти
+</button>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+function changeAvatar(){
+
+
+let user =
+JSON.parse(localStorage.getItem("user"));
+
+
+
+let avatar =
+document.getElementById("avatarInput").value;
+
+
+
+if(!avatar){
+
+alert("Введите ссылку");
+
+return;
+
+}
+
+
+
+fetch("/profile/avatar",{
+
+
+method:"POST",
+
+
+headers:{
+
+
+"Content-Type":"application/json"
+
+
+},
+
+
+body:JSON.stringify({
+
+login:user.login,
+
+avatar:avatar
+
+})
+
+
+})
+.then(res=>res.json())
+
+
+.then(data=>{
+
+
+if(data.success){
+
+
+user.avatar=avatar;
+
+
+localStorage.setItem(
+"user",
+JSON.stringify(user)
+);
+
+
+
+document.getElementById("avatar").src=avatar;
+
+
+alert("Аватар изменён");
+
+
+}
+
+
+
+});
+
+
+}
+
+<script>
+
+
+// загрузка данных игрока
+
+
+let user = JSON.parse(localStorage.getItem("user"));
+
+
+
+function getRoleClass(role){
+
+
+let roles={
+
+
+"Пользователь":"role-user",
+
+"Стример":"role-streamer",
+
+"Стажер":"role-trainee",
+
+"Мл.Хелпер":"role-jhelper",
+
+"Хелпер":"role-helper",
+
+"Ст.Хелпер":"role-shelper",
+
+"Мл.Модератор":"role-mod1",
+
+"Модератор":"role-mod",
+
+"Ст.Модератор":"role-smod",
+
+"Куратор по рекламе":"role-curator",
+
+"Куратор по команде проекта":"role-team",
+
+"Зам Куратор":"role-deputy",
+
+"Куратор режима":"role-mode",
+
+"Создатель":"role-owner"
+
+
+};
+
+
+
+return roles[role] || "role-user";
+
+
+}
+
+
+
+
+
+
+if(user){
+
+
+document.getElementById("nickname").innerText = 
+user.login || "Игрок";
+
+
+
+let roleElement = document.getElementById("role");
+
+
+roleElement.innerText = user.role || "Пользователь";
+
+
+
+roleElement.className = 
+"role " + getRoleClass(user.role);
+
+
+
+document.getElementById("avatar").src = 
+user.avatar || "https://i.imgur.com/8Km9tLL.png";
+
+
+
+document.getElementById("level").innerText = 
+user.level || 1;
+
+
+
+document.getElementById("messages").innerText = 
+user.messages || 0;
+
+
+
+document.getElementById("date").innerText = 
+user.date || "2026";
+
+
+}
+
+
+
+
+function logout(){
+
+
+localStorage.removeItem("user");
+
+
+window.location.href="login.html";
+
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

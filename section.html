@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>ESTAMON — Раздел</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="forum-page">
+
+
+<header>
+
+<div class="logo">
+ESTAMON
+</div>
+
+
+<nav>
+
+<a href="index.html">Главная</a>
+
+<a href="forum.html">Форум</a>
+
+<a href="news.html">Новости</a>
+
+<a href="rules.html">Правила</a>
+
+<a href="donate.html">Донат</a>
+
+</nav>
+
+</header>
+
+
+
+
+
+<div class="forum-wrapper">
+
+
+<div class="forum-title">
+
+<h1 id="sectionName">
+Раздел
+</h1>
+
+
+<div id="create-topic-block">
+
+<a href="create-topic.html" class="create-topic">
+Создать тему
+</a>
+
+</div>
+
+
+
+<div id="topics">
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<script>
+
+
+let name =
+new URLSearchParams(location.search)
+.get("name");
+
+
+
+document.getElementById("sectionName")
+.innerText=name;
+
+
+
+fetch("/api/topics")
+
+.then(r=>r.json())
+
+.then(topics=>{
+
+
+let box=document.getElementById("topics");
+
+
+topics
+.filter(t=>t.section===name)
+.forEach(t=>{
+
+
+box.innerHTML += `
+
+<div class="topic-preview">
+
+
+<div class="topic-icon">
+💬
+</div>
+
+
+<div class="topic-content">
+
+
+<a class="topic-name"
+href="topic.html?id=${t.id}">
+
+${t.title}
+
+</a>
+
+
+<p>${t.text}</p>
+
+
+<div class="topic-info">
+
+👤 ${t.author}
+
+|
+
+📅 ${t.date}
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+});
+
+
+</script>
+
+<script>
+
+const user = JSON.parse(
+localStorage.getItem("user")
+);
+
+
+const staffRoles = [
+
+"Мл.Хелпер",
+"Хелпер",
+"Ст.Хелпер",
+"Мл.Модератор",
+"Модератор",
+"Ст.Модератор",
+"Куратор по рекламе",
+"Куратор по команде проекта",
+"Зам Куратор",
+"Куратор режима",
+"Создатель"
+
+];
+
+
+
+const allowedSections = [
+
+"Общение",
+"Жалобы",
+"Баг-репорты",
+"Отзывы"
+
+];
+
+
+
+
+
+let params = new URLSearchParams(
+window.location.search
+);
+
+
+let sectionName = params.get("name");
+
+
+
+
+
+let createBlock = document.getElementById(
+"create-topic-block"
+);
+
+
+
+
+
+if(!user){
+
+
+createBlock.style.display="none";
+
+
+}
+
+else if(
+!staffRoles.includes(user.role)
+&&
+!allowedSections.includes(sectionName)
+){
+
+
+createBlock.innerHTML = `
+
+<div style="
+padding:15px;
+border-radius:12px;
+background:rgba(255,0,0,.15);
+border:1px solid #ff5555;
+color:#ff7777;
+font-weight:700;
+">
+
+🔒 Создание тем доступно только персоналу
+
+</div>
+
+`;
+
+}
+
+
+</script>
+
+</body>
+
+</html>

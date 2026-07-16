@@ -1,0 +1,620 @@
+/* =========================
+   ESTAMON DONATE PAGE
+========================= */
+
+
+.donate-page{
+
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+    padding:40px 0 80px;
+
+    position:relative;
+
+}
+
+
+
+/* ЗАГОЛОВОК */
+
+
+.donate-page h1{
+
+    text-align:center;
+
+    font-size:60px;
+
+    font-weight:900;
+
+    margin-top:30px;
+
+    text-shadow:
+
+    0 0 20px #9b5cff,
+    0 0 50px #9b5cff;
+
+}
+
+
+
+.subtitle{
+
+    text-align:center;
+
+    font-size:25px;
+
+    color:#ddd;
+
+    margin-top:15px;
+
+}
+
+
+
+/* РЕЖИМЫ */
+
+
+.donate-mode-title{
+
+    text-align:center;
+
+    font-size:45px;
+
+    font-weight:900;
+
+    margin:60px 0 35px;
+
+
+    color:white;
+
+
+    text-shadow:
+
+    0 0 20px #9b5cff,
+    0 0 40px #9b5cff;
+
+}
+
+
+
+
+/* СЕТКА ДОНАТОВ */
+
+
+.donate-products{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+
+
+
+
+/* КАРТОЧКА */
+
+
+.donate-card{
+
+    background:
+
+    rgba(10,15,35,.78);
+
+
+    border:
+
+    1px solid rgba(155,92,255,.5);
+
+
+    border-radius:25px;
+
+
+    padding:30px 20px;
+
+
+    text-align:center;
+
+
+    backdrop-filter:blur(15px);
+
+
+
+    box-shadow:
+
+    0 0 35px rgba(155,92,255,.35);
+
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+.donate-card:hover{
+
+
+    transform:
+
+    translateY(-12px);
+
+
+    box-shadow:
+
+
+    0 0 70px rgba(155,92,255,.8);
+
+
+
+}
+
+
+
+
+
+
+/* GIF ВНУТРИ ДОНАТА */
+
+
+.donate-image{
+
+
+    width:160px;
+
+    height:160px;
+
+
+    object-fit:contain;
+
+
+    margin-bottom:15px;
+
+
+    filter:
+
+    drop-shadow(0 0 20px #9b5cff);
+
+
+}
+
+
+
+
+
+/* НАЗВАНИЕ */
+
+
+.donate-card h2{
+
+
+    font-size:32px;
+
+    font-weight:900;
+
+
+    color:#fff;
+
+
+    margin:15px 0;
+
+
+
+    text-shadow:
+
+    0 0 15px #9b5cff;
+
+
+
+}
+
+
+
+
+
+
+.donate-card p{
+
+
+    color:#ddd;
+
+
+    font-size:18px;
+
+
+    min-height:45px;
+
+
+}
+
+
+
+
+
+
+/* ЦЕНА */
+
+
+.donate-price{
+
+
+    margin:20px 0;
+
+
+    font-size:35px;
+
+
+    font-weight:900;
+
+
+    color:#c084fc;
+
+
+    text-shadow:
+
+
+    0 0 20px #9b5cff;
+
+
+
+}
+
+
+
+
+
+
+/* КНОПКА */
+
+
+.buy-button{
+
+
+    display:flex;
+
+
+    align-items:center;
+
+    justify-content:center;
+
+
+
+    width:100%;
+
+
+    height:55px;
+
+
+
+    border-radius:15px;
+
+
+
+    background:
+
+
+    linear-gradient(
+
+    135deg,
+
+    #8b35ff,
+
+    #ec4899
+
+    );
+
+
+
+    color:white;
+
+
+
+    text-decoration:none;
+
+
+
+    font-size:22px;
+
+
+
+    font-weight:900;
+
+
+
+    box-shadow:
+
+
+    0 0 30px #9b5cff;
+
+
+
+    transition:.3s;
+
+
+
+}
+
+
+
+
+
+.buy-button:hover{
+
+
+    transform:
+
+    translateY(-5px);
+
+
+
+    box-shadow:
+
+
+    0 0 60px #c084fc;
+
+
+
+}
+
+
+
+
+
+
+
+/* ФОН DONATE */
+
+
+.background{
+
+
+    position:fixed;
+
+    inset:0;
+
+
+    z-index:-5;
+
+
+    overflow:hidden;
+
+
+
+}
+
+
+
+.background img{
+
+
+    width:100%;
+
+    height:100%;
+
+
+    object-fit:cover;
+
+
+
+}
+
+
+
+
+
+
+/* МОБИЛЬНАЯ ВЕРСИЯ */
+
+
+@media(max-width:1100px){
+
+
+.donate-products{
+
+
+    grid-template-columns:
+
+    repeat(2,1fr);
+
+
+}
+
+
+}
+
+
+
+@media(max-width:600px){
+
+
+.donate-page h1{
+
+
+    font-size:40px;
+
+
+}
+
+
+
+.donate-mode-title{
+
+
+    font-size:32px;
+
+
+}
+
+
+
+.donate-products{
+
+
+    grid-template-columns:1fr;
+
+
+}
+
+
+.donate-image{
+
+
+    width:130px;
+
+    height:130px;
+
+
+}
+
+
+}
+.donate-background{
+
+position:fixed;
+
+inset:0;
+
+z-index:-10;
+
+
+background:
+
+linear-gradient(
+rgba(5,10,25,.55),
+rgba(5,10,25,.85)
+),
+
+url("images/background.jpg");
+
+
+background-size:cover;
+
+background-position:center;
+
+background-attachment:fixed;
+
+}
+.donate-container{
+
+display:grid;
+
+grid-template-columns:repeat(3, 1fr);
+
+gap:30px;
+
+margin-top:40px;
+
+}
+
+
+
+.donate-card{
+
+background:
+
+rgba(10,15,35,.8);
+
+border:
+
+1px solid rgba(155,92,255,.5);
+
+border-radius:25px;
+
+padding:25px;
+
+text-align:center;
+
+backdrop-filter:blur(15px);
+
+box-shadow:
+
+0 0 30px rgba(155,92,255,.3);
+
+transition:.3s;
+
+}
+
+
+
+.donate-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:
+
+0 0 50px #9b5cff;
+
+}
+
+
+
+.donate-image{
+
+width:160px;
+
+height:160px;
+
+object-fit:contain;
+
+}
+
+
+
+.price{
+
+font-size:30px;
+
+font-weight:900;
+
+color:#c084fc;
+
+margin:15px;
+
+}
+
+
+
+.buy-button{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+width:100%;
+
+height:55px;
+
+border-radius:15px;
+
+background:
+
+linear-gradient(
+135deg,
+#8b35ff,
+#c084fc
+);
+
+color:white;
+
+font-size:22px;
+
+font-weight:900;
+
+text-decoration:none;
+
+box-shadow:
+
+0 0 25px #9b5cff;
+
+}

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+<meta charset="UTF-8">
+<title>ESTAMON — Админ панель</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="forum-page">
+
+
+<header>
+
+<div class="logo">
+ESTAMON
+</div>
+
+
+<nav>
+
+<a href="index.html">Главная</a>
+<a href="topics.html">Форум</a>
+
+</nav>
+
+
+</header>
+
+
+
+<div class="forum-title">
+
+<h1>
+Админ панель
+</h1>
+
+</div>
+
+
+
+
+<div class="profile-container">
+
+
+<div class="profile-card" style="width:700px;">
+
+
+<div id="users">
+
+Загрузка...
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+let roles=[
+
+"Пользователь",
+"Стример",
+"Стажер",
+"Мл.Хелпер",
+"Хелпер",
+"Ст.Хелпер",
+"Мл.Модератор",
+"Модератор",
+"Ст.Модератор",
+"Куратор по рекламе",
+"Куратор по команде проекта",
+"Зам Куратор",
+"Куратор режима",
+"Создатель"
+
+];
+
+
+
+
+
+async function loadUsers(){
+
+
+
+let res = await fetch("/admin/users");
+
+
+let users = await res.json();
+
+
+
+let box=document.getElementById("users");
+
+box.innerHTML="";
+
+
+
+users.forEach(user=>{
+
+
+box.innerHTML+=`
+
+
+<div style="
+
+padding:20px;
+
+margin:15px;
+
+background:rgba(255,255,255,.08);
+
+border-radius:20px;
+
+">
+
+
+<h2>
+
+${user.login}
+
+</h2>
+
+
+
+<p>
+
+Текущая роль:
+<b>
+
+${user.role}
+
+</b>
+
+</p>
+
+
+
+<select id="role-${user.login}">
+
+
+${roles.map(r=>`
+
+<option ${r==user.role?"selected":""}>
+
+${r}
+
+</option>
+
+`).join("")}
+
+
+
+</select>
+
+
+
+<button onclick="changeRole('${user.login}')">
+
+Изменить
+
+</button>
+
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+}
+
+
+
+
+function changeRole(login){
+
+
+
+let role=document.getElementById(
+
+"role-"+login
+
+).value;
+
+
+
+fetch("/admin/role",{
+
+
+method:"POST",
+
+
+headers:{
+
+
+"Content-Type":"application/json"
+
+
+},
+
+
+body:JSON.stringify({
+
+login:login,
+
+role:role
+
+})
+
+
+})
+
+
+.then(res=>res.json())
+
+
+.then(()=>{
+
+
+alert("Роль изменена");
+
+
+loadUsers();
+
+
+});
+
+
+}
+
+
+
+
+loadUsers();
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+.admin-form input,
+.admin-form textarea {
+
+    width: 100%;
+
+    padding: 15px;
+
+    margin-bottom: 15px;
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(170,100,255,0.5);
+
+    border-radius: 12px;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-family: Rajdhani, sans-serif;
+
+    outline: none;
+
+    box-shadow:
+    0 0 10px rgba(150,80,255,0.3);
+
+}
+
+
+
+.admin-form input::placeholder,
+.admin-form textarea::placeholder {
+
+    color: rgba(255,255,255,0.7);
+
+}
+
+
+
+.admin-form textarea {
+
+    height: 180px;
+
+    resize: none;
+
+}
+
+
+
+.admin-form input:focus,
+.admin-form textarea:focus {
+
+    border-color: #b56cff;
+
+    box-shadow:
+    0 0 20px rgba(181,108,255,0.8);
+
+}
+
+
+
+.admin-form button {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    background: linear-gradient(
+    90deg,
+    #8b5cff,
+    #c06cff
+    );
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    box-shadow:
+    0 0 20px rgba(170,90,255,0.7);
+
+    transition: 0.3s;
+
+}
+
+
+
+.admin-form button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+    0 0 35px rgba(200,120,255,1);
+
+}

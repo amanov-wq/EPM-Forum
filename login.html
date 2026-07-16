@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ESTAMON — Вход</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<div class="login-page">
+
+
+<header>
+
+
+<div class="logo">
+ESTAMON
+</div>
+
+
+
+<nav>
+
+<a href="index.html">Главная</a>
+
+<a href="forum.html">Форум</a>
+
+<a href="news.html">Новости</a>
+
+<a href="rules.html">Правила</a>
+
+<a href="donate.html">Донат</a>
+
+</nav>
+
+
+
+</header>
+
+
+
+
+
+
+
+<div class="login-box">
+
+
+<h1>
+Вход
+</h1>
+
+
+
+<input 
+id="login"
+type="text"
+placeholder="Логин">
+
+
+
+<input 
+id="password"
+type="password"
+placeholder="Пароль">
+
+
+
+
+
+<button onclick="login()">
+
+Войти
+
+</button>
+
+
+
+
+<div class="login-link">
+
+Нет аккаунта?
+
+<a href="register.html">
+
+Регистрация
+
+</a>
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<script>
+
+
+function login(){
+
+
+
+let loginValue =
+document.getElementById("login").value;
+
+
+
+let passwordValue =
+document.getElementById("password").value;
+
+
+
+
+
+fetch("/login",{
+
+
+method:"POST",
+
+
+headers:{
+
+
+"Content-Type":"application/json"
+
+
+},
+
+
+body:JSON.stringify({
+
+
+login:loginValue,
+
+
+password:passwordValue
+
+
+})
+
+
+})
+
+
+.then(res=>res.json())
+
+
+.then(data=>{
+
+
+
+if(data.success){
+
+
+
+localStorage.setItem(
+
+"user",
+
+JSON.stringify(data.user)
+
+);
+
+
+
+window.location.href="profile.html";
+
+
+}
+
+else{
+
+
+alert(data.message || "Ошибка входа");
+
+
+}
+
+
+
+})
+
+
+.catch(error=>{
+
+
+console.log(error);
+
+
+alert("Ошибка сервера");
+
+
+});
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>

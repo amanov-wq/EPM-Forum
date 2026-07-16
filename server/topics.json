@@ -1,0 +1,39 @@
+[
+    {
+        "id": 1783995211673,
+        "title": "Наш форум работает!",
+        "text": "ура!",
+        "author": "Amanov",
+        "date": "14.07.2026, 07:13:31",
+        "answers": [
+            {
+                "author": "Amanov",
+                "text": "\n",
+                "date": "14.07.2026, 07:15:23"
+            }
+        ]
+    },
+    {
+        "id": 1784023941315,
+        "title": "Приветсвие с проектом!",
+        "section": "Общий раздел",
+        "text": ":)ыыы",
+        "author": "Amanov",
+        "date": "14.07.2026, 15:12:21",
+        "answers": [],
+        "pinned": false,
+        "closed": false
+    },
+    {
+        "id": 1784175663076,
+        "title": "Общатся тут!",
+        "text": "Без матов!",
+        "section": null,
+        "author": "Amanov",
+        "role": "Создатель",
+        "date": "16.07.2026, 09:21:03",
+        "answers": [],
+        "pinned": false,
+        "closed": false
+    }
+]
