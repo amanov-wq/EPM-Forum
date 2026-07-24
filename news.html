@@ -23,36 +23,86 @@
 <body class="news-page">
 
 
-<header class="header">
-
-
-<div class="logo">
-ESTAMON
-</div>
-
-
-
-<nav>
-
-<header class="header">
+<header class="main-header">
 
     <div class="logo">
         ESTAMON
     </div>
 
-    <div class="header-right">
 
-        <a href="profile.html" class="profile-btn">
+    <div class="header-actions">
+
+        <a href="profile.html" class="profile-icon">
             👤
         </a>
 
-        <button class="menu-btn" onclick="toggleMenu()">
+
+        <button class="menu-toggle" onclick="toggleMenu()">
             ☰
         </button>
 
     </div>
 
 </header>
+
+
+
+<div class="mobile-menu" id="mobileMenu">
+
+    <div class="menu-top">
+
+        <span>
+            ESTAMON
+        </span>
+
+
+        <button onclick="toggleMenu()">
+            ✕
+        </button>
+
+    </div>
+
+
+    <a href="server-info.html">
+        ⚔️ Информация
+    </a>
+
+
+    <a href="forum.html">
+        💬 Форум
+    </a>
+
+
+    <a href="news.html">
+        📰 Новости
+    </a>
+
+
+    <a href="rules.html">
+        📜 Правила
+    </a>
+
+
+    <a href="donate.html">
+        💎 Донат
+    </a>
+
+
+    <a href="profile.html">
+        👤 Профиль
+    </a>
+
+
+    <a onclick="logout()" style="cursor:pointer;">
+        🚪 Выйти
+    </a>
+
+
+</div>
+
+
+
+<div class="menu-background" id="menuBackground" onclick="toggleMenu()"></div>
 
 
 <div class="side-menu" id="sideMenu">

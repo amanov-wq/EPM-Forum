@@ -25,3 +25,47 @@ document.addEventListener("keydown", function (e) {
     }
 
 });
+// =====================================
+// ESTAMON MENU
+// =====================================
+
+function toggleMenu(){
+
+    const menu = document.getElementById("mobileMenu");
+    const background = document.getElementById("menuBackground");
+
+
+    if(!menu || !background){
+        return;
+    }
+
+
+    menu.classList.toggle("active");
+
+    background.classList.toggle("active");
+
+}
+
+
+
+// закрытие по ESC
+
+document.addEventListener("keydown", function(e){
+
+    if(e.key === "Escape"){
+
+        const menu = document.getElementById("mobileMenu");
+        const background = document.getElementById("menuBackground");
+
+
+        if(menu && background){
+
+            menu.classList.remove("active");
+
+            background.classList.remove("active");
+
+        }
+
+    }
+
+});
