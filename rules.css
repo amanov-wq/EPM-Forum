@@ -732,3 +732,344 @@ body.rules-page {
     position:relative;
     z-index:2;
 }
+/* =====================================
+      ESTAMON RULES OLD DESIGN RESTORE
+===================================== */
+
+
+/* страница правил */
+
+.rules-page{
+
+    min-height:100vh;
+
+    padding-top:90px;
+
+    background:
+    linear-gradient(
+        rgba(5,10,25,.65),
+        rgba(5,10,25,.9)
+    ),
+    url("images/rules-bg.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+}
+
+
+
+/* верхний заголовок */
+
+.rules-title{
+
+    text-align:center;
+
+    padding:40px 20px 20px;
+
+}
+
+
+
+.rules-title h1{
+
+    font-size:55px;
+
+    color:white;
+
+    text-shadow:
+
+    0 0 20px #9b5cff,
+    0 0 50px #9b5cff;
+
+}
+
+
+
+.rules-title p{
+
+    font-size:22px;
+
+    color:#ddd;
+
+}
+
+
+
+/* кнопки выбора правил */
+
+.rules-navigation{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:30px auto;
+
+    display:flex;
+
+    flex-direction:row;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+}
+
+
+
+.rules-navigation a{
+
+    min-width:180px;
+
+    padding:15px 25px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    color:white;
+
+    font-size:20px;
+
+    font-weight:900;
+
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #8b35ff,
+    #c084fc
+    );
+
+
+    box-shadow:
+
+    0 0 25px #9b5cff;
+
+
+    transition:.3s;
+
+}
+
+
+
+.rules-navigation a:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+
+    0 0 50px #c084fc;
+
+}
+
+
+
+/* контейнер правил */
+
+
+.rules-container{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:30px auto 60px;
+
+
+    max-height:none !important;
+
+    overflow:visible !important;
+
+}
+
+
+
+/* блоки */
+
+
+.rules-block{
+
+    width:100%;
+
+    padding:35px;
+
+    margin-bottom:30px;
+
+
+    background:
+
+    rgba(10,15,35,.78);
+
+
+    border-radius:25px;
+
+
+    border:
+
+    1px solid rgba(155,92,255,.5);
+
+
+    backdrop-filter:blur(15px);
+
+
+    box-shadow:
+
+    0 0 40px rgba(155,92,255,.3);
+
+}
+
+
+
+/* заголовки */
+
+
+.rules-block h2{
+
+    text-align:center;
+
+    font-size:35px;
+
+    color:#d8b4fe;
+
+
+    text-shadow:
+
+    0 0 20px #9b5cff;
+
+}
+
+
+
+.rules-block h3{
+
+    color:#c084fc;
+
+    font-size:25px;
+
+}
+
+
+
+/* текст */
+
+
+.rules-block p{
+
+    margin-top:15px;
+
+    padding:15px;
+
+
+    background:
+
+    rgba(255,255,255,.05);
+
+
+    border-left:
+
+    4px solid #9b5cff;
+
+
+    border-radius:12px;
+
+
+    font-size:18px;
+
+    line-height:1.7;
+
+}
+
+
+
+/* =================================
+        MOBILE
+================================= */
+
+
+@media(max-width:768px){
+
+
+.rules-page{
+
+    padding-top:80px;
+
+}
+
+
+
+.rules-title h1{
+
+    font-size:32px;
+
+}
+
+
+
+.rules-title p{
+
+    font-size:16px;
+
+}
+
+
+
+.rules-navigation{
+
+    flex-direction:column;
+
+    width:90%;
+
+}
+
+
+
+.rules-navigation a{
+
+    width:100%;
+
+    font-size:17px;
+
+}
+
+
+
+.rules-container{
+
+    width:95%;
+
+}
+
+
+
+.rules-block{
+
+    padding:20px;
+
+}
+
+
+
+.rules-block h2{
+
+    font-size:25px;
+
+}
+
+
+
+.rules-block p{
+
+    font-size:15px;
+
+}
+
+
+}
