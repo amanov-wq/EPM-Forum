@@ -1,480 +1,177 @@
-/* ===========================
-   ESTAMON RULES CSS
-=========================== */
+/* ==========================================================================
+   Estamon RP — Rules Stylesheet (rules.css)
+   ========================================================================== */
 
-
-.rules-page {
-
-    min-height:100vh;
-
-    background:
-    linear-gradient(
-        rgba(5,10,25,.75),
-        rgba(5,10,25,.9)
-    ),
-    url("images/rules-bg.jpg");
-
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
-
-    font-family:'Rajdhani', sans-serif;
-
-    color:white;
-
+/* Переменные стилей */
+:root {
+    --bg-main: #0b0f19;
+    --bg-card: #131b2e;
+    --bg-card-hover: #192540;
+    --accent-blue: #3b82f6;
+    --accent-blue-glow: rgba(59, 130, 246, 0.3);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-color: #1e293b;
+    --radius: 12px;
 }
 
+/* Общие настройки страницы правил */
+body.rules-page {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Rajdhani', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
 
-
-/* ===========================
-        HEADER TITLE
-=========================== */
-
-
+/* Заголовок страницы правил */
 .rules-title {
-
-    text-align:center;
-
-    padding:120px 20px 30px;
-
+    text-align: center;
+    padding: 50px 20px 30px;
+    max-width: 800px;
+    margin: 0 auto;
 }
-
 
 .rules-title h1 {
-
-    font-size:48px;
-
-    font-weight:800;
-
-    color:white;
-
-    text-shadow:
-    0 0 15px #8b5cff,
-    0 0 30px #8b5cff;
-
+    font-size: 2.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #ffffff 0%, var(--accent-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px var(--accent-blue-glow);
 }
-
 
 .rules-title p {
-
-    color:#ccc;
-
-    font-size:20px;
-
+    font-size: 1.15rem;
+    color: var(--text-muted);
 }
 
-
-
-/* ===========================
-        SECTION MENU
-=========================== */
-
-
+/* Навигация по правилам (якоря режимов) */
 .rules-navigation {
-
-    width:900px;
-
-    max-width:90%;
-
-    margin:30px auto;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:12px;
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    max-width: 1100px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
 }
-
-
 
 .rules-navigation a {
-
-
-    padding:15px;
-
-
-    text-align:center;
-
-
-    background:
-
-    linear-gradient(
-        135deg,
-        #7b35ff,
-        #4b00c9
-    );
-
-
-    border-radius:15px;
-
-
-    color:white;
-
-    text-decoration:none;
-
-
-    font-size:18px;
-
-    font-weight:700;
-
-
-    box-shadow:
-
-    0 0 15px rgba(139,92,255,.6);
-
-
-    transition:.3s;
-
-
+    background: var(--bg-card);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    padding: 12px 20px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
-
-
 
 .rules-navigation a:hover {
-
-
-    transform:translateY(-4px);
-
-
-    box-shadow:
-
-    0 0 30px #9b6cff;
-
-
+    background: var(--accent-blue);
+    border-color: var(--accent-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px var(--accent-blue-glow);
 }
 
-
-
-/* ===========================
-        RULES LIST
-=========================== */
-
-
+/* Контейнер блоков правил */
 .rules-container {
-
-
-    width:1000px;
-
-    max-width:90%;
-
-
-    margin:40px auto;
-
-
-    max-height:65vh;
-
-
-    overflow-y:auto;
-
-
-    padding-right:15px;
-
-
-    scroll-behavior:smooth;
-
-
+    max-width: 1000px;
+    margin: 0 auto 80px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
-
-
-
-/* scrollbar */
-
-
-.rules-container::-webkit-scrollbar {
-
-    width:10px;
-
-}
-
-
-
-.rules-container::-webkit-scrollbar-track {
-
-    background:rgba(0,0,0,.3);
-
-    border-radius:20px;
-
-}
-
-
-
-.rules-container::-webkit-scrollbar-thumb {
-
-    background:#8b2cff;
-
-    border-radius:20px;
-
-}
-
-
-
-/* ===========================
-        RULE BLOCK
-=========================== */
-
-
+/* Карточки разделов правил */
 .rules-block {
-
-
-    background:
-
-    rgba(15,20,40,.88);
-
-
-    border-radius:25px;
-
-
-    padding:35px;
-
-
-    margin-bottom:35px;
-
-
-    border:
-
-    1px solid rgba(139,92,255,.35);
-
-
-    box-shadow:
-
-    0 0 25px rgba(139,92,255,.25);
-
-
-    backdrop-filter:blur(10px);
-
-
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 35px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: border-color 0.3s ease;
 }
 
+.rules-block:hover {
+    border-color: rgba(59, 130, 246, 0.4);
+}
 
-
-/* заголовки разделов */
-
-
+/* Заголовки разделов и подразделов */
 .rules-block h2 {
-
-
-    text-align:center;
-
-
-    font-size:34px;
-
-
-    color:#d4b0ff;
-
-
-    text-shadow:
-
-    0 0 15px #8b5cff;
-
-
-    margin-bottom:25px;
-
-
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 12px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
-
-
 
 .rules-block h3 {
-
-
-    margin-top:30px;
-
-
-    font-size:25px;
-
-
-    color:#c9a8ff;
-
-
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #cbd5e1;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    border-left: 3px solid var(--accent-blue);
+    padding-left: 10px;
 }
 
-
-
-/* текст правил */
-
-
+/* Параграфы и пункты правил */
 .rules-block p {
-
-
-    background:
-
-    rgba(255,255,255,.05);
-
-
-    padding:15px 20px;
-
-
-    border-radius:12px;
-
-
-    margin:12px 0;
-
-
-    font-size:18px;
-
-
-    line-height:1.6;
-
-
-    border-left:
-
-    4px solid #8b5cff;
-
-
-    color:#eee;
-
-
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+    margin-bottom: 14px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 10px 15px;
+    border-radius: 6px;
+    border-left: 2px solid rgba(59, 130, 246, 0.3);
 }
 
-
-
-
-/* ===========================
-        MOBILE
-=========================== */
-
-
-@media(max-width:768px){
-
-
-.rules-title {
-
-    padding-top:90px;
-
-    padding-left:15px;
-
-    padding-right:15px;
-
+.rules-block p:last-child {
+    margin-bottom: 0;
 }
 
-
-
-.rules-title h1 {
-
-    font-size:32px;
-
+/* Стили для переносов и наказаний внутри параграфов */
+.rules-block br + br {
+    display: none; /* Убираем лишние пустые строки */
 }
 
-
-
-.rules-title p {
-
-    font-size:15px;
-
-}
-
-
-
-/* кнопки разделов */
-
-
-.rules-navigation {
-
-
-    width:calc(100% - 30px);
-
-
-    max-width:none;
-
-
-}
-
-
-
-.rules-navigation a {
-
-
-    font-size:15px;
-
-
-    padding:13px;
-
-
-}
-
-
-
-/* правила */
-
-
-.rules-container {
-
-
-    width:calc(100% - 20px);
-
-
-    max-width:none;
-
-
-    max-height:65vh;
-
-
-    padding-right:8px;
-
-
-    -webkit-overflow-scrolling:touch;
-
-
-}
-
-
-
-.rules-block {
-
-
-    padding:18px 15px;
-
-
-    border-radius:18px;
-
-
-}
-
-
-
-.rules-block h2 {
-
-
-    font-size:24px;
-
-
-}
-
-
-
-.rules-block h3 {
-
-
-    font-size:20px;
-
-
-}
-
-
-
-.rules-block p {
-
-
-    font-size:15px;
-
-
-    line-height:1.5;
-
-
-}
-
-
-
-.rules-container::-webkit-scrollbar {
-
-
-    width:6px;
-
-
-}
-
-
-
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .rules-title h1 {
+        font-size: 2.2rem;
+    }
+
+    .rules-navigation {
+        gap: 8px;
+    }
+
+    .rules-navigation a {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+        flex: 1 1 calc(50% - 8px);
+        text-align: center;
+    }
+
+    .rules-block {
+        padding: 20px;
+    }
+
+    .rules-block h2 {
+        font-size: 1.4rem;
+    }
 }
