@@ -5554,3 +5554,50 @@ section {
 .menu-overlay {
     pointer-events: auto;
 }
+/* ===== RULES PAGE FIX ===== */
+
+.rules-page{
+    width:100%;
+    max-width:1400px;
+    margin:0 auto;
+
+    height:auto !important;
+    min-height:100vh;
+
+    overflow:visible !important;
+
+    display:block;
+}
+
+
+.rules-container{
+
+    height:auto !important;
+
+    overflow:visible !important;
+
+}
+
+
+.rules-content{
+
+    height:auto !important;
+
+    overflow:visible !important;
+
+}
+
+
+body{
+
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+
+}
+
+
+html{
+
+    overflow-y:auto !important;
+
+}
