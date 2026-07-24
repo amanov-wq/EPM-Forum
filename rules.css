@@ -1,177 +1,325 @@
-/* ==========================================================================
-   Estamon RP — Rules Stylesheet (rules.css)
-   ========================================================================== */
+/* =================================
+        ESTAMON RULES
+        CLEAN VERSION
+================================= */
 
-/* Переменные стилей */
-:root {
-    --bg-main: #0b0f19;
-    --bg-card: #131b2e;
-    --bg-card-hover: #192540;
-    --accent-blue: #3b82f6;
-    --accent-blue-glow: rgba(59, 130, 246, 0.3);
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
-    --border-color: #1e293b;
-    --radius: 12px;
+
+.rules-page {
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        rgba(5,10,25,.75),
+        rgba(5,10,25,.9)
+    ),
+    url("images/rules-bg.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    font-family:'Rajdhani',sans-serif;
+
+    color:white;
+
 }
 
-/* Общие настройки страницы правил */
-body.rules-page {
-    background-color: var(--bg-main);
-    color: var(--text-main);
-    font-family: 'Rajdhani', sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
 
-/* Заголовок страницы правил */
+/* TITLE */
+
 .rules-title {
-    text-align: center;
-    padding: 50px 20px 30px;
-    max-width: 800px;
-    margin: 0 auto;
+
+    text-align:center;
+
+    padding:120px 20px 40px;
+
 }
+
 
 .rules-title h1 {
-    font-size: 2.8rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-    background: linear-gradient(135deg, #ffffff 0%, var(--accent-blue) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 30px var(--accent-blue-glow);
+
+    font-size:48px;
+
+    color:white;
+
+    text-shadow:
+    0 0 15px #9b00ff,
+    0 0 35px #9b00ff;
+
 }
+
 
 .rules-title p {
-    font-size: 1.15rem;
-    color: var(--text-muted);
+
+    color:#ccc;
+
+    font-size:20px;
+
 }
 
-/* Навигация по правилам (якоря режимов) */
+
+
+/* SECTIONS */
+
 .rules-navigation {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    max-width: 1100px;
-    margin: 0 auto 40px;
-    padding: 0 20px;
+
+    width:900px;
+
+    max-width:90%;
+
+    margin:20px auto 40px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
 }
+
+
 
 .rules-navigation a {
-    background: var(--bg-card);
-    color: var(--text-main);
-    border: 1px solid var(--border-color);
-    padding: 12px 20px;
-    border-radius: var(--radius);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+
+    padding:15px;
+
+    text-align:center;
+
+    border-radius:15px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #7b35ff,
+        #4b00c9
+    );
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    font-size:18px;
+
 }
 
-.rules-navigation a:hover {
-    background: var(--accent-blue);
-    border-color: var(--accent-blue);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px var(--accent-blue-glow);
-}
 
-/* Контейнер блоков правил */
+
+/* RULES WINDOW */
+
+
 .rules-container {
-    max-width: 1000px;
-    margin: 0 auto 80px;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+
+    width:1000px;
+
+    max-width:90%;
+
+    margin:auto;
+
+
+    max-height:65vh;
+
+    overflow-y:auto;
+
+
+    padding-right:15px;
+
 }
 
-/* Карточки разделов правил */
+
+
+
+/* SCROLL */
+
+
+.rules-container::-webkit-scrollbar {
+
+    width:10px;
+
+}
+
+
+.rules-container::-webkit-scrollbar-thumb {
+
+    background:#9b00ff;
+
+    border-radius:20px;
+
+}
+
+
+
+/* BLOCK */
+
+
 .rules-block {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius);
-    padding: 35px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    transition: border-color 0.3s ease;
+
+    background:
+    rgba(15,20,40,.9);
+
+
+    border-radius:25px;
+
+
+    padding:35px;
+
+
+    margin-bottom:30px;
+
+
+    border:1px solid rgba(155,0,255,.4);
+
+
+    box-shadow:
+    0 0 25px rgba(155,0,255,.3);
+
 }
 
-.rules-block:hover {
-    border-color: rgba(59, 130, 246, 0.4);
-}
 
-/* Заголовки разделов и подразделов */
+
+/* HEADERS */
+
+
 .rules-block h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #ffffff;
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 12px;
-    margin-top: 0;
-    margin-bottom: 25px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+
+    text-align:center;
+
+    color:#d7b0ff;
+
+    font-size:34px;
+
+    text-shadow:
+    0 0 15px #9b00ff;
+
 }
+
+
 
 .rules-block h3 {
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: #cbd5e1;
-    margin-top: 25px;
-    margin-bottom: 15px;
-    border-left: 3px solid var(--accent-blue);
-    padding-left: 10px;
+
+    color:#c99cff;
+
+    font-size:25px;
+
 }
 
-/* Параграфы и пункты правил */
+
+
+/* TEXT */
+
+
 .rules-block p {
-    font-size: 1.05rem;
-    line-height: 1.6;
-    color: #e2e8f0;
-    margin-bottom: 14px;
-    background: rgba(255, 255, 255, 0.02);
-    padding: 10px 15px;
-    border-radius: 6px;
-    border-left: 2px solid rgba(59, 130, 246, 0.3);
+
+    background:
+    rgba(255,255,255,.05);
+
+
+    padding:15px;
+
+
+    border-radius:12px;
+
+
+    border-left:4px solid #9b00ff;
+
+
+    color:#eee;
+
+
+    font-size:18px;
+
+
+    line-height:1.6;
+
+
 }
 
-.rules-block p:last-child {
-    margin-bottom: 0;
+
+
+/* ==========================
+        MOBILE
+========================== */
+
+
+@media(max-width:768px){
+
+
+.rules-title {
+
+    padding-top:90px;
+
 }
 
-/* Стили для переносов и наказаний внутри параграфов */
-.rules-block br + br {
-    display: none; /* Убираем лишние пустые строки */
+
+.rules-title h1 {
+
+    font-size:32px;
+
 }
 
-/* Адаптивность для мобильных устройств */
-@media (max-width: 768px) {
-    .rules-title h1 {
-        font-size: 2.2rem;
-    }
 
-    .rules-navigation {
-        gap: 8px;
-    }
+.rules-title p {
 
-    .rules-navigation a {
-        padding: 10px 14px;
-        font-size: 0.9rem;
-        flex: 1 1 calc(50% - 8px);
-        text-align: center;
-    }
+    font-size:15px;
 
-    .rules-block {
-        padding: 20px;
-    }
+}
 
-    .rules-block h2 {
-        font-size: 1.4rem;
-    }
+
+
+.rules-navigation {
+
+    width:calc(100% - 30px);
+
+}
+
+
+
+.rules-navigation a {
+
+    font-size:15px;
+
+}
+
+
+
+.rules-container {
+
+    width:calc(100% - 20px);
+
+    max-height:65vh;
+
+    padding-right:5px;
+
+}
+
+
+
+.rules-block {
+
+    padding:18px;
+
+    border-radius:18px;
+
+}
+
+
+
+.rules-block h2 {
+
+    font-size:24px;
+
+}
+
+
+
+.rules-block p {
+
+    font-size:15px;
+
+}
+
+
+
 }
