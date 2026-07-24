@@ -412,3 +412,170 @@
 
 
 }
+/* =========================
+      NEW RULES POSITION
+========================= */
+
+
+/* чтобы правила были ниже шапки */
+
+.rules-title{
+
+    padding-top:120px;
+
+    text-align:center;
+
+}
+
+
+/* заголовок */
+
+.rules-title h1{
+
+    font-size:48px;
+
+    margin-bottom:10px;
+
+}
+
+
+/* кнопки разделов */
+
+.rules-navigation{
+
+    width:1100px;
+
+    max-width:90%;
+
+    margin:30px auto;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+}
+
+
+
+/* сами кнопки */
+
+.rules-navigation a{
+
+    width:auto;
+
+    min-width:170px;
+
+
+    padding:15px 25px;
+
+
+    border-radius:18px;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #8b3cff,
+        #4b00c9
+    );
+
+
+    color:white;
+
+    text-align:center;
+
+    text-decoration:none;
+
+
+    font-size:18px;
+
+    font-weight:700;
+
+
+    box-shadow:
+
+    0 0 20px rgba(155,0,255,.6);
+
+}
+
+
+
+
+/* окно правил */
+
+.rules-container{
+
+    width:1100px;
+
+    max-width:90%;
+
+
+    margin:30px auto;
+
+
+    max-height:65vh;
+
+
+    overflow-y:auto;
+
+}
+
+
+
+/* телефон */
+
+@media(max-width:768px){
+
+
+.rules-title{
+
+    padding-top:90px;
+
+}
+
+
+
+.rules-title h1{
+
+    font-size:32px;
+
+}
+
+
+
+.rules-navigation{
+
+    width:calc(100% - 30px);
+
+    flex-direction:column;
+
+}
+
+
+
+.rules-navigation a{
+
+    width:100%;
+
+    font-size:15px;
+
+}
+
+
+
+.rules-container{
+
+    width:calc(100% - 20px);
+
+}
+
+
+}
