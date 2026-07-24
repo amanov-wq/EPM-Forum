@@ -593,3 +593,114 @@
 .rules-container{
     margin:30px auto !important;
 }
+/* ==================================
+        ESTAMON RULES FINAL POSITION
+        HEADER + CENTER CONTENT
+================================== */
+
+
+/* правила начинаются ниже шапки */
+
+.rules-title {
+    padding-top: 130px !important;
+    text-align: center;
+}
+
+
+/* кнопки разделов в ряд */
+
+.rules-navigation {
+
+    width: 1100px;
+    max-width: 90%;
+
+    margin: 30px auto 35px;
+
+    display: flex !important;
+
+    flex-direction: row !important;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+}
+
+
+/* кнопки */
+
+.rules-navigation a {
+
+    min-width: 170px;
+
+    padding: 15px 25px;
+
+    text-align: center;
+
+}
+
+
+/* окно правил */
+
+.rules-container {
+
+    width: 1100px;
+
+    max-width: 90%;
+
+    margin: 0 auto 50px;
+
+    max-height: 65vh;
+
+    overflow-y: auto;
+
+}
+
+
+
+/* ======================
+        PHONE
+====================== */
+
+
+@media(max-width:768px){
+
+
+.rules-title {
+
+    padding-top: 90px !important;
+
+}
+
+
+.rules-navigation {
+
+    width: calc(100% - 30px);
+
+    flex-direction: column !important;
+
+}
+
+
+.rules-navigation a {
+
+    width:100%;
+
+}
+
+
+.rules-container {
+
+    width: calc(100% - 20px);
+
+    max-height:65vh;
+
+}
+
+
+
+}
