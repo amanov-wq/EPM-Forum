@@ -1,5 +1,5 @@
 /* ===========================
-   ESTAMON RP RULES DESIGN
+   ESTAMON RULES DESIGN
    =========================== */
 
 
@@ -301,152 +301,35 @@
     color:#ff8b8b;
 
 }
-/* ==================================
-        ESTAMON RULES DESIGN FIX
-================================== */
-
-
-/* сама страница */
-
-body.rules-page {
-
-    overflow-x:hidden;
-
-    min-height:100vh;
-
-}
-
-
-
-/* заголовок */
-
-.rules-title {
-
-    text-align:center;
-
-    padding-top:120px;
-
-    margin-bottom:25px;
-
-}
-
-
-.rules-title h1 {
-
-    font-size:45px;
-
-    color:#d9a3ff;
-
-    text-shadow:
-    0 0 15px #9b00ff,
-    0 0 35px #7200ff;
-
-}
-
-
-.rules-title p {
-
-    color:#ccc;
-
-    font-size:18px;
-
-}
-
-
-
-/* навигация сверху */
-
-.rules-navigation {
-
-    display:flex;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:12px;
-
-    padding:20px;
-
-}
-
-
-
-.rules-navigation a {
-
-    padding:12px 20px;
-
-    border-radius:15px;
-
-    color:white;
-
-    text-decoration:none;
-
-    background:
-    linear-gradient(
-    135deg,
-    rgba(130,0,255,.35),
-    rgba(40,0,80,.7)
-    );
-
-    border:1px solid rgba(180,80,255,.4);
-
-    box-shadow:
-    0 0 15px rgba(150,0,255,.35);
-
-    transition:.3s;
-
-}
-
-
-.rules-navigation a:hover {
-
-    transform:translateY(-3px);
-
-    box-shadow:
-    0 0 25px #9b00ff;
-
-}
-
-
-
-/* ГЛАВНЫЙ БЛОК ПРАВИЛ */
+/* FIX RULES SCROLL ONLY */
 
 .rules-container {
 
+    max-height: calc(100vh - 250px);
 
-    width:90%;
+    overflow-y: auto;
 
-    max-width:1100px;
+    overflow-x: hidden;
 
-    margin:auto;
+    padding-right: 15px;
 
-    padding:20px;
-
-
-    max-height:70vh;
-
-    overflow-y:auto;
-
-    overflow-x:hidden;
-
+    scroll-behavior: smooth;
 
 }
 
 
-
-/* красивый скролл */
+/* скролл */
 
 .rules-container::-webkit-scrollbar {
 
-    width:10px;
+    width: 8px;
 
 }
 
 
 .rules-container::-webkit-scrollbar-track {
 
-    background:rgba(0,0,0,.35);
+    background: rgba(0,0,0,0.25);
 
     border-radius:20px;
 
@@ -455,155 +338,25 @@ body.rules-page {
 
 .rules-container::-webkit-scrollbar-thumb {
 
-    background:
-    linear-gradient(
-    #c04cff,
-    #6b00ff
-    );
+    background: #8b2cff;
 
     border-radius:20px;
 
 }
 
 
-
-/* карточки правил */
-
-.rules-block {
-
-
-    background:
-
-    linear-gradient(
-    145deg,
-    rgba(30,10,55,.9),
-    rgba(5,5,15,.85)
-    );
-
-
-    border-radius:25px;
-
-    padding:30px;
-
-    margin-bottom:30px;
-
-
-    border:1px solid rgba(170,80,255,.35);
-
-
-    box-shadow:
-
-    0 0 25px rgba(130,0,255,.25);
-
-
-}
-
-
-
-.rules-block h2 {
-
-
-    color:#d39aff;
-
-    font-size:30px;
-
-    margin-bottom:20px;
-
-    text-shadow:
-
-    0 0 10px #9000ff;
-
-
-}
-
-
-
-.rules-block h3 {
-
-    color:#b77aff;
-
-    margin-top:25px;
-
-}
-
-
-
-.rules-block p {
-
-    color:#eee;
-
-    line-height:1.7;
-
-    font-size:17px;
-
-}
-
-
-
 /* телефон */
 
 @media(max-width:768px){
 
+    .rules-container {
 
-.rules-title {
+        max-height: calc(100vh - 220px);
 
-padding-top:90px;
+        overflow-y:auto;
 
-}
+        -webkit-overflow-scrolling: touch;
 
-
-.rules-title h1 {
-
-font-size:32px;
-
-}
-
-
-
-.rules-container {
-
-
-width:95%;
-
-
-max-height:75vh;
-
-
-padding:10px;
-
-
-}
-
-
-
-.rules-block {
-
-
-padding:20px;
-
-border-radius:18px;
-
-
-}
-
-
-
-.rules-block p {
-
-font-size:15px;
-
-}
-
-
-.rules-navigation a {
-
-
-width:100%;
-
-text-align:center;
-
-
-}
-
+    }
 
 }
