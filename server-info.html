@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ESTAMON — Информация о сервере</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+
+<video class="background-video" autoplay muted loop playsinline>
+
+<source src="videos/minecraft.mp4" type="video/mp4">
+
+</video>
+
+
+<div class="video-overlay"></div>
+
+
+
+
+
+<header class="header">
+
+    <div class="logo">
+        ESTAMON
+    </div>
+
+    <div class="header-right">
+
+        <a href="profile.html" class="profile-btn">
+            👤
+        </a>
+
+        <button class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+
+<div class="side-menu" id="sideMenu">
+
+    <div class="menu-header">
+
+        <span>ESTAMON</span>
+
+        <button class="close-btn" onclick="toggleMenu()">
+            ✕
+        </button>
+
+    </div>
+
+    <a href="server-info.html">⚔ Информация</a>
+
+    <a href="forum.html">💬 Форум</a>
+
+    <a href="news.html">📰 Новости</a>
+
+    <a href="rules.html">📜 Правила</a>
+
+    <a href="donate.html">💎 Донат</a>
+
+    <a href="profile.html">👤 Профиль</a>
+
+</div>
+
+
+<div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+
+
+
+
+
+
+
+<main class="server-page">
+
+
+
+<div class="server-box">
+
+
+
+<h1>
+
+⚔️ ESTAMON SERVER
+
+</h1>
+
+
+
+
+
+<div class="server-status" id="status">
+
+Проверка сервера...
+
+</div>
+
+
+
+
+
+
+
+<div class="server-info">
+
+
+
+
+
+<div class="info-card">
+
+
+<h3>
+
+👥 Игроки
+
+</h3>
+
+
+<p id="players">
+
+0/0
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="info-card">
+
+
+<h3>
+
+⚙ Версия
+
+</h3>
+
+
+<p id="version">
+
+-
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="info-card">
+
+
+<h3>
+
+🌐 IP Сервера
+
+</h3>
+
+
+<p>
+
+EstamonHost.ru
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="info-card">
+
+
+<h3>
+
+📡 MOTD
+
+</h3>
+
+
+<p id="motd">
+
+-
+
+</p>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</main>
+
+
+
+
+
+
+
+
+<script>
+
+
+
+async function loadServer(){
+
+
+try{
+
+
+let response = await fetch("/server-info");
+
+
+let data = await response.json();
+
+
+
+
+
+if(data.online){
+
+
+document.getElementById("status").innerHTML =
+
+"🟢 Сервер онлайн";
+
+
+}else{
+
+
+document.getElementById("status").innerHTML =
+
+"🔴 Сервер выключен";
+
+
+}
+
+
+
+
+
+document.getElementById("players").innerHTML =
+
+data.players || "0/0";
+
+
+
+
+
+document.getElementById("version").innerHTML =
+
+data.version || "-";
+
+
+
+
+
+document.getElementById("motd").innerHTML =
+
+data.motd || "-";
+
+
+
+
+}catch(error){
+
+
+
+document.getElementById("status").innerHTML =
+
+"⚠ Ошибка подключения";
+
+
+}
+
+
+
+}
+
+
+
+
+
+loadServer();
+
+
+setInterval(loadServer,30000);
+
+
+
+
+
+
+
+function toggleMenu(){
+
+
+document.querySelector("nav")
+
+.classList.toggle("active");
+
+
+}
+
+
+
+
+
+document.querySelectorAll("nav a").forEach(link=>{
+
+
+link.addEventListener("click",()=>{
+
+
+document.querySelector("nav")
+
+.classList.remove("active");
+
+
+});
+
+
+});
+
+
+
+
+</script>
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

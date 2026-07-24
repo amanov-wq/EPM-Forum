@@ -4,6 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>ESTAMON — Профиль</title>
@@ -21,41 +22,55 @@
 <div class="profile-page">
 
 
-<header>
+<header class="header">
 
+    <div class="logo">
+        ESTAMON
+    </div>
 
-<div class="logo">
-ESTAMON
-</div>
+    <div class="header-right">
 
+        <a href="profile.html" class="profile-btn">
+            👤
+        </a>
 
+        <button class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </button>
 
-<nav>
-
-<a href="index.html">Главная</a>
-
-<a href="forum.html">Форум</a>
-
-<a href="news.html">Новости</a>
-
-<a href="rules.html">Правила</a>
-
-<a href="donate.html">Донат</a>
-
-</nav>
-
-
-
-<div class="profile-button">
-
-<a href="profile.html">
-👤
-</a>
-
-</div>
-
+    </div>
 
 </header>
+
+
+<div class="side-menu" id="sideMenu">
+
+    <div class="menu-header">
+
+        <span>ESTAMON</span>
+
+        <button class="close-btn" onclick="toggleMenu()">
+            ✕
+        </button>
+
+    </div>
+
+    <a href="server-info.html">⚔ Информация</a>
+
+    <a href="forum.html">💬 Форум</a>
+
+    <a href="news.html">📰 Новости</a>
+
+    <a href="rules.html">📜 Правила</a>
+
+    <a href="donate.html">💎 Донат</a>
+
+    <a href="profile.html">👤 Профиль</a>
+
+</div>
+
+
+<div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
 
 
 
@@ -77,8 +92,11 @@ src="https://i.imgur.com/8Km9tLL.png"
 
 
 
+
 <h1 id="nickname">
+
 Игрок
+
 </h1>
 
 
@@ -100,7 +118,9 @@ src="https://i.imgur.com/8Km9tLL.png"
 
 <div class="stat">
 
-<span>Уровень</span>
+<span>
+Уровень
+</span>
 
 <b id="level">
 1
@@ -113,7 +133,9 @@ src="https://i.imgur.com/8Km9tLL.png"
 
 <div class="stat">
 
-<span>Сообщения</span>
+<span>
+Сообщения
+</span>
 
 <b id="messages">
 0
@@ -126,7 +148,9 @@ src="https://i.imgur.com/8Km9tLL.png"
 
 <div class="stat">
 
-<span>Дата регистрации</span>
+<span>
+Дата регистрации
+</span>
 
 <b id="date">
 2026
@@ -161,16 +185,24 @@ placeholder="Ссылка на аватар">
 
 </div>
 
+
+
+
+
 <div class="profile-actions">
 
 
 <a href="forum.html">
+
 Форум
+
 </a>
 
 
 <button onclick="logout()">
+
 Выйти
+
 </button>
 
 
@@ -183,35 +215,69 @@ placeholder="Ссылка на аватар">
 </div>
 
 
+</div>
+
 
 </div>
 
 
 
-</div>
+
+
+<script src="auth.js"></script>
+
+
+<script>
+
+
+// проверка аккаунта
+
+if(typeof requireAuth === "function"){
+
+if(!requireAuth()){
+
+throw new Error("NO AUTH");
+
+}
+
+}
 
 
 
+
+
+// смена аватара
 
 
 function changeAvatar(){
 
 
-let user =
-JSON.parse(localStorage.getItem("user"));
+let user = JSON.parse(localStorage.getItem("user"));
 
 
 
-let avatar =
-document.getElementById("avatarInput").value;
+if(!user){
+
+alert("Нет аккаунта");
+
+return;
+
+}
+
+
+
+let avatar = document.getElementById("avatarInput").value;
 
 
 
 if(!avatar){
 
+
 alert("Введите ссылку");
 
+
 return;
+
 
 }
 
@@ -234,14 +300,19 @@ headers:{
 
 body:JSON.stringify({
 
+
 login:user.login,
+
 
 avatar:avatar
 
+
 })
 
 
 })
+
+
 .then(res=>res.json())
 
 
@@ -251,17 +322,21 @@ avatar:avatar
 if(data.success){
 
 
-user.avatar=avatar;
+user.avatar = avatar;
 
 
 localStorage.setItem(
+
 "user",
+
 JSON.stringify(user)
+
 );
 
 
 
-document.getElementById("avatar").src=avatar;
+document.getElementById("avatar").src = avatar;
+
 
 
 alert("Аватар изменён");
@@ -276,10 +351,11 @@ alert("Аватар изменён");
 
 }
 
-<script>
 
 
-// загрузка данных игрока
+
+
+// роли
 
 
 let user = JSON.parse(localStorage.getItem("user"));
@@ -287,6 +363,7 @@ let user = JSON.parse(localStorage.getItem("user"));
 
 
 function getRoleClass(role){
+
 
 
 let roles={
@@ -334,47 +411,68 @@ return roles[role] || "role-user";
 
 
 
-
 if(user){
 
 
-document.getElementById("nickname").innerText = 
+
+document.getElementById("nickname").innerText =
+
 user.login || "Игрок";
+
 
 
 
 let roleElement = document.getElementById("role");
 
 
-roleElement.innerText = user.role || "Пользователь";
+
+roleElement.innerText =
+
+user.role || "Пользователь";
 
 
 
-roleElement.className = 
+
+roleElement.className =
+
 "role " + getRoleClass(user.role);
 
 
 
-document.getElementById("avatar").src = 
+
+
+document.getElementById("avatar").src =
+
 user.avatar || "https://i.imgur.com/8Km9tLL.png";
 
 
 
-document.getElementById("level").innerText = 
+
+
+document.getElementById("level").innerText =
+
 user.level || 1;
 
 
 
-document.getElementById("messages").innerText = 
+
+
+document.getElementById("messages").innerText =
+
 user.messages || 0;
 
 
 
-document.getElementById("date").innerText = 
+
+
+document.getElementById("date").innerText =
+
 user.date || "2026";
 
 
 }
+
+
 
 
 
@@ -384,6 +482,8 @@ function logout(){
 
 localStorage.removeItem("user");
 
+localStorage.removeItem("estamonUser");
+
 
 window.location.href="login.html";
 
@@ -392,9 +492,36 @@ window.location.href="login.html";
 
 
 
+
+
+
+
+// мобильное меню
+
+
+function toggleMenu(){
+
+
+document.querySelector("nav").classList.toggle("active");
+
+
+}
+
+
+
 </script>
 
+<script>
 
+function toggleMenu(){
+
+    document.querySelector("nav").classList.toggle("active");
+
+}
+
+</script>
+
+<script src="script.js"></script>
 
 </body>
 

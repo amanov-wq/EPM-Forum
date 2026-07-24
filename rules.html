@@ -23,36 +23,55 @@
 <header class="header">
 
 
-<div class="logo">
-ESTAMON 
-</div>
+<header class="header">
 
+    <div class="logo">
+        ESTAMON
+    </div>
 
-<nav>
+    <div class="header-right">
 
-<a href="index.html">Главная</a>
+        <a href="profile.html" class="profile-btn">
+            👤
+        </a>
 
-<a href="forum.html">Форум</a>
+        <button class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </button>
 
-<a href="news.html">Новости</a>
-
-<a href="rules.html">Правила</a>
-
-<a href="donate.html">Донат</a>
-
-</nav>
-
-
-<div class="profile-button">
-
-<a href="profile.html">
-👤
-</a>
-
-</div>
-
+    </div>
 
 </header>
+
+
+<div class="side-menu" id="sideMenu">
+
+    <div class="menu-header">
+
+        <span>ESTAMON</span>
+
+        <button class="close-btn" onclick="toggleMenu()">
+            ✕
+        </button>
+
+    </div>
+
+    <a href="server-info.html">⚔ Информация</a>
+
+    <a href="forum.html">💬 Форум</a>
+
+    <a href="news.html">📰 Новости</a>
+
+    <a href="rules.html">📜 Правила</a>
+
+    <a href="donate.html">💎 Донат</a>
+
+    <a href="profile.html">👤 Профиль</a>
+
+</div>
+
+
+<div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
 
 
 
@@ -1502,6 +1521,17 @@ Survival 4.4 Администрация не возвращает приобре
 
 </footer>
 
+<script>
+
+function toggleMenu(){
+
+    document.querySelector("nav").classList.toggle("active");
+
+}
+
+</script>
+
+<script src="script.js"></script>
 
 </body>
 

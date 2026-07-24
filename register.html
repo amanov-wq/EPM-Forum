@@ -7,112 +7,182 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Регистрация | ESTAMON</title>
+<title>ESTAMON — Регистрация</title>
 
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="auth.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700;900&display=swap" rel="stylesheet">
 
 </head>
+
 
 
 <body>
 
 
-<video class="background-video" autoplay muted loop playsinline>
 
-<source src="videos/minecraft.mp4" type="video/mp4">
-
-</video>
-
-
-<div class="video-overlay"></div>
+<div class="login-page">
 
 
 
-<header>
+<header class="header">
 
-<div class="logo">
-ESTAMON
-</div>
+    <div class="logo">
+        ESTAMON
+    </div>
 
+    <div class="header-right">
 
-<nav>
+        <a href="profile.html" class="profile-btn">
+            👤
+        </a>
 
-<a href="index.html">Главная</a>
-<a href="forum.html">Форум</a>
-<a href="news.html">Новости</a>
-<a href="rules.html">Правила</a>
-<a href="donate.html">Донат</a>
+        <button class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </button>
 
-</nav>
+    </div>
 
 </header>
 
 
+<div class="side-menu" id="sideMenu">
 
-<main class="auth-page">
+    <div class="menu-header">
+
+        <span>ESTAMON</span>
+
+        <button class="close-btn" onclick="toggleMenu()">
+            ✕
+        </button>
+
+    </div>
+
+    <a href="server-info.html">⚔ Информация</a>
+
+    <a href="forum.html">💬 Форум</a>
+
+    <a href="news.html">📰 Новости</a>
+
+    <a href="rules.html">📜 Правила</a>
+
+    <a href="donate.html">💎 Донат</a>
+
+    <a href="profile.html">👤 Профиль</a>
+
+</div>
 
 
-<div class="auth-card">
+<div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+
+
+
+
+
+
+
+
+<div class="login-box">
+
 
 
 <h1>
+
 Регистрация
+
 </h1>
 
 
 
-<form id="registerForm">
 
 
-<input
+
+
+<input 
+
 id="login"
+
 type="text"
+
 placeholder="Логин"
-required>
+
+>
 
 
-<input
+
+
+
+<input 
+
 id="email"
+
 type="email"
+
 placeholder="Email"
-required>
+
+>
 
 
-<input
+
+
+
+<input 
+
 id="password"
+
 type="password"
+
 placeholder="Пароль"
-required>
+
+>
 
 
 
-<button type="submit">
+
+
+
+
+<button onclick="register()">
 
 Создать аккаунт
 
 </button>
 
 
-</form>
 
 
 
-<p>
+
+
+
+<div class="login-link">
+
 
 Уже есть аккаунт?
 
-<a href="login.html">
-Войти
-</a>
 
-</p>
+<a href="login.html">
+
+Войти
+
+</a>
 
 
 </div>
 
 
-</main>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
 
 
 
@@ -120,87 +190,223 @@ required>
 <script>
 
 
-document
-.getElementById("registerForm")
-.addEventListener("submit", async(e)=>{
 
-
-e.preventDefault();
+function register(){
 
 
 
-const login =
+let login =
+
 document.getElementById("login").value;
 
 
-const email =
+
+let email =
+
 document.getElementById("email").value;
 
 
-const password =
+
+let password =
+
 document.getElementById("password").value;
 
 
 
-const res = await fetch("/register",{
-
-method:"POST",
-
-headers:{
-
-"Content-Type":"application/json"
-
-},
-
-body:JSON.stringify({
-
-login,
-
-email,
-
-password
-
-})
-
-});
 
 
 
-const data =
-await res.json();
+if(!login || !email || !password){
 
 
-
-localStorage.setItem(
-"user",
-JSON.stringify({
-
-login:login,
-email:email
-
-})
-);
+alert("Заполните все поля");
 
 
-window.location.href="index.html";
+return;
 
-
-
-if(data.message){
-
-window.location.href =
-"login.html";
 
 }
 
 
+
+
+
+
+
+fetch("/register",{
+
+
+method:"POST",
+
+
+headers:{
+
+
+"Content-Type":"application/json"
+
+
+},
+
+
+body:JSON.stringify({
+
+
+login:login,
+
+
+email:email,
+
+
+password:password
+
+
+})
+
+
+})
+
+
+
+
+
+.then(res=>res.json())
+
+
+
+.then(data=>{
+
+
+
+if(data.success){
+
+
+
+
+
+let user={
+
+
+login:login,
+
+
+email:email,
+
+
+role:"Пользователь",
+
+
+level:1,
+
+
+messages:0,
+
+
+avatar:"https://i.imgur.com/8Km9tLL.png"
+
+
+};
+
+
+
+
+
+
+// единый ключ аккаунта
+
+
+localStorage.setItem(
+
+"user",
+
+JSON.stringify(user)
+
+);
+
+
+
+// удаляем старый ключ
+
+localStorage.removeItem("estamonUser");
+
+
+
+
+
+
+alert("Регистрация успешна!");
+
+
+
+location.href="profile.html";
+
+
+
+
+
+}else{
+
+
+
+alert(data.message || "Ошибка регистрации");
+
+
+
+}
+
+
+
+})
+
+
+
+.catch(err=>{
+
+
+console.log(err);
+
+
+alert("Ошибка сервера");
+
+
 });
+
+
+
+}
+
+
+
+
+
+
+
+function toggleMenu(){
+
+
+document.querySelector("nav")
+
+.classList.toggle("active");
+
+
+}
+
 
 
 </script>
 
 
-<script src="auth.js"></script>
+<script>
+
+function toggleMenu(){
+
+    document.querySelector("nav").classList.toggle("active");
+
+}
+
+</script>
+
+<script src="script.js"></script>
+
 </body>
 
 </html>

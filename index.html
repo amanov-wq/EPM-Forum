@@ -13,9 +13,7 @@
 
 </head>
 
-
 <body>
-
 
 <video class="background-video" autoplay muted loop playsinline>
 
@@ -23,71 +21,61 @@
 
 </video>
 
-
 <div class="video-overlay"></div>
 
-
-
-<header>
-
+<header class="header">
 
     <div class="logo">
         ESTAMON
     </div>
 
+    <div class="header-right">
 
-
-    <nav>
-
-        <a href="index.html">
-            Главная
-        </a>
-
-        <a href="forum.html">
-            Форум
-        </a>
-
-        <a href="news.html">
-            Новости
-        </a>
-
-        <a href="rules.html">
-            Правила
-        </a>
-
-        <a href="donate.html">
-            Донат
-        </a>
-
-    </nav>
-
-
-
-    <div class="profile-button">
-
-        <a href="profile.html">
+        <a href="profile.html" class="profile-btn">
             👤
         </a>
 
-    </div>
-<a onclick="logout()" style="cursor:pointer;">
-Выйти
-</a>
+        <button class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </button>
 
+    </div>
 
 </header>
 
 
+<div class="side-menu" id="sideMenu">
+
+    <div class="menu-header">
+
+        <span>ESTAMON</span>
+
+        <button class="close-btn" onclick="toggleMenu()">
+            ✕
+        </button>
+
+    </div>
+
+    <a href="server-info.html">⚔ Информация</a>
+
+    <a href="forum.html">💬 Форум</a>
+
+    <a href="news.html">📰 Новости</a>
+
+    <a href="rules.html">📜 Правила</a>
+
+    <a href="donate.html">💎 Донат</a>
+
+    <a href="profile.html">👤 Профиль</a>
+
+</div>
 
 
+<div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
 
 <section class="hero">
 
-
-
     <div class="hero-content">
-
-
 
         <h1>
 
@@ -99,89 +87,88 @@
 
         </h1>
 
-
-
         <p>
 
             Мир приключений, строительства и новых возможностей
 
         </p>
 
+        <div class="buttons">
 
-
-
-<div class="buttons">
-
-    <button onclick="window.location.href='play.html'">
-        Начать играть
-    </button>
-
-
-    <button onclick="window.location.href='forum.html'">
-        Форум
-    </button>
-
-</div>
-
-                Подробнее
-
+            <button onclick="window.location.href='play.html'">
+                Начать играть
             </button>
 
+            <button onclick="window.location.href='forum.html'">
+                Форум
+            </button>
 
         </div>
 
-
-
     </div>
-
-
 
 </section>
 
-
-
-
-
 <div class="fog"></div>
-
 
 <div class="particles"></div>
 
-
-
-
 <script src="auth.js"></script>
+<script src="script.js"></script>
+
 <script>
 
-checkAuth();
+function logout(){
+
+    localStorage.removeItem("estamonUser");
+    localStorage.removeItem("user");
+
+    window.location.href="login.html";
+
+}
+
+// ===========================
+// Мобильное меню
+// ===========================
+
+function toggleMenu(){
+
+    document.querySelector("nav").classList.toggle("active");
+
+}
+
+document.querySelectorAll("nav a").forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        document.querySelector("nav").classList.remove("active");
+
+    });
+
+});
+
+document.addEventListener("click",function(e){
+
+    const nav=document.querySelector("nav");
+    const btn=document.querySelector(".mobile-menu");
+
+    if(
+        nav.classList.contains("active")
+        &&
+        !nav.contains(e.target)
+        &&
+        !btn.contains(e.target)
+    ){
+
+        nav.classList.remove("active");
+
+    }
+
+});
 
 </script>
 
 <script src="script.js"></script>
 
-
-<script src="auth.js"></script>
-<script>
-
-function startGame(){
-
-    let user = localStorage.getItem("user");
-
-
-    if(user){
-
-        window.location.href = "profile.html";
-
-    }
-    else{
-
-        window.location.href = "register.html";
-
-    }
-
-}
-
-</script>
 </body>
-
 </html>

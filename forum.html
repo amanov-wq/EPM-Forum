@@ -18,39 +18,55 @@
 <body class="forum-page">
 
 
-<header>
+<header class="header">
 
-<div class="logo">
-ESTAMON
-</div>
+    <div class="logo">
+        ESTAMON
+    </div>
 
+    <div class="header-right">
 
-<nav>
+        <a href="profile.html" class="profile-btn">
+            👤
+        </a>
 
-<a href="index.html">Главная</a>
+        <button class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </button>
 
-<a href="forum.html">Форум</a>
-
-<a href="news.html">Новости</a>
-
-<a href="rules.html">Правила</a>
-
-<a href="donate.html">Донат</a>
-
-</nav>
-
-
-<div class="profile-button">
-
-<a href="profile.html">
-👤
-</a>
-
-</div>
-
+    </div>
 
 </header>
 
+
+<div class="side-menu" id="sideMenu">
+
+    <div class="menu-header">
+
+        <span>ESTAMON</span>
+
+        <button class="close-btn" onclick="toggleMenu()">
+            ✕
+        </button>
+
+    </div>
+
+    <a href="server-info.html">⚔ Информация</a>
+
+    <a href="forum.html">💬 Форум</a>
+
+    <a href="news.html">📰 Новости</a>
+
+    <a href="rules.html">📜 Правила</a>
+
+    <a href="donate.html">💎 Донат</a>
+
+    <a href="profile.html">👤 Профиль</a>
+
+</div>
+
+
+<div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
 
 
 
@@ -74,20 +90,17 @@ ESTAMON
 
 
 </div>
-
-
-
-
-
-
-
 <div class="forum-sections">
 
 
 
 <div class="forum-box">
 <a class="section-link" href="section.html?name=Общение">
-<h2>💬 Общение</h2>
+
+<h2>
+💬 Общение
+</h2>
+
 </a>
 </div>
 
@@ -96,7 +109,11 @@ ESTAMON
 
 <div class="forum-box">
 <a class="section-link" href="section.html?name=Жалобы">
-<h2>⚖ Жалобы</h2>
+
+<h2>
+⚖ Жалобы
+</h2>
+
 </a>
 </div>
 
@@ -105,7 +122,11 @@ ESTAMON
 
 <div class="forum-box">
 <a class="section-link" href="section.html?name=Баг-репорты">
-<h2>🐞 Баг-репорты</h2>
+
+<h2>
+🐞 Баг-репорты
+</h2>
+
 </a>
 </div>
 
@@ -114,7 +135,11 @@ ESTAMON
 
 <div class="forum-box">
 <a class="section-link" href="section.html?name=Конкурсы">
-<h2>🏆 Конкурсы</h2>
+
+<h2>
+🏆 Конкурсы
+</h2>
+
 </a>
 </div>
 
@@ -123,7 +148,11 @@ ESTAMON
 
 <div class="forum-box">
 <a class="section-link" href="section.html?name=Отзывы">
-<h2>⭐ Отзывы</h2>
+
+<h2>
+⭐ Отзывы
+</h2>
+
 </a>
 </div>
 
@@ -132,7 +161,11 @@ ESTAMON
 
 <div class="forum-box">
 <a class="section-link" href="section.html?name=История наказаний">
-<h2>🔨 История наказаний</h2>
+
+<h2>
+🔨 История наказаний
+</h2>
+
 </a>
 </div>
 
@@ -141,27 +174,29 @@ ESTAMON
 
 <div class="forum-box">
 <a class="section-link" href="section.html?name=Команда">
-<h2>👥 Команда</h2>
+
+<h2>
+👥 Команда
+</h2>
+
 </a>
 </div>
-
-
-
-
 
 
 
 
 
 <div class="forum-box">
+
 <a class="section-link" href="admin.html">
-<h2>🛡 Админ-панель</h2>
+
+<h2>
+🛡 Админ-панель
+</h2>
+
 </a>
+
 </div>
-
-
-
-
 
 
 
@@ -172,16 +207,13 @@ ESTAMON
 
 
 </div>
-
-
-
-
-
 <script>
 
 const user = JSON.parse(localStorage.getItem("user"));
 
+
 const staffRoles = [
+
 "Мл.Хелпер",
 "Хелпер",
 "Ст.Хелпер",
@@ -193,56 +225,191 @@ const staffRoles = [
 "Зам Куратор",
 "Куратор режима",
 "Создатель"
+
 ];
 
+
+
 const userSections = [
+
 "Общение",
 "Жалобы",
 "Баг-репорты",
 "Отзывы"
+
 ];
+
+
+
+
 
 document.querySelectorAll(".section-link").forEach(link=>{
 
+
 const href = link.getAttribute("href");
+
+
 
 if(href==="admin.html"){
 
+
 if(!user || !staffRoles.includes(user.role)){
+
+
 link.parentElement.style.display="none";
+
+
 }
+
 
 return;
 
+
 }
 
-if(!user)return;
 
-if(staffRoles.includes(user.role))return;
 
-const name = new URLSearchParams(href.split("?")[1]).get("name");
+
+
+if(!user) return;
+
+
+
+if(staffRoles.includes(user.role)) return;
+
+
+
+
+const name = new URLSearchParams(
+
+href.split("?")[1]
+
+).get("name");
+
+
+
 
 if(!userSections.includes(name)){
 
+
 link.parentElement.style.opacity="0.45";
+
+
 link.style.pointerEvents="none";
 
+
+
 link.innerHTML += `
+
 <br>
+
 <span style="
 color:#ff5555;
 font-size:15px;
 font-weight:700;
 ">
+
 🔒 Только для персонала
+
 </span>
+
 `;
 
 }
 
+
 });
 
+
+
+
+
+
+// =====================
+// MOBILE MENU
+// =====================
+
+
+function toggleMenu(){
+
+
+document.querySelector("nav")
+.classList.toggle("active");
+
+
+}
+
+
+
+
+
+document.querySelectorAll("nav a").forEach(link=>{
+
+
+link.addEventListener("click",()=>{
+
+
+document.querySelector("nav")
+.classList.remove("active");
+
+
+});
+
+
+});
+
+
+
+
+
+document.addEventListener("click",function(e){
+
+
+const nav=document.querySelector("nav");
+
+const menu=document.querySelector(".mobile-menu");
+
+
+
+if(
+
+nav.classList.contains("active")
+
+&&
+
+!nav.contains(e.target)
+
+&&
+
+!menu.contains(e.target)
+
+){
+
+
+nav.classList.remove("active");
+
+
+}
+
+
+
+});
+
+
+
 </script>
+
+<script>
+
+function toggleMenu(){
+
+    document.querySelector("nav").classList.toggle("active");
+
+}
+
+</script>
+
+<script src="script.js"></script>
 
 </body>
 

@@ -16,38 +16,64 @@
 </head>
 
 
+
 <body>
+
 
 
 <div class="login-page">
 
 
-<header>
+
+<header class="header">
+
+    <div class="logo">
+        ESTAMON
+    </div>
+
+    <div class="header-right">
+
+        <a href="profile.html" class="profile-btn">
+            👤
+        </a>
+
+        <button class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </button>
+
+    </div>
+
+</header>
 
 
-<div class="logo">
-ESTAMON
+<div class="side-menu" id="sideMenu">
+
+    <div class="menu-header">
+
+        <span>ESTAMON</span>
+
+        <button class="close-btn" onclick="toggleMenu()">
+            ✕
+        </button>
+
+    </div>
+
+    <a href="server-info.html">⚔ Информация</a>
+
+    <a href="forum.html">💬 Форум</a>
+
+    <a href="news.html">📰 Новости</a>
+
+    <a href="rules.html">📜 Правила</a>
+
+    <a href="donate.html">💎 Донат</a>
+
+    <a href="profile.html">👤 Профиль</a>
+
 </div>
 
 
-
-<nav>
-
-<a href="index.html">Главная</a>
-
-<a href="forum.html">Форум</a>
-
-<a href="news.html">Новости</a>
-
-<a href="rules.html">Правила</a>
-
-<a href="donate.html">Донат</a>
-
-</nav>
-
-
-
-</header>
+<div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
 
 
 
@@ -58,23 +84,43 @@ ESTAMON
 <div class="login-box">
 
 
+
 <h1>
+
 Вход
+
 </h1>
 
 
 
-<input 
+
+
+<input
+
 id="login"
+
 type="text"
-placeholder="Логин">
+
+placeholder="Логин"
+
+>
 
 
 
-<input 
+
+
+
+<input
+
 id="password"
+
 type="password"
-placeholder="Пароль">
+
+placeholder="Пароль"
+
+>
+
+
 
 
 
@@ -89,15 +135,22 @@ placeholder="Пароль">
 
 
 
+
+
+
+
 <div class="login-link">
 
+
 Нет аккаунта?
+
 
 <a href="register.html">
 
 Регистрация
 
 </a>
+
 
 </div>
 
@@ -122,17 +175,36 @@ placeholder="Пароль">
 <script>
 
 
+
 function login(){
 
 
 
 let loginValue =
+
 document.getElementById("login").value;
 
 
 
 let passwordValue =
+
 document.getElementById("password").value;
+
+
+
+
+
+if(!loginValue || !passwordValue){
+
+
+alert("Заполните все поля");
+
+
+return;
+
+
+}
+
 
 
 
@@ -168,7 +240,11 @@ password:passwordValue
 })
 
 
+
+
+
 .then(res=>res.json())
+
 
 
 .then(data=>{
@@ -178,6 +254,10 @@ password:passwordValue
 if(data.success){
 
 
+
+
+
+// единый ключ аккаунта
 
 localStorage.setItem(
 
@@ -189,15 +269,31 @@ JSON.stringify(data.user)
 
 
 
-window.location.href="profile.html";
+// удаляем старый ключ
+
+localStorage.removeItem("estamonUser");
 
 
-}
-
-else{
 
 
-alert(data.message || "Ошибка входа");
+
+
+alert("Добро пожаловать в ESTAMON!");
+
+
+
+location.href="profile.html";
+
+
+
+
+
+}else{
+
+
+
+alert(data.message || "Неверный логин или пароль");
+
 
 
 }
@@ -207,24 +303,59 @@ alert(data.message || "Ошибка входа");
 })
 
 
+
 .catch(error=>{
+
 
 
 console.log(error);
 
 
-alert("Ошибка сервера");
+
+alert("Ошибка соединения с сервером");
+
 
 
 });
+
 
 
 }
 
 
 
+
+
+
+
+function toggleMenu(){
+
+
+document.querySelector("nav")
+
+.classList.toggle("active");
+
+
+}
+
+
+
+
+
 </script>
 
+
+<script>
+
+function toggleMenu(){
+
+    document.querySelector("nav").classList.toggle("active");
+
+}
+
+</script>
+
+<script src="script.js"></script>
 
 </body>
 

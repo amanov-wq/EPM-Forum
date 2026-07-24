@@ -3,39 +3,94 @@
 // ===============================
 
 
-document.addEventListener("DOMContentLoaded",()=>{
+function getUser(){
 
 
-let user = localStorage.getItem("estamonUser");
-
-let page = location.pathname.split("/").pop();
+    let user = localStorage.getItem("user");
 
 
-// страницы, куда можно без аккаунта
-
-let allowed = [
-"register.html",
-"login.html"
-];
+    if(user){
 
 
-
-// если аккаунта нет
-
-if(!user){
+        try{
 
 
-    if(!allowed.includes(page)){
+            return JSON.parse(user);
 
 
-        location.href="register.html";
+        }catch(e){
+
+
+            localStorage.removeItem("user");
+
+
+            return null;
+
+
+        }
 
 
     }
+
+
+    return null;
 
 
 }
 
 
 
-});
+
+
+
+
+function requireAuth(){
+
+
+    let user = getUser();
+
+
+
+    if(!user){
+
+
+        alert(
+            "Сначала зарегистрируйтесь или войдите в аккаунт"
+        );
+
+
+        window.location.href="login.html";
+
+
+        return false;
+
+
+    }
+
+
+
+    return true;
+
+
+}
+
+
+
+
+
+
+
+
+function logout(){
+
+
+    localStorage.removeItem("user");
+
+
+    localStorage.removeItem("estamonUser");
+
+
+    window.location.href="login.html";
+
+
+}
