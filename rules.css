@@ -704,3 +704,31 @@
 
 
 }
+/* TEST POSITION FIX */
+
+body.rules-page {
+    padding-top:0 !important;
+}
+
+
+.rules-title {
+    position:relative;
+    z-index:2;
+    margin-top:100px !important;
+}
+
+
+.rules-navigation {
+    position:relative;
+    z-index:2;
+
+    display:flex !important;
+    flex-direction:row !important;
+    justify-content:center !important;
+}
+
+
+.rules-container {
+    position:relative;
+    z-index:2;
+}
