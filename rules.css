@@ -360,3 +360,412 @@
     }
 
 }
+/* ==========================
+        ESTAMON RULES LAYOUT
+========================== */
+
+
+.rules-page {
+
+    min-height:100vh;
+
+}
+
+
+/* Заголовок */
+
+.rules-title {
+
+    padding-top:120px;
+
+    text-align:center;
+
+}
+
+
+.rules-title h1 {
+
+    font-size:45px;
+
+    color:white;
+
+    text-shadow:
+    0 0 15px #9b00ff;
+
+}
+
+
+
+.rules-title p {
+
+    color:#aaa;
+
+}
+
+
+
+/* Список разделов */
+
+.rules-navigation {
+
+    width:90%;
+
+    max-width:1000px;
+
+    margin:30px auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+
+
+.rules-navigation a {
+
+    display:block;
+
+    padding:15px;
+
+    text-align:center;
+
+    border-radius:15px;
+
+    color:white;
+
+    text-decoration:none;
+
+}
+
+
+
+/* Главный список правил */
+
+.rules-container {
+
+
+    width:90%;
+
+    max-width:1100px;
+
+
+    margin:0 auto 50px;
+
+
+    max-height:65vh;
+
+
+    overflow-y:auto;
+
+
+    padding-right:15px;
+
+
+}
+
+
+
+/* блоки разделов */
+
+
+.rules-block {
+
+
+    background:
+    rgba(15,10,30,.85);
+
+
+    border-radius:20px;
+
+
+    padding:30px;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+/* заголовки разделов */
+
+
+.rules-block h2 {
+
+
+    text-align:center;
+
+
+    color:#d38cff;
+
+
+    font-size:30px;
+
+
+}
+
+
+
+/* текст */
+
+
+.rules-block p {
+
+
+    color:#eee;
+
+
+    line-height:1.7;
+
+
+    font-size:17px;
+
+
+}
+
+
+
+
+/* скролл */
+
+.rules-container::-webkit-scrollbar {
+
+    width:8px;
+
+}
+
+
+.rules-container::-webkit-scrollbar-thumb {
+
+    background:#9b00ff;
+
+    border-radius:20px;
+
+}
+
+
+
+
+/* телефон */
+
+@media(max-width:768px){
+
+
+.rules-title {
+
+    padding-top:90px;
+
+}
+
+
+.rules-title h1 {
+
+    font-size:32px;
+
+}
+
+
+
+.rules-container {
+
+    width:95%;
+
+    max-height:70vh;
+
+}
+
+
+
+.rules-block {
+
+    padding:18px;
+
+}
+
+
+
+.rules-block p {
+
+    font-size:15px;
+
+}
+
+
+}
+/* =================================
+        MOBILE RULES DESIGN
+================================= */
+
+@media (max-width: 768px) {
+
+
+/* страница */
+
+.rules-page {
+
+    overflow-x:hidden;
+
+}
+
+
+/* заголовок */
+
+.rules-title {
+
+    padding-top:85px;
+
+    padding-left:15px;
+
+    padding-right:15px;
+
+}
+
+
+.rules-title h1 {
+
+    font-size:32px;
+
+    margin-bottom:10px;
+
+}
+
+
+.rules-title p {
+
+    font-size:14px;
+
+}
+
+
+
+/* список разделов */
+
+.rules-navigation {
+
+    width:calc(100% - 30px);
+
+    margin:20px auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+
+.rules-navigation a {
+
+    width:100%;
+
+    box-sizing:border-box;
+
+    padding:13px;
+
+    font-size:15px;
+
+}
+
+
+
+/* окно правил */
+
+.rules-container {
+
+    width:calc(100% - 20px);
+
+    margin:auto;
+
+
+    max-height:65vh;
+
+
+    overflow-y:auto;
+
+
+    padding:10px;
+
+
+    -webkit-overflow-scrolling:touch;
+
+}
+
+
+
+/* блоки */
+
+.rules-block {
+
+
+    padding:18px 15px;
+
+
+    border-radius:18px;
+
+
+    margin-bottom:18px;
+
+
+}
+
+
+
+/* заголовки разделов */
+
+.rules-block h2 {
+
+    font-size:24px;
+
+    text-align:center;
+
+}
+
+
+.rules-block h3 {
+
+    font-size:20px;
+
+}
+
+
+
+/* текст */
+
+.rules-block p {
+
+
+    font-size:15px;
+
+
+    line-height:1.6;
+
+
+}
+
+
+
+/* скролл телефона */
+
+.rules-container::-webkit-scrollbar {
+
+    width:6px;
+
+}
+
+
+.rules-container::-webkit-scrollbar-thumb {
+
+    background:#9b00ff;
+
+    border-radius:20px;
+
+}
+
+
+
+}
