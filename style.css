@@ -5853,3 +5853,72 @@ body {
     }
 
 }
+/* ===============================
+   FIX RULES PAGE SCROLL + DESIGN
+   =============================== */
+
+.rules-container,
+.rules-content,
+.rules-box,
+.rules-wrapper {
+    max-height: calc(100vh - 180px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+/* красивый скролл */
+
+.rules-container::-webkit-scrollbar,
+.rules-content::-webkit-scrollbar,
+.rules-box::-webkit-scrollbar,
+.rules-wrapper::-webkit-scrollbar {
+    width: 8px;
+}
+
+
+.rules-container::-webkit-scrollbar-track,
+.rules-content::-webkit-scrollbar-track,
+.rules-box::-webkit-scrollbar-track,
+.rules-wrapper::-webkit-scrollbar-track {
+    background: rgba(0,0,0,.3);
+    border-radius:20px;
+}
+
+
+.rules-container::-webkit-scrollbar-thumb,
+.rules-content::-webkit-scrollbar-thumb,
+.rules-box::-webkit-scrollbar-thumb,
+.rules-wrapper::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        180deg,
+        #b84cff,
+        #6500ff
+    );
+
+    border-radius:20px;
+
+    box-shadow:
+    0 0 10px #9b00ff;
+}
+
+
+
+/* чтобы на телефоне правила листались */
+
+@media(max-width:768px){
+
+.rules-container,
+.rules-content,
+.rules-box,
+.rules-wrapper {
+
+    max-height: calc(100vh - 140px);
+
+    overflow-y:auto;
+
+    -webkit-overflow-scrolling:touch;
+
+}
+
+}
