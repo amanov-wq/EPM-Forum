@@ -579,3 +579,17 @@
 
 
 }
+.rules-title{
+    padding-top:150px !important;
+}
+
+.rules-navigation{
+    display:flex !important;
+    flex-direction:row !important;
+    justify-content:center !important;
+    flex-wrap:wrap !important;
+}
+
+.rules-container{
+    margin:30px auto !important;
+}
