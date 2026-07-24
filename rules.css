@@ -1,72 +1,88 @@
 /* ===========================
-   ESTAMON RULES DESIGN
-   =========================== */
+   ESTAMON RULES CSS
+=========================== */
 
 
 .rules-page {
-    min-height: 100vh;
+
+    min-height:100vh;
+
     background:
     linear-gradient(
-        rgba(5,10,25,0.75),
-        rgba(5,10,25,0.9)
+        rgba(5,10,25,.75),
+        rgba(5,10,25,.9)
     ),
     url("images/rules-bg.jpg");
 
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
 
-    font-family: 'Rajdhani', sans-serif;
-    color: white;
+    font-family:'Rajdhani', sans-serif;
+
+    color:white;
+
 }
 
 
-/* Заголовок правил */
+
+/* ===========================
+        HEADER TITLE
+=========================== */
+
 
 .rules-title {
-    text-align: center;
-    padding: 80px 20px 40px;
+
+    text-align:center;
+
+    padding:120px 20px 30px;
+
 }
 
 
 .rules-title h1 {
 
-    font-size: 48px;
-    font-weight: 800;
+    font-size:48px;
 
-    color: #fff;
+    font-weight:800;
+
+    color:white;
 
     text-shadow:
-    0 0 10px #8b5cff,
-    0 0 25px #8b5cff;
+    0 0 15px #8b5cff,
+    0 0 30px #8b5cff;
 
 }
 
 
 .rules-title p {
 
-    font-size: 22px;
-    color: #cfcfcf;
+    color:#ccc;
+
+    font-size:20px;
 
 }
 
 
 
-/* Меню навигации */
+/* ===========================
+        SECTION MENU
+=========================== */
+
 
 .rules-navigation {
 
-    display:flex;
+    width:900px;
 
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:15px;
+    max-width:90%;
 
     margin:30px auto;
 
-    max-width:1200px;
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
 
 }
 
@@ -74,22 +90,29 @@
 
 .rules-navigation a {
 
-    padding:15px 25px;
 
-    border-radius:15px;
+    padding:15px;
+
+
+    text-align:center;
+
 
     background:
 
     linear-gradient(
-    135deg,
-    #7b35ff,
-    #4b00c9
+        135deg,
+        #7b35ff,
+        #4b00c9
     );
+
+
+    border-radius:15px;
 
 
     color:white;
 
     text-decoration:none;
+
 
     font-size:18px;
 
@@ -98,10 +121,11 @@
 
     box-shadow:
 
-    0 0 15px rgba(139,92,255,.7);
+    0 0 15px rgba(139,92,255,.6);
 
 
     transition:.3s;
+
 
 }
 
@@ -110,39 +134,93 @@
 .rules-navigation a:hover {
 
 
-    transform:translateY(-5px) scale(1.05);
+    transform:translateY(-4px);
 
 
     box-shadow:
 
-    0 0 30px #9d6cff;
+    0 0 30px #9b6cff;
 
 
 }
+
+
+
 /* ===========================
-   RULES BLOCKS
-   =========================== */
+        RULES LIST
+=========================== */
 
 
 .rules-container {
 
-    max-width:1200px;
+
+    width:1000px;
+
+    max-width:90%;
+
 
     margin:40px auto;
 
-    padding:20px;
+
+    max-height:65vh;
+
+
+    overflow-y:auto;
+
+
+    padding-right:15px;
+
+
+    scroll-behavior:smooth;
+
 
 }
 
 
 
-/* Карточка правил */
+
+/* scrollbar */
+
+
+.rules-container::-webkit-scrollbar {
+
+    width:10px;
+
+}
+
+
+
+.rules-container::-webkit-scrollbar-track {
+
+    background:rgba(0,0,0,.3);
+
+    border-radius:20px;
+
+}
+
+
+
+.rules-container::-webkit-scrollbar-thumb {
+
+    background:#8b2cff;
+
+    border-radius:20px;
+
+}
+
+
+
+/* ===========================
+        RULE BLOCK
+=========================== */
+
 
 .rules-block {
 
+
     background:
 
-    rgba(15,20,40,0.85);
+    rgba(15,20,40,.88);
 
 
     border-radius:25px;
@@ -151,10 +229,12 @@
     padding:35px;
 
 
-    margin-bottom:40px;
+    margin-bottom:35px;
 
 
-    border:1px solid rgba(139,92,255,.35);
+    border:
+
+    1px solid rgba(139,92,255,.35);
 
 
     box-shadow:
@@ -165,28 +245,11 @@
     backdrop-filter:blur(10px);
 
 
-    transition:.3s;
-
 }
 
 
 
-.rules-block:hover {
-
-
-    transform:translateY(-5px);
-
-
-    box-shadow:
-
-    0 0 40px rgba(139,92,255,.55);
-
-
-}
-
-
-
-/* Заголовки режимов */
+/* заголовки разделов */
 
 
 .rules-block h2 {
@@ -195,18 +258,18 @@
     text-align:center;
 
 
-    font-size:36px;
+    font-size:34px;
 
 
-    margin-bottom:30px;
-
-
-    color:white;
+    color:#d4b0ff;
 
 
     text-shadow:
 
     0 0 15px #8b5cff;
+
+
+    margin-bottom:25px;
 
 
 }
@@ -216,28 +279,20 @@
 .rules-block h3 {
 
 
-    margin-top:35px;
+    margin-top:30px;
 
 
-    font-size:26px;
+    font-size:25px;
 
 
     color:#c9a8ff;
-
-
-    border-bottom:
-
-    1px solid rgba(255,255,255,.15);
-
-
-    padding-bottom:10px;
 
 
 }
 
 
 
-/* Текст правил */
+/* текст правил */
 
 
 .rules-block p {
@@ -263,294 +318,23 @@
     line-height:1.6;
 
 
-    color:#eeeeee;
-
-
     border-left:
 
     4px solid #8b5cff;
 
 
-    transition:.25s;
-
-
-}
-
-
-
-.rules-block p:hover {
-
-
-    background:
-
-    rgba(139,92,255,.15);
-
-
-    transform:translateX(5px);
-
-
-}
-
-
-
-/* Наказания */
-
-
-.rules-block p br + * {
-
-    color:#ff8b8b;
-
-}
-/* FIX RULES SCROLL ONLY */
-
-.rules-container {
-
-    max-height: calc(100vh - 250px);
-
-    overflow-y: auto;
-
-    overflow-x: hidden;
-
-    padding-right: 15px;
-
-    scroll-behavior: smooth;
-
-}
-
-
-/* скролл */
-
-.rules-container::-webkit-scrollbar {
-
-    width: 8px;
-
-}
-
-
-.rules-container::-webkit-scrollbar-track {
-
-    background: rgba(0,0,0,0.25);
-
-    border-radius:20px;
-
-}
-
-
-.rules-container::-webkit-scrollbar-thumb {
-
-    background: #8b2cff;
-
-    border-radius:20px;
-
-}
-
-
-/* телефон */
-
-@media(max-width:768px){
-
-    .rules-container {
-
-        max-height: calc(100vh - 220px);
-
-        overflow-y:auto;
-
-        -webkit-overflow-scrolling: touch;
-
-    }
-
-}
-/* ==========================
-        ESTAMON RULES LAYOUT
-========================== */
-
-
-.rules-page {
-
-    min-height:100vh;
-
-}
-
-
-/* Заголовок */
-
-.rules-title {
-
-    padding-top:120px;
-
-    text-align:center;
-
-}
-
-
-.rules-title h1 {
-
-    font-size:45px;
-
-    color:white;
-
-    text-shadow:
-    0 0 15px #9b00ff;
-
-}
-
-
-
-.rules-title p {
-
-    color:#aaa;
-
-}
-
-
-
-/* Список разделов */
-
-.rules-navigation {
-
-    width:90%;
-
-    max-width:1000px;
-
-    margin:30px auto;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:12px;
-
-}
-
-
-
-.rules-navigation a {
-
-    display:block;
-
-    padding:15px;
-
-    text-align:center;
-
-    border-radius:15px;
-
-    color:white;
-
-    text-decoration:none;
-
-}
-
-
-
-/* Главный список правил */
-
-.rules-container {
-
-
-    width:90%;
-
-    max-width:1100px;
-
-
-    margin:0 auto 50px;
-
-
-    max-height:65vh;
-
-
-    overflow-y:auto;
-
-
-    padding-right:15px;
-
-
-}
-
-
-
-/* блоки разделов */
-
-
-.rules-block {
-
-
-    background:
-    rgba(15,10,30,.85);
-
-
-    border-radius:20px;
-
-
-    padding:30px;
-
-
-    margin-bottom:25px;
-
-
-}
-
-
-
-/* заголовки разделов */
-
-
-.rules-block h2 {
-
-
-    text-align:center;
-
-
-    color:#d38cff;
-
-
-    font-size:30px;
-
-
-}
-
-
-
-/* текст */
-
-
-.rules-block p {
-
-
     color:#eee;
 
 
-    line-height:1.7;
-
-
-    font-size:17px;
-
-
 }
 
 
 
 
-/* скролл */
+/* ===========================
+        MOBILE
+=========================== */
 
-.rules-container::-webkit-scrollbar {
-
-    width:8px;
-
-}
-
-
-.rules-container::-webkit-scrollbar-thumb {
-
-    background:#9b00ff;
-
-    border-radius:20px;
-
-}
-
-
-
-
-/* телефон */
 
 @media(max-width:768px){
 
@@ -559,65 +343,6 @@
 
     padding-top:90px;
 
-}
-
-
-.rules-title h1 {
-
-    font-size:32px;
-
-}
-
-
-
-.rules-container {
-
-    width:95%;
-
-    max-height:70vh;
-
-}
-
-
-
-.rules-block {
-
-    padding:18px;
-
-}
-
-
-
-.rules-block p {
-
-    font-size:15px;
-
-}
-
-
-}
-/* =================================
-        MOBILE RULES DESIGN
-================================= */
-
-@media (max-width: 768px) {
-
-
-/* страница */
-
-.rules-page {
-
-    overflow-x:hidden;
-
-}
-
-
-/* заголовок */
-
-.rules-title {
-
-    padding-top:85px;
-
     padding-left:15px;
 
     padding-right:15px;
@@ -625,47 +350,16 @@
 }
 
 
+
 .rules-title h1 {
 
     font-size:32px;
 
-    margin-bottom:10px;
-
 }
+
 
 
 .rules-title p {
-
-    font-size:14px;
-
-}
-
-
-
-/* список разделов */
-
-.rules-navigation {
-
-    width:calc(100% - 30px);
-
-    margin:20px auto;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:10px;
-
-}
-
-
-.rules-navigation a {
-
-    width:100%;
-
-    box-sizing:border-box;
-
-    padding:13px;
 
     font-size:15px;
 
@@ -673,31 +367,59 @@
 
 
 
-/* окно правил */
-
-.rules-container {
-
-    width:calc(100% - 20px);
-
-    margin:auto;
+/* кнопки разделов */
 
 
-    max-height:65vh;
+.rules-navigation {
 
 
-    overflow-y:auto;
+    width:calc(100% - 30px);
 
 
-    padding:10px;
+    max-width:none;
 
-
-    -webkit-overflow-scrolling:touch;
 
 }
 
 
 
-/* блоки */
+.rules-navigation a {
+
+
+    font-size:15px;
+
+
+    padding:13px;
+
+
+}
+
+
+
+/* правила */
+
+
+.rules-container {
+
+
+    width:calc(100% - 20px);
+
+
+    max-width:none;
+
+
+    max-height:65vh;
+
+
+    padding-right:8px;
+
+
+    -webkit-overflow-scrolling:touch;
+
+
+}
+
+
 
 .rules-block {
 
@@ -708,33 +430,29 @@
     border-radius:18px;
 
 
-    margin-bottom:18px;
-
-
 }
 
 
-
-/* заголовки разделов */
 
 .rules-block h2 {
 
+
     font-size:24px;
 
-    text-align:center;
 
 }
+
 
 
 .rules-block h3 {
 
+
     font-size:20px;
+
 
 }
 
 
-
-/* текст */
 
 .rules-block p {
 
@@ -742,177 +460,21 @@
     font-size:15px;
 
 
-    line-height:1.6;
+    line-height:1.5;
 
 
 }
 
 
 
-/* скролл телефона */
-
 .rules-container::-webkit-scrollbar {
+
 
     width:6px;
 
-}
-
-
-.rules-container::-webkit-scrollbar-thumb {
-
-    background:#9b00ff;
-
-    border-radius:20px;
 
 }
 
 
-
-}
-/* =================================
-        PC RULES DESIGN
-================================= */
-
-.rules-title {
-
-    padding-top:120px;
-    text-align:center;
-
-}
-
-
-.rules-title h1 {
-
-    font-size:45px;
-    color:#fff;
-
-    text-shadow:
-    0 0 15px #9b00ff;
-
-}
-
-
-.rules-title p {
-
-    color:#aaa;
-    font-size:18px;
-
-}
-
-
-/* порядок разделов */
-
-.rules-navigation {
-
-    width:900px;
-    max-width:90%;
-
-    margin:30px auto;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:12px;
-
-}
-
-
-.rules-navigation a {
-
-    padding:15px;
-
-    text-align:center;
-
-    border-radius:15px;
-
-    color:white;
-
-    text-decoration:none;
-
-}
-
-
-
-/* окно правил */
-
-.rules-container {
-
-    width:1000px;
-
-    max-width:90%;
-
-    margin:auto;
-
-
-    max-height:65vh;
-
-    overflow-y:auto;
-
-
-    padding-right:15px;
-
-}
-
-
-/* разделы */
-
-.rules-block {
-
-    background:
-    rgba(15,10,30,.85);
-
-
-    border-radius:22px;
-
-    padding:30px;
-
-    margin-bottom:25px;
-
-
-    border:1px solid rgba(150,0,255,.3);
-
-}
-
-
-
-.rules-block h2 {
-
-    text-align:center;
-
-    color:#d18cff;
-
-    font-size:32px;
-
-}
-
-
-
-.rules-block p {
-
-    color:#eee;
-
-    font-size:17px;
-
-    line-height:1.7;
-
-}
-
-
-
-/* скролл ПК */
-
-.rules-container::-webkit-scrollbar {
-
-    width:10px;
-
-}
-
-
-.rules-container::-webkit-scrollbar-thumb {
-
-    background:#9b00ff;
-
-    border-radius:20px;
 
 }
