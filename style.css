@@ -5726,3 +5726,130 @@ html{
     pointer-events: all;
 }
 /* TEST RENDER UPDATE */
+/* ===== FIX RULES PAGE ===== */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+
+/* главный контейнер правил */
+
+.rules-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+/* блоки правил */
+
+.rules-block {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+
+/* заголовки правил */
+
+.rules-block h2,
+.rules-block h3 {
+    max-width: 100%;
+    overflow-wrap: break-word;
+}
+
+
+/* текст правил */
+
+.rules-block p {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    line-height: 1.7;
+}
+
+
+/* навигация правил */
+
+.rules-navigation {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    box-sizing: border-box;
+}
+
+
+/* убираем возможный вылет меню */
+
+.side-menu,
+.mobile-menu,
+.menu-overlay {
+    max-width: 100vw;
+}
+
+
+/* ПК */
+
+@media (min-width: 769px) {
+
+    .rules-container {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+}
+
+
+/* Телефон */
+
+@media (max-width: 768px) {
+
+    .rules-container {
+        width: 100%;
+        margin: 20px auto;
+        padding: 10px;
+    }
+
+
+    .rules-block {
+        width: 100%;
+        margin: 0;
+        padding: 15px;
+    }
+
+
+    .rules-navigation {
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .rules-navigation a {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+
+    .rules-title h1 {
+        font-size: 28px;
+    }
+
+
+    .rules-title p {
+        font-size: 16px;
+    }
+
+}
