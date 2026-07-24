@@ -5601,3 +5601,127 @@ html{
     overflow-y:auto !important;
 
 }
+/* ==========================
+   FIX RULES PAGE SCROLL
+========================== */
+
+.rules-page {
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+.rules-page body {
+    overflow-y: auto;
+}
+
+
+.rules-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+
+.rules-block {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+}
+
+
+/* Блоки текста правил */
+
+.rules-block p {
+    line-height: 1.7;
+    word-break: break-word;
+}
+
+
+/* Навигация правил */
+
+.rules-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+
+.rules-navigation a {
+    cursor: pointer;
+}
+
+
+/* Телефон */
+
+@media (max-width:768px){
+
+    .rules-container {
+        padding: 15px;
+    }
+
+
+    .rules-title h1 {
+        font-size: 28px;
+    }
+
+
+    .rules-title p {
+        font-size: 15px;
+    }
+
+
+    .rules-navigation {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 10px;
+    }
+
+
+    .rules-navigation a {
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+
+
+    .rules-block {
+        padding: 20px 15px;
+    }
+
+
+    .rules-block h2 {
+        font-size: 22px;
+    }
+
+
+    .rules-block h3 {
+        font-size: 18px;
+    }
+
+
+    .rules-block p {
+        font-size: 14px;
+    }
+
+}
+
+
+/* ==========================
+   FIX SIDE MENU
+========================== */
+
+.side-menu {
+    overflow-y: auto;
+}
+
+
+.menu-overlay {
+    pointer-events: none;
+}
+
+
+.menu-overlay.active {
+    pointer-events: all;
+}

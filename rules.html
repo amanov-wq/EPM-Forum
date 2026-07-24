@@ -9,7 +9,6 @@
 <title>Estamon RP — Правила</title>
 
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="rules.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -47,20 +46,6 @@
 
 
 
-<div class="mobile-menu" id="mobileMenu">
-
-    <div class="menu-top">
-
-        <span>
-            ESTAMON
-        </span>
-
-
-        <button onclick="toggleMenu()">
-            ✕
-        </button>
-
-    </div>
 
 
     <a href="server-info.html">
@@ -1586,9 +1571,14 @@ Survival 4.4 Администрация не возвращает приобре
 
 function toggleMenu(){
 
-    document.querySelector("nav").classList.toggle("active");
+    const menu = document.getElementById("sideMenu");
+    const overlay = document.getElementById("menuOverlay");
+
+    menu.classList.toggle("active");
+    overlay.classList.toggle("active");
 
 }
+
 
 </script>
 
