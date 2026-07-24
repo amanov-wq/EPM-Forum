@@ -5221,3 +5221,187 @@ transform:translateY(0);
 
 
 }
+/* =================================
+   FIX DESKTOP CONTENT
+================================= */
+
+body{
+    overflow-x:hidden;
+}
+
+
+.rules-page,
+.server-page,
+.forum-wrapper,
+.donate-page,
+.profile-wrapper{
+
+    width:100%;
+    max-width:1400px;
+
+    margin:0 auto;
+
+    box-sizing:border-box;
+
+}
+
+
+@media(min-width:769px){
+
+    nav{
+        display:none;
+    }
+
+
+    .main-header{
+        left:0;
+        right:0;
+    }
+
+
+}
+/* =================================
+   MOBILE SCROLL FIX
+================================= */
+
+html,
+body{
+
+    min-height:100%;
+
+    overflow-x:hidden;
+
+    overflow-y:auto;
+
+}
+
+
+@media(max-width:768px){
+
+
+.rules-page{
+
+    padding-top:90px;
+
+}
+
+
+.rules-container,
+.rules-content,
+.rules-wrapper{
+
+    height:auto;
+
+    overflow:visible;
+
+}
+
+
+
+main{
+
+    overflow:visible;
+
+}
+
+
+}
+/* =====================================
+   GLOBAL SCROLL FIX ESTAMON
+===================================== */
+
+
+html{
+
+    height:auto;
+
+    overflow-y:auto;
+
+}
+
+
+body{
+
+    min-height:100vh;
+
+    height:auto;
+
+    overflow-x:hidden;
+
+    overflow-y:auto !important;
+
+}
+
+
+
+/* страницы */
+
+.rules-page,
+.server-page,
+.forum-page,
+.profile-page,
+.login-page,
+.donate-page{
+
+    min-height:100vh;
+
+    height:auto;
+
+    overflow:visible !important;
+
+}
+
+
+
+/* основной контент */
+
+main,
+section,
+.profile-wrapper,
+.forum-wrapper,
+.donate-page,
+.rules-container{
+
+    height:auto;
+
+    overflow:visible !important;
+
+}
+
+
+
+/* видео фон не должен блокировать */
+
+.background-video{
+
+    position:fixed;
+
+    z-index:-2;
+
+}
+
+
+
+/* телефон */
+
+@media(max-width:768px){
+
+
+body{
+
+    touch-action:auto;
+
+    -webkit-overflow-scrolling:touch;
+
+}
+
+
+
+}
+.mobile-menu{
+
+    overflow-y:auto;
+
+    -webkit-overflow-scrolling:touch;
+
+}
