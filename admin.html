@@ -4,6 +4,8 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>ESTAMON — Админ панель</title>
 
 <link rel="stylesheet" href="style.css">
@@ -14,123 +16,84 @@
 <body>
 
 
-<div class="forum-page">
-
-
 <header class="main-header">
 
-    <div class="logo">
-        ESTAMON
-    </div>
+<h1>ESTAMON ADMIN</h1>
 
-
-    <div class="header-actions">
-
-        <a href="profile.html" class="profile-icon">
-            👤
-        </a>
-
-
-        <button class="menu-toggle" onclick="toggleMenu()">
-            ☰
-        </button>
-
-    </div>
+<a href="index.html">
+Главная
+</a>
 
 </header>
 
 
 
-<div class="mobile-menu" id="mobileMenu">
-
-    <div class="menu-top">
-
-        <span>
-            ESTAMON
-        </span>
+<div class="admin-wrapper">
 
 
-        <button onclick="toggleMenu()">
-            ✕
-        </button>
-
-    </div>
+<h2>🛡 Админ панель</h2>
 
 
-    <a href="server-info.html">
-        ⚔️ Информация
-    </a>
 
-
-    <a href="forum.html">
-        💬 Форум
-    </a>
-
-
-    <a href="news.html">
-        📰 Новости
-    </a>
-
-
-    <a href="rules.html">
-        📜 Правила
-    </a>
-
-
-    <a href="donate.html">
-        💎 Донат
-    </a>
-
-
-    <a href="profile.html">
-        👤 Профиль
-    </a>
-
-
-    <a onclick="logout()" style="cursor:pointer;">
-        🚪 Выйти
-    </a>
-
-
+<div id="adminStatus">
+Проверка прав...
 </div>
 
 
 
-<div class="menu-background" id="menuBackground" onclick="toggleMenu()"></div>
-
-</header>
+<section class="admin-box">
 
 
+<h3>👥 Пользователи</h3>
 
-<div class="forum-title">
 
-<h1>
-Админ панель
-</h1>
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>Логин</th>
+
+<th>Email</th>
+
+<th>Роль</th>
+
+<th>Изменить</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="usersList">
+
+</tbody>
+
+
+</table>
+
+
+</section>
+
+
+
+
+
+<section class="admin-box">
+
+
+<h3>💰 Покупки доната</h3>
+
+
+<div id="purchasesList">
 
 </div>
 
 
+</section>
 
-
-<div class="profile-container">
-
-
-<div class="profile-card" style="width:700px;">
-
-
-<div id="users">
-
-Загрузка...
-
-</div>
-
-
-
-</div>
-
-
-</div>
 
 
 </div>
@@ -142,24 +105,59 @@
 <script>
 
 
-let roles=[
+let login =
+localStorage.getItem("login");
 
-"Пользователь",
-"Стример",
-"Стажер",
-"Мл.Хелпер",
-"Хелпер",
-"Ст.Хелпер",
-"Мл.Модератор",
-"Модератор",
-"Ст.Модератор",
-"Куратор по рекламе",
-"Куратор по команде проекта",
-"Зам Куратор",
-"Куратор режима",
-"Создатель"
 
-];
+
+if(!login){
+
+document.getElementById("adminStatus").innerHTML =
+"❌ Вы не вошли";
+
+}
+
+
+
+
+async function checkAdmin(){
+
+
+let res =
+await fetch(
+"/check-admin/"+login
+);
+
+
+let data =
+await res.json();
+
+
+
+if(!data.allowed){
+
+
+document.getElementById("adminStatus").innerHTML =
+"❌ Нет доступа";
+
+
+return;
+
+
+}
+
+
+document.getElementById("adminStatus").innerHTML =
+"✅ Доступ разрешён";
+
+
+loadUsers();
+
+loadPurchases();
+
+
+}
+
 
 
 
@@ -168,88 +166,94 @@ let roles=[
 async function loadUsers(){
 
 
-
-let res = await fetch("/admin/users");
-
-
-let users = await res.json();
-
+let res =
+await fetch(
+"/admin/users"
+);
 
 
-let box=document.getElementById("users");
+let users =
+await res.json();
 
-box.innerHTML="";
+
+
+let html="";
 
 
 
 users.forEach(user=>{
 
 
-box.innerHTML+=`
+html += `
+
+<tr>
+
+<td>${user.login}</td>
+
+<td>${user.email}</td>
 
 
-<div style="
-
-padding:20px;
-
-margin:15px;
-
-background:rgba(255,255,255,.08);
-
-border-radius:20px;
-
-">
-
-
-<h2>
-
-${user.login}
-
-</h2>
-
-
-
-<p>
-
-Текущая роль:
-<b>
-
-${user.role}
-
-</b>
-
-</p>
-
-
+<td>
 
 <select id="role-${user.login}">
 
 
-${roles.map(r=>`
-
-<option ${r==user.role?"selected":""}>
-
-${r}
-
+<option ${user.role=="Пользователь"?"selected":""}>
+Пользователь
 </option>
 
-`).join("")}
 
+<option ${user.role=="Стример"?"selected":""}>
+Стример
+</option>
+
+
+<option ${user.role=="Мл.Хелпер"?"selected":""}>
+Мл.Хелпер
+</option>
+
+
+<option ${user.role=="Хелпер"?"selected":""}>
+Хелпер
+</option>
+
+
+<option ${user.role=="Модератор"?"selected":""}>
+Модератор
+</option>
+
+
+<option ${user.role=="Куратор режима"?"selected":""}>
+Куратор режима
+</option>
+
+
+<option ${user.role=="Создатель"?"selected":""}>
+Создатель
+</option>
 
 
 </select>
 
 
+</td>
+
+
+
+<td>
+
 
 <button onclick="changeRole('${user.login}')">
 
-Изменить
+Сохранить
 
 </button>
 
 
+</td>
 
-</div>
+
+</tr>
 
 
 `;
@@ -258,63 +262,60 @@ ${r}
 });
 
 
+
+document.getElementById("usersList").innerHTML =
+html;
+
+
 }
 
 
 
 
-function changeRole(login){
 
 
 
-let role=document.getElementById(
+async function changeRole(user){
 
-"role-"+login
 
+let role =
+document.getElementById(
+"role-"+user
 ).value;
 
 
 
-fetch("/admin/role",{
-
+await fetch(
+"/admin/role",
+{
 
 method:"POST",
 
-
 headers:{
 
-
 "Content-Type":"application/json"
-
 
 },
 
 
 body:JSON.stringify({
 
-login:login,
+login:user,
 
 role:role
 
 })
 
 
-})
+});
 
 
-.then(res=>res.json())
-
-
-.then(()=>{
-
-
-alert("Роль изменена");
+alert(
+"Роль изменена"
+);
 
 
 loadUsers();
-
-
-});
 
 
 }
@@ -322,8 +323,75 @@ loadUsers();
 
 
 
-loadUsers();
 
+
+
+
+
+async function loadPurchases(){
+
+
+let res =
+await fetch(
+"/admin/purchases"
+);
+
+
+let data =
+await res.json();
+
+
+
+let html="";
+
+
+
+data.forEach(p=>{
+
+
+html += `
+
+<div class="purchase-card">
+
+
+<b>${p.nickname}</b>
+
+<br>
+
+${p.product}
+
+<br>
+
+Цена: ${p.price}₽
+
+<br>
+
+Статус:
+${p.status}
+
+
+</div>
+
+`;
+
+
+});
+
+
+
+document.getElementById(
+"purchasesList"
+).innerHTML =
+html;
+
+
+}
+
+
+
+
+
+checkAdmin();
 
 
 </script>

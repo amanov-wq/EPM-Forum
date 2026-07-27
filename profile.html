@@ -24,23 +24,23 @@
 
 <header class="main-header">
 
-    <div class="logo">
-        ESTAMON
-    </div>
+<div class="logo">
+ESTAMON
+</div>
 
 
-    <div class="header-actions">
+<div class="header-actions">
 
-        <a href="profile.html" class="profile-icon">
-            👤
-        </a>
+<a href="profile.html" class="profile-icon">
+👤
+</a>
 
 
-        <button class="menu-toggle" onclick="toggleMenu()">
-            ☰
-        </button>
+<button class="menu-toggle" onclick="toggleMenu()">
+☰
+</button>
 
-    </div>
+</div>
 
 </header>
 
@@ -48,53 +48,47 @@
 
 <div class="mobile-menu" id="mobileMenu">
 
-    <div class="menu-top">
+<div class="menu-top">
 
-        <span>
-            ESTAMON
-        </span>
-
-
-        <button onclick="toggleMenu()">
-            ✕
-        </button>
-
-    </div>
+<span>
+ESTAMON
+</span>
 
 
-    <a href="server-info.html">
-        ⚔️ Информация
-    </a>
+<button onclick="toggleMenu()">
+✕
+</button>
+
+</div>
 
 
-    <a href="forum.html">
-        💬 Форум
-    </a>
+<a href="server-info.html">
+⚔️ Информация
+</a>
 
+<a href="forum.html">
+💬 Форум
+</a>
 
-    <a href="news.html">
-        📰 Новости
-    </a>
+<a href="news.html">
+📰 Новости
+</a>
 
+<a href="rules.html">
+📜 Правила
+</a>
 
-    <a href="rules.html">
-        📜 Правила
-    </a>
+<a href="donate.html">
+💎 Донат
+</a>
 
+<a href="profile.html">
+👤 Профиль
+</a>
 
-    <a href="donate.html">
-        💎 Донат
-    </a>
-
-
-    <a href="profile.html">
-        👤 Профиль
-    </a>
-
-
-    <a onclick="logout()" style="cursor:pointer;">
-        🚪 Выйти
-    </a>
+<a onclick="logout()" style="cursor:pointer;">
+🚪 Выйти
+</a>
 
 
 </div>
@@ -104,31 +98,52 @@
 <div class="menu-background" id="menuBackground" onclick="toggleMenu()"></div>
 
 
+
 <div class="side-menu" id="sideMenu">
 
-    <div class="menu-header">
 
-        <span>ESTAMON</span>
+<div class="menu-header">
 
-        <button class="close-btn" onclick="toggleMenu()">
-            ✕
-        </button>
+<span>
+ESTAMON
+</span>
 
-    </div>
 
-    <a href="server-info.html">⚔ Информация</a>
+<button class="close-btn" onclick="toggleMenu()">
+✕
+</button>
 
-    <a href="forum.html">💬 Форум</a>
-
-    <a href="news.html">📰 Новости</a>
-
-    <a href="rules.html">📜 Правила</a>
-
-    <a href="donate.html">💎 Донат</a>
-
-    <a href="profile.html">👤 Профиль</a>
 
 </div>
+
+
+<a href="server-info.html">
+⚔ Информация
+</a>
+
+<a href="forum.html">
+💬 Форум
+</a>
+
+<a href="news.html">
+📰 Новости
+</a>
+
+<a href="rules.html">
+📜 Правила
+</a>
+
+<a href="donate.html">
+💎 Донат
+</a>
+
+<a href="profile.html">
+👤 Профиль
+</a>
+
+
+</div>
+
 
 
 <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
@@ -155,18 +170,14 @@ src="https://i.imgur.com/8Km9tLL.png"
 
 
 <h1 id="nickname">
-
 Игрок
-
 </h1>
 
 
 
 
 <div class="role role-user" id="role">
-
-Игрок
-
+Пользователь
 </div>
 
 
@@ -174,7 +185,6 @@ src="https://i.imgur.com/8Km9tLL.png"
 
 
 <div class="stats">
-
 
 
 <div class="stat">
@@ -188,7 +198,6 @@ src="https://i.imgur.com/8Km9tLL.png"
 </b>
 
 </div>
-
 
 
 
@@ -206,7 +215,6 @@ src="https://i.imgur.com/8Km9tLL.png"
 
 
 
-
 <div class="stat">
 
 <span>
@@ -220,10 +228,7 @@ src="https://i.imgur.com/8Km9tLL.png"
 </div>
 
 
-
 </div>
-
-
 
 
 
@@ -254,37 +259,38 @@ placeholder="Ссылка на аватар">
 
 
 <a href="forum.html">
-
-Форум
-
+💬 Форум
 </a>
 
 
 <button onclick="logout()">
-
-Выйти
-
+🚪 Выйти
 </button>
 
 
-</div>
+
+<div id="adminBlock" style="display:none;">
 
 
-
-
-
-</div>
-
-
-</div>
+<a href="admin.html">
+🛡 Админка
+</a>
 
 
 </div>
 
 
+</div>
 
 
 
+</div>
+
+
+</div>
+
+
+</div>
 <script src="auth.js"></script>
 
 
@@ -295,13 +301,125 @@ placeholder="Ссылка на аватар">
 
 if(typeof requireAuth === "function"){
 
-if(!requireAuth()){
+    if(!requireAuth()){
 
-throw new Error("NO AUTH");
+        throw new Error("NO AUTH");
+
+    }
 
 }
 
+
+
+
+// данные пользователя
+
+let user = JSON.parse(
+    localStorage.getItem("user")
+);
+
+
+
+
+// заполнение профиля
+
+if(user){
+
+
+document.getElementById("nickname").innerText =
+user.login || "Игрок";
+
+
+
+let roleElement =
+document.getElementById("role");
+
+
+
+roleElement.innerText =
+user.role || "Пользователь";
+
+
+
+roleElement.className =
+"role " + getRoleClass(user.role);
+
+
+
+
+document.getElementById("avatar").src =
+user.avatar ||
+"https://i.imgur.com/8Km9tLL.png";
+
+
+
+document.getElementById("level").innerText =
+user.level || 1;
+
+
+
+document.getElementById("messages").innerText =
+user.messages || 0;
+
+
+
+document.getElementById("date").innerText =
+user.date || "2026";
+
+
+
 }
+
+
+
+
+
+// роли
+
+
+function getRoleClass(role){
+
+
+let roles={
+
+
+"Пользователь":"role-user",
+
+"Стример":"role-streamer",
+
+"Стажер":"role-trainee",
+
+"Мл.Хелпер":"role-jhelper",
+
+"Хелпер":"role-helper",
+
+"Ст.Хелпер":"role-shelper",
+
+"Мл.Модератор":"role-mod1",
+
+"Модератор":"role-mod",
+
+"Ст.Модератор":"role-smod",
+
+"Куратор по рекламе":"role-curator",
+
+"Куратор по команде проекта":"role-team",
+
+"Зам Куратор":"role-deputy",
+
+"Куратор режима":"role-mode",
+
+"Создатель":"role-owner"
+
+
+};
+
+
+return roles[role] || "role-user";
+
+
+}
+
 
 
 
@@ -311,10 +429,6 @@ throw new Error("NO AUTH");
 
 
 function changeAvatar(){
-
-
-let user = JSON.parse(localStorage.getItem("user"));
-
 
 
 if(!user){
@@ -327,18 +441,16 @@ return;
 
 
 
-let avatar = document.getElementById("avatarInput").value;
+let avatar =
+document.getElementById("avatarInput").value;
 
 
 
 if(!avatar){
 
-
 alert("Введите ссылку");
 
-
 return;
-
 
 }
 
@@ -396,7 +508,8 @@ JSON.stringify(user)
 
 
 
-document.getElementById("avatar").src = avatar;
+document.getElementById("avatar").src =
+avatar;
 
 
 
@@ -404,7 +517,6 @@ alert("Аватар изменён");
 
 
 }
-
 
 
 });
@@ -416,119 +528,35 @@ alert("Аватар изменён");
 
 
 
-// роли
 
 
-let user = JSON.parse(localStorage.getItem("user"));
-
-
-
-function getRoleClass(role){
-
-
-
-let roles={
-
-
-"Пользователь":"role-user",
-
-"Стример":"role-streamer",
-
-"Стажер":"role-trainee",
-
-"Мл.Хелпер":"role-jhelper",
-
-"Хелпер":"role-helper",
-
-"Ст.Хелпер":"role-shelper",
-
-"Мл.Модератор":"role-mod1",
-
-"Модератор":"role-mod",
-
-"Ст.Модератор":"role-smod",
-
-"Куратор по рекламе":"role-curator",
-
-"Куратор по команде проекта":"role-team",
-
-"Зам Куратор":"role-deputy",
-
-"Куратор режима":"role-mode",
-
-"Создатель":"role-owner"
-
-
-};
-
-
-
-return roles[role] || "role-user";
-
-
-}
-
-
-
+// проверка доступа к админке
 
 
 if(user){
 
 
-
-document.getElementById("nickname").innerText =
-
-user.login || "Игрок";
+fetch("/check-admin/" + user.login)
 
 
+.then(res=>res.json())
 
 
-let roleElement = document.getElementById("role");
+.then(data=>{
 
 
-
-roleElement.innerText =
-
-user.role || "Пользователь";
+if(data.allowed){
 
 
+document.getElementById(
+"adminBlock"
+).style.display = "block";
 
 
-roleElement.className =
-
-"role " + getRoleClass(user.role);
+}
 
 
-
-
-
-document.getElementById("avatar").src =
-
-user.avatar || "https://i.imgur.com/8Km9tLL.png";
-
-
-
-
-
-document.getElementById("level").innerText =
-
-user.level || 1;
-
-
-
-
-
-document.getElementById("messages").innerText =
-
-user.messages || 0;
-
-
-
-
-
-document.getElementById("date").innerText =
-
-user.date || "2026";
+});
 
 
 }
@@ -536,6 +564,10 @@ user.date || "2026";
 
 
 
+
+
+
+// выход
 
 
 function logout(){
@@ -546,7 +578,8 @@ localStorage.removeItem("user");
 localStorage.removeItem("estamonUser");
 
 
-window.location.href="login.html";
+window.location.href =
+"login.html";
 
 
 }
@@ -556,33 +589,32 @@ window.location.href="login.html";
 
 
 
-
-// мобильное меню
+// меню
 
 
 function toggleMenu(){
 
+let menu = document.getElementById("sideMenu");
+let overlay = document.getElementById("menuOverlay");
 
-document.querySelector("nav").classList.toggle("active");
+if(menu){
+    menu.classList.toggle("active");
+}
 
+if(overlay){
+    overlay.classList.toggle("active");
+}
 
 }
+
 
 
 
 </script>
 
-<script>
-
-function toggleMenu(){
-
-    document.querySelector("nav").classList.toggle("active");
-
-}
-
-</script>
 
 <script src="script.js"></script>
+
 
 </body>
 
