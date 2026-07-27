@@ -2002,17 +2002,11 @@ app.post("/donate/give",(req,res)=>{
 
 
 app.listen(PORT, ()=>{
+
     console.log(
-        `ESTAMON server started on port ${PORT}`
+        "ESTAMON server started"
     );
+
 });
 
-
-        console.log(
-            `ESTAMON server started on port ${PORT}`
-        );
-
-
-    }
-
-);
+}
