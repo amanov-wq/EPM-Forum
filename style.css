@@ -6753,3 +6753,509 @@ width:100%;
 
 
 }
+/* ===========================
+   ESTAMON ADMIN PANEL FIX
+=========================== */
+
+
+/* общий фон */
+
+body.admin-page {
+
+    background:
+    linear-gradient(
+    rgba(5,2,20,.85),
+    rgba(5,2,20,.95)
+    ),
+    url("images/background.jpg");
+
+    background-size:cover;
+    background-attachment:fixed;
+
+    font-family:'Rajdhani',sans-serif;
+
+}
+
+
+
+/* контейнер */
+
+.admin-container {
+
+    width:90%;
+
+    max-width:1150px;
+
+    margin:100px auto;
+
+    padding:25px;
+
+    background:
+
+    rgba(20,10,45,.75);
+
+    border-radius:25px;
+
+    box-shadow:
+
+    0 0 40px #7000ff;
+
+}
+
+
+
+/* заголовки */
+
+
+.admin-container h1,
+.admin-section h2 {
+
+
+    text-align:center;
+
+    color:white;
+
+    font-size:38px;
+
+    font-weight:900;
+
+
+    text-shadow:
+
+    0 0 10px #9b00ff,
+
+    0 0 25px #9b00ff;
+
+
+}
+
+
+
+
+
+/* блок пользователей */
+
+
+.user-card {
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+
+    margin:20px 0;
+
+    padding:25px;
+
+
+    background:
+
+    linear-gradient(
+
+    90deg,
+
+    rgba(45,25,75,.9),
+
+    rgba(25,15,50,.9)
+
+    );
+
+
+    border-radius:18px;
+
+
+    border:1px solid rgba(160,80,255,.4);
+
+
+    box-shadow:
+
+    0 0 15px rgba(130,0,255,.35);
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.user-card:hover {
+
+
+    transform:translateY(-3px);
+
+
+    box-shadow:
+
+    0 0 30px #8b00ff;
+
+
+}
+
+
+
+
+/* ник */
+
+
+.user-card h3 {
+
+
+    margin:0;
+
+    color:white;
+
+    font-size:25px;
+
+}
+
+
+
+
+
+/* почта */
+
+
+.user-card p {
+
+
+    margin:5px 0;
+
+    color:#ddd;
+
+    font-size:18px;
+
+}
+
+
+
+
+
+/* выбор роли */
+
+
+.user-card select {
+
+
+    background:
+
+    #211538;
+
+
+    color:white;
+
+
+    border:
+
+    1px solid #9b00ff;
+
+
+    padding:
+
+    12px 25px;
+
+
+    border-radius:12px;
+
+
+    font-family:'Rajdhani';
+
+
+    font-size:18px;
+
+
+    font-weight:700;
+
+
+    outline:none;
+
+
+    cursor:pointer;
+
+
+    box-shadow:
+
+    0 0 15px rgba(150,0,255,.5);
+
+
+}
+
+
+
+
+.user-card select option {
+
+
+    background:#170b2c;
+
+    color:white;
+
+
+}
+
+
+
+
+/* сохранить */
+
+
+.user-card button {
+
+
+    padding:
+
+    12px 35px;
+
+
+    border:none;
+
+
+    border-radius:15px;
+
+
+    background:
+
+
+    linear-gradient(
+
+    90deg,
+
+    #7200ff,
+
+    #c000ff
+
+    );
+
+
+    color:white;
+
+
+    font-size:18px;
+
+
+    font-weight:900;
+
+
+    font-family:'Rajdhani';
+
+
+    cursor:pointer;
+
+
+    box-shadow:
+
+
+    0 0 20px #9b00ff;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+.user-card button:hover {
+
+
+    transform:scale(1.08);
+
+
+    box-shadow:
+
+
+    0 0 35px #c000ff;
+
+
+}
+
+
+
+
+/* поиск */
+
+
+#search {
+
+
+    width:100%;
+
+
+    box-sizing:border-box;
+
+
+    padding:18px;
+
+
+    margin-bottom:25px;
+
+
+    border-radius:15px;
+
+
+    border:1px solid #9b00ff;
+
+
+    background:
+
+    rgba(255,255,255,.12);
+
+
+    color:white;
+
+
+    font-size:20px;
+
+
+    font-family:'Rajdhani';
+
+
+    outline:none;
+
+
+}
+
+
+
+
+#search::placeholder {
+
+color:#aaa;
+
+}
+
+
+
+
+
+/* донаты */
+
+
+.donate-card {
+
+
+    background:
+
+    linear-gradient(
+
+    135deg,
+
+    rgba(80,40,130,.5),
+
+    rgba(20,10,40,.9)
+
+    );
+
+
+    padding:25px;
+
+
+    border-radius:20px;
+
+
+    margin:20px 0;
+
+
+    border:1px solid #8b00ff;
+
+
+    box-shadow:
+
+
+    0 0 20px rgba(140,0,255,.4);
+
+
+}
+
+
+
+
+.donate-card h3 {
+
+
+color:#d7a5ff;
+
+font-size:25px;
+
+
+}
+
+
+
+
+/* адаптация */
+
+
+@media(max-width:700px){
+
+
+.user-card{
+
+
+flex-direction:column;
+
+align-items:stretch;
+
+
+}
+
+
+.user-card select,
+.user-card button{
+
+
+width:100%;
+
+
+}
+
+
+}
+/* убрать белый низ страницы */
+
+html,
+body {
+
+    min-height:100%;
+
+    background:#080316;
+
+}
+
+
+body {
+
+    margin:0;
+
+    overflow-x:hidden;
+
+}
+
+
+.admin-page,
+.admin-container,
+.admin-wrapper {
+
+    min-height:100vh;
+
+}
+
+
+footer {
+
+    background:transparent !important;
+
+}
+
+
+* {
+
+    box-sizing:border-box;
+
+}
