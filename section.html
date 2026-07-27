@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>ESTAMON — Раздел</title>
 
 <link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700;900&display=swap" rel="stylesheet">
 
 </head>
 
@@ -15,30 +17,27 @@
 <body class="forum-page">
 
 
-<header>
+<header class="main-header">
 
 <div class="logo">
 ESTAMON
 </div>
 
 
-<nav>
+<div class="header-actions">
 
-<a href="index.html">Главная</a>
+<a href="profile.html" class="profile-icon">
+👤
+</a>
 
-<a href="forum.html">Форум</a>
 
-<a href="news.html">Новости</a>
+<button class="menu-toggle" onclick="toggleMenu()">
+☰
+</button>
 
-<a href="rules.html">Правила</a>
-
-<a href="donate.html">Донат</a>
-
-</nav>
+</div>
 
 </header>
-
-
 
 
 
@@ -52,24 +51,28 @@ ESTAMON
 </h1>
 
 
-<div id="create-topic-block">
-
-<a href="create-topic.html" class="create-topic">
+<a id="createBtn" href="create-topic.html" class="create-topic">
 Создать тему
 </a>
 
-</div>
-
-
-
-<div id="topics">
-
 
 </div>
 
 
+
+<div id="topicsList" class="topics-list">
+
+
+<div class="forum-box">
+Загрузка тем...
 </div>
 
+
+</div>
+
+
+
+</div>
 
 
 
@@ -78,178 +81,166 @@ ESTAMON
 <script>
 
 
-let name =
-new URLSearchParams(location.search)
-.get("name");
+const params = new URLSearchParams(location.search);
+
+const section = params.get("name");
+
+
+document.getElementById("sectionName").innerHTML =
+"💬 " + section;
 
 
 
-document.getElementById("sectionName")
-.innerText=name;
+const topicsList =
+document.getElementById("topicsList");
 
 
 
-fetch("/api/topics")
-
-.then(r=>r.json())
-
-.then(topics=>{
+async function loadTopics(){
 
 
-let box=document.getElementById("topics");
+try{
 
 
-topics
-.filter(t=>t.section===name)
-.forEach(t=>{
+let res = await fetch("/api/topics");
 
 
-box.innerHTML += `
-
-<div class="topic-preview">
+let topics = await res.json();
 
 
-<div class="topic-icon">
-💬
+
+let filtered = topics.filter(t=>t.section===section);
+
+
+
+if(filtered.length===0){
+
+
+topicsList.innerHTML = `
+
+<div class="forum-box">
+
+<h2>
+Тем пока нет
+</h2>
+
+<p>
+Создайте первую тему!
+</p>
+
 </div>
 
+`;
 
-<div class="topic-content">
+return;
+
+}
 
 
-<a class="topic-name"
-href="topic.html?id=${t.id}">
 
-${t.title}
+topicsList.innerHTML="";
+
+
+
+filtered.reverse().forEach(topic=>{
+
+
+let box=document.createElement("div");
+
+
+box.className="forum-box";
+
+
+
+box.innerHTML=`
+
+<h2>
+
+${topic.pinned ? "📌 " : ""}
+
+${topic.title}
+
+</h2>
+
+
+<p>
+
+👤 Автор:
+${topic.author || "Игрок"}
+
+</p>
+
+
+<p>
+
+💬 Ответов:
+${topic.answers ? topic.answers.length : 0}
+
+</p>
+
+
+<a class="create-topic"
+
+href="topic.html?id=${topic.id}">
+
+Открыть тему
 
 </a>
 
 
-<p>${t.text}</p>
-
-
-<div class="topic-info">
-
-👤 ${t.author}
-
-|
-
-📅 ${t.date}
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
 `;
+
+
+
+topicsList.appendChild(box);
+
 
 
 });
 
 
-});
+
+}catch(e){
 
 
-</script>
+topicsList.innerHTML=
 
-<script>
+`
+<div class="forum-box">
 
-const user = JSON.parse(
-localStorage.getItem("user")
-);
-
-
-const staffRoles = [
-
-"Мл.Хелпер",
-"Хелпер",
-"Ст.Хелпер",
-"Мл.Модератор",
-"Модератор",
-"Ст.Модератор",
-"Куратор по рекламе",
-"Куратор по команде проекта",
-"Зам Куратор",
-"Куратор режима",
-"Создатель"
-
-];
-
-
-
-const allowedSections = [
-
-"Общение",
-"Жалобы",
-"Баг-репорты",
-"Отзывы"
-
-];
-
-
-
-
-
-let params = new URLSearchParams(
-window.location.search
-);
-
-
-let sectionName = params.get("name");
-
-
-
-
-
-let createBlock = document.getElementById(
-"create-topic-block"
-);
-
-
-
-
-
-if(!user){
-
-
-createBlock.style.display="none";
-
-
-}
-
-else if(
-!staffRoles.includes(user.role)
-&&
-!allowedSections.includes(sectionName)
-){
-
-
-createBlock.innerHTML = `
-
-<div style="
-padding:15px;
-border-radius:12px;
-background:rgba(255,0,0,.15);
-border:1px solid #ff5555;
-color:#ff7777;
-font-weight:700;
-">
-
-🔒 Создание тем доступно только персоналу
+Ошибка загрузки тем
 
 </div>
-
 `;
 
 }
 
 
+}
+
+
+
+loadTopics();
+
+
+
+
+
+function toggleMenu(){
+
+document.querySelector("nav")
+.classList.toggle("active");
+
+}
+
+
+
 </script>
+
+
+
+<script src="script.js"></script>
+
 
 </body>
-
 </html>
