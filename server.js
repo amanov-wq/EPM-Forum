@@ -9,6 +9,10 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 
+console.log("SERVER DIR:", __dirname);
+console.log("FILES:", fs.readdirSync(__dirname));
+
+
 // =================
 // SETTINGS
 // =================
@@ -20,11 +24,7 @@ app.use(express.json());
 
 // сайт находится на уровень выше папки server
 
-app.use(
-    express.static(
-        path.join(__dirname, "..")
-    )
-);
+app.use(express.static(__dirname));
 
 
 
@@ -253,17 +253,12 @@ function canManage(role){
 
 app.get("/",(req,res)=>{
 
-
     res.sendFile(
-
         path.join(
             __dirname,
-            "..",
             "index.html"
         )
-
     );
-
 
 });
 
@@ -492,6 +487,19 @@ app.post("/login",(req,res)=>{
 
 app.get("/profile/:login",(req,res)=>{
 
+app.get("/:page", (req,res)=>{
+
+    let file = path.join(
+        __dirname,
+        "..",
+        req.params.page
+    );
+
+
+    res.sendFile(file);
+
+});
+
 
     let users=getUsers();
 
@@ -719,7 +727,7 @@ app.post("/api/topics",(req,res)=>{
 
     let user=users.find(u=>
 
-        u.login===req.body.author
+        u.login===req.query.author
 
     );
 
@@ -969,7 +977,7 @@ app.post("/api/topics/:id/answer",(req,res)=>{
     topic.answers.push({
 
 
-        author:req.body.author,
+        author:req.query.author,
 
 
         text:req.body.text,
@@ -1026,7 +1034,7 @@ app.delete("/api/topics/:id",(req,res)=>{
 
     let user=users.find(u=>
 
-        u.login===req.body.author
+        u.login===req.query.author
 
     );
 
@@ -1108,7 +1116,7 @@ app.post("/api/topics/:id/pin",(req,res)=>{
 
     let user=users.find(u=>
 
-        u.login===req.body.author
+        u.login===req.query.author
 
     );
 
@@ -1195,7 +1203,7 @@ app.post("/api/topics/:id/close",(req,res)=>{
 
     let user=users.find(u=>
 
-        u.login===req.body.author
+        u.login===req.query.author
 
     );
 
@@ -1285,7 +1293,7 @@ app.post("/reviews",(req,res)=>{
 
 
 
-    if(!req.body.author || !req.body.text){
+    if(!req.query.author || !req.body.text){
 
 
         return res.json({
@@ -1309,7 +1317,7 @@ app.post("/reviews",(req,res)=>{
         id:Date.now(),
 
 
-        author:req.body.author,
+        author:req.query.author,
 
 
         text:req.body.text,
@@ -1384,7 +1392,7 @@ app.post("/news",(req,res)=>{
 
     let user=users.find(u=>
 
-        u.login===req.body.author
+        u.login===req.query.author
 
     );
 
@@ -1993,13 +2001,11 @@ app.post("/donate/give",(req,res)=>{
 // =================
 
 
-app.listen(
-
-    PORT,
-
-    "0.0.0.0",
-
-    ()=>{
+app.listen(PORT, ()=>{
+    console.log(
+        `ESTAMON server started on port ${PORT}`
+    );
+});
 
 
         console.log(
