@@ -19,22 +19,17 @@
 <body class="rules-page">
 
 
-<header class="header">
-
-
 <header class="main-header">
 
     <div class="logo">
         ESTAMON
     </div>
 
-
     <div class="header-actions">
 
         <a href="profile.html" class="profile-icon">
             👤
         </a>
-
 
         <button class="menu-toggle" onclick="toggleMenu()">
             ☰
@@ -46,6 +41,19 @@
 
 
 
+<div class="side-menu" id="sideMenu">
+
+    <div class="menu-header">
+
+        <span>
+            ESTAMON
+        </span>
+
+        <button class="close-btn" onclick="toggleMenu()">
+            ✕
+        </button>
+
+    </div>
 
 
     <a href="server-info.html">
@@ -78,16 +86,11 @@
     </a>
 
 
-    <a onclick="logout()" style="cursor:pointer;">
-        🚪 Выйти
-    </a>
-
-
 </div>
 
 
 
-<div class="menu-background" id="menuBackground" onclick="toggleMenu()"></div>
+<div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
 
 
 <div class="side-menu" id="sideMenu">

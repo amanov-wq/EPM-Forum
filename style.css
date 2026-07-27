@@ -5997,3 +5997,245 @@ body {
     0 0 20px #a855ff;
 
 }
+.admin-wrapper{
+
+max-width:1200px;
+
+margin:80px auto;
+
+padding:20px;
+
+}
+
+
+.admin-wrapper h1{
+
+text-align:center;
+
+font-size:45px;
+
+}
+
+
+.admin-status{
+
+text-align:center;
+
+margin:20px;
+
+font-size:22px;
+
+}
+
+
+.admin-box{
+
+background:rgba(20,10,40,.75);
+
+border-radius:20px;
+
+padding:25px;
+
+margin-bottom:30px;
+
+box-shadow:0 0 30px rgba(150,70,255,.5);
+
+}
+
+
+.admin-box h2{
+
+color:white;
+
+}
+
+
+
+#searchUser{
+
+width:100%;
+
+padding:15px;
+
+border-radius:15px;
+
+margin-bottom:20px;
+
+}
+
+
+
+
+
+.user-card,
+.purchase-card{
+
+background:rgba(255,255,255,.08);
+
+padding:20px;
+
+border-radius:15px;
+
+margin-bottom:15px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+gap:20px;
+
+}
+
+
+
+.user-card button{
+
+background:#8b5cff;
+
+color:white;
+
+border:0;
+
+padding:10px 20px;
+
+border-radius:10px;
+
+cursor:pointer;
+
+}
+
+
+
+.user-card select{
+
+padding:10px;
+
+border-radius:10px;
+
+}
+
+
+
+
+
+.purchase-card{
+
+display:block;
+
+}
+
+
+
+@media(max-width:700px){
+
+
+.user-card{
+
+flex-direction:column;
+
+align-items:stretch;
+
+}
+
+
+}
+/* =========================
+   FIX RULES PAGE
+========================= */
+
+body{
+    overflow-x:hidden;
+}
+
+
+.rules-page,
+.rules-wrapper,
+.rules-container{
+
+    width:100%;
+    max-width:1400px;
+
+    margin:0 auto;
+
+    box-sizing:border-box;
+
+}
+
+
+
+/* ПК */
+
+@media(min-width:769px){
+
+
+.rules-page{
+
+    padding-left:20px;
+    padding-right:20px;
+
+}
+
+
+.rules-container{
+
+    margin-left:auto;
+    margin-right:auto;
+
+}
+
+
+}
+
+
+
+/* ТЕЛЕФОН */
+
+@media(max-width:768px){
+
+
+.rules-page{
+
+    width:100%;
+
+    padding:15px;
+
+    box-sizing:border-box;
+
+}
+
+
+
+.rules-container{
+
+    max-height:70vh;
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+
+    padding-right:10px;
+
+}
+
+
+
+/* красивый скролл */
+
+.rules-container::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+
+.rules-container::-webkit-scrollbar-thumb{
+
+    border-radius:10px;
+
+}
+
+
+
+}

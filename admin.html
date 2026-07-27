@@ -4,11 +4,14 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>ESTAMON — Админ панель</title>
 
 <link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700;900&display=swap" rel="stylesheet">
 
 </head>
 
@@ -16,75 +19,86 @@
 <body>
 
 
+<div class="admin-page">
+
+
 <header class="main-header">
 
-<h1>ESTAMON ADMIN</h1>
+<div class="logo">
+ESTAMON ADMIN
+</div>
 
-<a href="index.html">
-Главная
+
+<div class="header-actions">
+
+<a href="profile.html" class="profile-icon">
+👤
 </a>
 
+
+</div>
+
 </header>
+
+
 
 
 
 <div class="admin-wrapper">
 
 
-<h2>🛡 Админ панель</h2>
+<h1>
+🛡 Админ панель
+</h1>
 
 
+<div id="adminStatus" class="admin-status">
 
-<div id="adminStatus">
 Проверка прав...
+
 </div>
 
 
 
-<section class="admin-box">
 
 
-<h3>👥 Пользователи</h3>
+<div class="admin-box">
 
 
-<table>
+<h2>
+👥 Пользователи
+</h2>
 
 
-<thead>
 
-<tr>
-
-<th>Логин</th>
-
-<th>Email</th>
-
-<th>Роль</th>
-
-<th>Изменить</th>
-
-</tr>
-
-</thead>
+<input 
+id="searchUser"
+placeholder="Поиск игрока..."
+oninput="searchUsers()"
+>
 
 
-<tbody id="usersList">
 
-</tbody>
+<div id="usersList">
 
-
-</table>
+</div>
 
 
-</section>
+
+</div>
 
 
 
 
 
-<section class="admin-box">
 
 
-<h3>💰 Покупки доната</h3>
+<div class="admin-box">
+
+
+<h2>
+💰 Покупки доната
+</h2>
 
 
 <div id="purchasesList">
@@ -92,11 +106,17 @@
 </div>
 
 
-</section>
+</div>
+
+
 
 
 
 </div>
+
+
+</div>
+
 
 
 
@@ -105,40 +125,55 @@
 <script>
 
 
-let login =
-localStorage.getItem("login");
+let currentUser =
+JSON.parse(
+localStorage.getItem("user")
+);
 
 
 
-if(!login){
+let usersData=[];
 
-document.getElementById("adminStatus").innerHTML =
-"❌ Вы не вошли";
+
+
+
+
+// проверка доступа
+
+
+if(!currentUser){
+
+
+location.href="login.html";
+
 
 }
 
 
 
-
-async function checkAdmin(){
-
-
-let res =
-await fetch(
-"/check-admin/"+login
-);
+fetch(
+"/check-admin/"+currentUser.login
+)
 
 
-let data =
-await res.json();
+.then(res=>res.json())
 
+
+.then(data=>{
 
 
 if(!data.allowed){
 
 
-document.getElementById("adminStatus").innerHTML =
-"❌ Нет доступа";
+document.body.innerHTML = `
+
+<h1 style="text-align:center;margin-top:100px">
+
+❌ Нет доступа
+
+</h1>
+
+`;
 
 
 return;
@@ -147,13 +182,48 @@ return;
 }
 
 
-document.getElementById("adminStatus").innerHTML =
+
+document.getElementById(
+"adminStatus"
+).innerHTML =
 "✅ Доступ разрешён";
 
 
 loadUsers();
 
 loadPurchases();
+
+
+});
+
+
+
+
+
+
+
+// загрузка пользователей
+
+
+function loadUsers(){
+
+
+fetch("/admin/users")
+
+
+.then(res=>res.json())
+
+
+.then(data=>{
+
+
+usersData=data;
+
+
+renderUsers(data);
+
+
+});
 
 
 }
@@ -163,18 +233,8 @@ loadPurchases();
 
 
 
-async function loadUsers(){
 
-
-let res =
-await fetch(
-"/admin/users"
-);
-
-
-let users =
-await res.json();
-
+function renderUsers(users){
 
 
 let html="";
@@ -186,14 +246,33 @@ users.forEach(user=>{
 
 html += `
 
-<tr>
 
-<td>${user.login}</td>
-
-<td>${user.email}</td>
+<div class="user-card">
 
 
-<td>
+<div>
+
+
+<h3>
+${user.login}
+</h3>
+
+
+<p>
+📧 ${user.email}
+</p>
+
+
+<p>
+Роль:
+<b>${user.role}</b>
+</p>
+
+
+</div>
+
+
+
 
 <select id="role-${user.login}">
 
@@ -205,6 +284,11 @@ html += `
 
 <option ${user.role=="Стример"?"selected":""}>
 Стример
+</option>
+
+
+<option ${user.role=="Стажер"?"selected":""}>
+Стажер
 </option>
 
 
@@ -223,6 +307,11 @@ html += `
 </option>
 
 
+<option ${user.role=="Ст.Модератор"?"selected":""}>
+Ст.Модератор
+</option>
+
+
 <option ${user.role=="Куратор режима"?"selected":""}>
 Куратор режима
 </option>
@@ -236,12 +325,6 @@ html += `
 </select>
 
 
-</td>
-
-
-
-<td>
-
 
 <button onclick="changeRole('${user.login}')">
 
@@ -250,10 +333,8 @@ html += `
 </button>
 
 
-</td>
 
-
-</tr>
+</div>
 
 
 `;
@@ -263,8 +344,9 @@ html += `
 
 
 
-document.getElementById("usersList").innerHTML =
-html;
+document.getElementById(
+"usersList"
+).innerHTML=html;
 
 
 }
@@ -275,39 +357,83 @@ html;
 
 
 
-async function changeRole(user){
+function searchUsers(){
+
+
+let text =
+document.getElementById(
+"searchUser"
+).value.toLowerCase();
+
+
+
+let result =
+usersData.filter(u=>
+
+u.login.toLowerCase()
+.includes(text)
+
+);
+
+
+
+renderUsers(result);
+
+
+}
+
+
+
+
+
+
+
+// изменение роли
+
+
+function changeRole(login){
 
 
 let role =
 document.getElementById(
-"role-"+user
+"role-"+login
 ).value;
 
 
 
-await fetch(
-"/admin/role",
-{
+fetch("/admin/role",{
+
 
 method:"POST",
 
+
 headers:{
 
+
 "Content-Type":"application/json"
+
 
 },
 
 
 body:JSON.stringify({
 
-login:user,
+
+login:login,
 
 role:role
+
 
 })
 
 
-});
+})
+
+
+.then(res=>res.json())
+
+
+.then(data=>{
 
 
 alert(
@@ -318,6 +444,9 @@ alert(
 loadUsers();
 
 
+});
+
+
 }
 
 
@@ -326,20 +455,19 @@ loadUsers();
 
 
 
+// покупки
 
 
-async function loadPurchases(){
+function loadPurchases(){
 
 
-let res =
-await fetch(
-"/admin/purchases"
-);
+fetch("/admin/purchases")
 
 
-let data =
-await res.json();
+.then(res=>res.json())
 
+
+.then(data=>{
 
 
 let html="";
@@ -351,26 +479,32 @@ data.forEach(p=>{
 
 html += `
 
+
 <div class="purchase-card">
 
 
-<b>${p.nickname}</b>
+<h3>
+${p.nickname}
+</h3>
 
-<br>
 
-${p.product}
+<p>
+💎 ${p.product}
+</p>
 
-<br>
 
+<p>
 Цена: ${p.price}₽
+</p>
 
-<br>
 
-Статус:
-${p.status}
+<p>
+Статус: ${p.status}
+</p>
 
 
 </div>
+
 
 `;
 
@@ -381,21 +515,17 @@ ${p.status}
 
 document.getElementById(
 "purchasesList"
-).innerHTML =
-html;
+).innerHTML=html;
+
+
+});
 
 
 }
 
 
 
-
-
-checkAdmin();
-
-
 </script>
-
 
 
 </body>
