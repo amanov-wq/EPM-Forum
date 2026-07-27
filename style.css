@@ -6239,3 +6239,517 @@ body{
 
 
 }
+/* =========================
+   ADMIN PANEL ESTAMON
+========================= */
+
+
+.admin-page,
+.admin-container,
+.admin-wrapper {
+
+    min-height:100vh;
+
+    font-family:'Rajdhani', sans-serif;
+
+    color:white;
+
+    background:
+    linear-gradient(
+    rgba(10,5,25,.85),
+    rgba(10,5,25,.95)
+    ),
+    url("images/background.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+}
+
+
+/* главный блок */
+
+.admin-container,
+.admin-wrapper {
+
+    max-width:1200px;
+
+    margin:120px auto 50px;
+
+    padding:30px;
+
+}
+
+
+
+/* Заголовки */
+
+.admin-container h1,
+.admin-container h2,
+.admin-wrapper h1,
+.admin-wrapper h2 {
+
+
+    text-align:center;
+
+    font-size:38px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    color:white;
+
+    text-shadow:
+    0 0 10px #9b5cff,
+    0 0 25px #7b00ff;
+
+
+}
+
+
+
+/* Карточки */
+
+
+.admin-card {
+
+
+    background:
+
+    rgba(20,10,40,.75);
+
+
+    border:1px solid rgba(160,80,255,.5);
+
+
+    border-radius:20px;
+
+
+    padding:25px;
+
+
+    margin:25px 0;
+
+
+    box-shadow:
+
+    0 0 20px rgba(130,0,255,.4);
+
+
+    backdrop-filter:blur(10px);
+
+
+}
+
+
+
+
+
+/* Создатель */
+
+
+.creator-card {
+
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+
+    background:
+
+    linear-gradient(
+    135deg,
+    rgba(130,0,255,.35),
+    rgba(20,10,40,.9)
+    );
+
+
+    border-radius:20px;
+
+
+    padding:25px;
+
+
+    box-shadow:
+
+    0 0 30px #8b00ff;
+
+
+}
+
+
+
+.creator-card h2 {
+
+
+    margin:0;
+
+    color:#c58cff;
+
+
+}
+
+
+
+
+
+/* роль */
+
+
+.admin-role {
+
+
+    display:inline-block;
+
+
+    padding:8px 20px;
+
+
+    border-radius:20px;
+
+
+    font-size:18px;
+
+
+    font-weight:900;
+
+
+    background:
+
+    linear-gradient(
+    90deg,
+    #8b00ff,
+    #d000ff
+    );
+
+
+    box-shadow:
+
+    0 0 15px #a000ff;
+
+
+}
+
+
+
+
+/* поиск игрока */
+
+
+.admin-search {
+
+
+    display:flex;
+
+    gap:15px;
+
+    justify-content:center;
+
+    margin:30px 0;
+
+
+}
+
+
+
+.admin-search input {
+
+
+    width:350px;
+
+
+    padding:15px 20px;
+
+
+    border-radius:15px;
+
+
+    border:none;
+
+
+    outline:none;
+
+
+    background:
+
+    rgba(255,255,255,.12);
+
+
+    color:white;
+
+
+    font-family:'Rajdhani';
+
+
+    font-size:20px;
+
+
+    box-shadow:
+
+    inset 0 0 10px rgba(150,0,255,.5);
+
+
+}
+
+
+
+.admin-search input::placeholder {
+
+
+    color:#ccc;
+
+}
+
+
+
+
+.admin-search button {
+
+
+    padding:15px 30px;
+
+
+    border:none;
+
+
+    border-radius:15px;
+
+
+    cursor:pointer;
+
+
+    color:white;
+
+
+    font-size:20px;
+
+
+    font-weight:800;
+
+
+    font-family:'Rajdhani';
+
+
+    background:
+
+    linear-gradient(
+    90deg,
+    #7200ff,
+    #b400ff
+    );
+
+
+    box-shadow:
+
+    0 0 20px #9b00ff;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.admin-search button:hover {
+
+
+    transform:scale(1.08);
+
+
+    box-shadow:
+
+    0 0 35px #c000ff;
+
+
+}
+
+
+
+
+
+/* доступ разрешён */
+
+
+.access-success {
+
+
+    text-align:center;
+
+
+    margin:20px;
+
+
+    padding:20px;
+
+
+    border-radius:20px;
+
+
+    font-size:26px;
+
+
+    font-weight:900;
+
+
+    font-family:'Rajdhani';
+
+
+    color:#9dffb0;
+
+
+    background:
+
+    rgba(0,255,100,.12);
+
+
+    border:
+
+    1px solid #00ff88;
+
+
+    box-shadow:
+
+    0 0 25px rgba(0,255,120,.5);
+
+
+}
+
+
+
+
+/* запрет */
+
+
+.access-denied {
+
+
+    text-align:center;
+
+
+    padding:20px;
+
+
+    border-radius:20px;
+
+
+    color:#ff7777;
+
+
+    font-size:25px;
+
+
+    font-weight:900;
+
+
+    background:
+
+    rgba(255,0,0,.15);
+
+
+    border:
+
+    1px solid red;
+
+
+}
+
+
+
+
+/* кнопки админки */
+
+
+.admin-btn {
+
+
+    display:inline-block;
+
+
+    padding:12px 30px;
+
+
+    border-radius:15px;
+
+
+    background:
+
+    linear-gradient(
+    90deg,
+    #7200ff,
+    #bb00ff
+    );
+
+
+    color:white;
+
+
+    font-size:20px;
+
+
+    font-weight:800;
+
+
+    text-decoration:none;
+
+
+    box-shadow:
+
+    0 0 20px #9700ff;
+
+
+}
+
+
+
+.admin-btn:hover {
+
+
+    transform:scale(1.05);
+
+
+}
+
+
+
+
+
+/* телефон */
+
+
+@media(max-width:700px){
+
+
+.admin-container,
+.admin-wrapper{
+
+margin-top:90px;
+
+padding:15px;
+
+}
+
+
+
+.admin-search{
+
+flex-direction:column;
+
+}
+
+
+
+.admin-search input{
+
+width:100%;
+
+}
+
+
+
+}
