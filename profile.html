@@ -91,55 +91,70 @@
 <div class="profile-wrapper">
 
 
-<!-- ПРОФИЛЬ ДЛЯ ГОСТЯ -->
+<!-- ГОСТЬ -->
+
 <section id="guestProfile" style="display:none;">
 
-    <div class="game-profile guest-card">
+<div class="epm-profile-card guest-card">
 
-        <div class="guest-avatar">
-            👤
-        </div>
 
-        <h1>
-            Вы гость
-        </h1>
+<div class="epm-avatar">
+    👤
+</div>
 
-        <p>
-            Вы можете просматривать форум EPM.
 
-            <br><br>
+<h1>
+    Вы гость
+</h1>
 
-            Для создания тем, ответов и общения
-            необходимо войти или зарегистрироваться.
-        </p>
 
-        <div class="guest-buttons">
+<p>
+    Добро пожаловать в
+    <b>EPM — Estamon Project Minecraft</b>
+    <br><br>
 
-            <a href="login.html" class="guest-btn">
-                Войти
-            </a>
+    Вы можете просматривать форум,
+    новости и информацию о сервере.
 
-            <a href="register.html" class="guest-btn register">
-                Регистрация
-            </a>
+    <br><br>
 
-        </div>
+    Для создания тем, ответов и общения
+    зарегистрируйтесь или войдите.
+</p>
 
-    </div>
+
+<div class="epm-buttons">
+
+<a href="login.html">
+    Войти
+</a>
+
+<a href="register.html">
+    Регистрация
+</a>
+
+</div>
+
+
+</div>
 
 </section>
 
 
 
-<!-- ПРОФИЛЬ АВТОРИЗОВАННОГО ПОЛЬЗОВАТЕЛЯ -->
+
+<!-- ПОЛЬЗОВАТЕЛЬ -->
+
 <section id="userProfile" style="display:none;">
 
-<div class="game-profile user-card">
+
+<div class="epm-profile-card">
 
 
-<div class="profile-avatar">
+<div class="epm-avatar">
 
-<img id="avatarImage" src="images/default-avatar.png">
+<img id="avatarImage"
+src="images/default-avatar.png">
 
 </div>
 
@@ -149,59 +164,75 @@
 </h1>
 
 
-<div class="profile-role">
+<div class="epm-role">
 
-Роль:
-<span id="profileRole">
-Пользователь
-</span>
+⭐ Пользователь
 
 </div>
 
 
-<div class="profile-info">
-
-<p>
-📅 Дата регистрации:
-<span id="registerDate">
--
-</span>
-</p>
+<div class="epm-stats">
 
 
-<p>
-⭐ Опыт:
-<span id="profileXP">
-0
-</span>
-</p>
-
-
-<p>
-💬 Сообщений:
+<div>
+🎮
+<br>
+Сообщения
+<br>
 <span id="messagesCount">
 0
 </span>
-</p>
+</div>
+
+
+
+<div>
+⭐
+<br>
+Опыт
+<br>
+<span id="profileXP">
+0
+</span>
+</div>
+
+
+
+<div>
+🏆
+<br>
+Роль
+<br>
+<span id="profileRole">
+Игрок
+</span>
+</div>
 
 
 </div>
 
 
 
-<div class="profile-actions">
+<div class="epm-buttons">
 
-<a href="forum.html" class="guest-btn">
+
+<a href="forum.html">
 Форум
 </a>
 
 
-<button onclick="logout()" class="guest-btn register">
+<button onclick="logout()">
 Выйти
 </button>
 
 
 </div>
+
+
+</div>
+
+
+</section>
 
 
 </div>

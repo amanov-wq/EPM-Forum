@@ -7598,3 +7598,151 @@ footer {
     display:block !important;
     min-height:500px;
 }
+.epm-profile-card{
+
+width:420px;
+max-width:90%;
+
+margin:120px auto;
+
+padding:35px;
+
+text-align:center;
+
+background:
+rgba(15,10,35,.9);
+
+border-radius:25px;
+
+box-shadow:
+0 0 30px #8b00ff;
+
+color:white;
+
+}
+
+
+.epm-avatar{
+
+width:120px;
+height:120px;
+
+margin:auto;
+
+border-radius:50%;
+
+overflow:hidden;
+
+background:#181020;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+font-size:60px;
+
+box-shadow:
+0 0 20px #a000ff;
+
+}
+
+
+.epm-avatar img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+}
+
+
+
+.epm-profile-card h1{
+
+font-size:36px;
+
+color:#c77dff;
+
+}
+
+
+
+.epm-role{
+
+margin:15px;
+
+font-size:20px;
+
+color:#ffd700;
+
+}
+
+
+
+.epm-stats{
+
+display:flex;
+
+justify-content:space-around;
+
+margin:25px 0;
+
+}
+
+
+
+.epm-stats div{
+
+background:#25163d;
+
+padding:15px;
+
+border-radius:15px;
+
+}
+
+
+
+.epm-buttons{
+
+display:flex;
+
+gap:15px;
+
+justify-content:center;
+
+}
+
+
+
+.epm-buttons a,
+.epm-buttons button{
+
+padding:12px 25px;
+
+border-radius:15px;
+
+border:none;
+
+background:#8b00ff;
+
+color:white;
+
+text-decoration:none;
+
+cursor:pointer;
+
+font-weight:bold;
+
+}
+
+
+.epm-buttons a:hover,
+.epm-buttons button:hover{
+
+box-shadow:
+0 0 20px #c000ff;
+
+}
