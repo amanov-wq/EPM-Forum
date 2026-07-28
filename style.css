@@ -7587,3 +7587,14 @@ footer {
     }
 
 }
+#userProfile {
+    display:block !important;
+    position:relative;
+    z-index:10;
+    color:white;
+}
+
+.profile-wrapper {
+    display:block !important;
+    min-height:500px;
+}

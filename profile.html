@@ -134,55 +134,129 @@
 <!-- ПРОФИЛЬ АВТОРИЗОВАННОГО ПОЛЬЗОВАТЕЛЯ -->
 <section id="userProfile" style="display:none;">
 
-    <!-- СЮДА ПЕРЕНОСИМ ТВОЙ СТАРЫЙ ПРОФИЛЬ -->
-
-</section>
+<div class="game-profile user-card">
 
 
-</main>
+<div class="profile-avatar">
 
-
-
-    <!-- Блок гостя -->
-
-    <section id="guestProfile" style="display:none;">
-
-<div class="game-profile guest-card">
-
-    <div class="guest-avatar">
-        👤
-    </div>
-
-    <h1>
-        Вы гость
-    </h1>
-
-    <p class="guest-text">
-        Вы можете свободно просматривать форум EPM.
-
-        <br><br>
-
-        Чтобы создавать темы, отвечать на сообщения,
-        ставить реакции и пользоваться всеми
-        возможностями проекта,
-        необходимо войти в аккаунт.
-    </p>
-
-    <div class="guest-buttons">
-
-        <a href="login.html" class="guest-btn">
-            Войти
-        </a>
-
-        <a href="register.html" class="guest-btn register">
-            Зарегистрироваться
-        </a>
-
-    </div>
+<img id="avatarImage" src="images/default-avatar.png">
 
 </div>
 
-    </section>
+
+<h1 id="profileName">
+Игрок
+</h1>
+
+
+<div class="profile-role">
+
+Роль:
+<span id="profileRole">
+Пользователь
+</span>
+
+</div>
+
+
+<div class="profile-info">
+
+<p>
+📅 Дата регистрации:
+<span id="registerDate">
+-
+</span>
+</p>
+
+
+<p>
+⭐ Опыт:
+<span id="profileXP">
+0
+</span>
+</p>
+
+
+<p>
+💬 Сообщений:
+<span id="messagesCount">
+0
+</span>
+</p>
+
+
+</div>
+
+
+
+<div class="profile-actions">
+
+<a href="forum.html" class="guest-btn">
+Форум
+</a>
+
+
+<button onclick="logout()" class="guest-btn register">
+Выйти
+</button>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+<script>
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+
+const userData = localStorage.getItem("user");
+
+
+if(!userData) return;
+
+
+const user = JSON.parse(userData);
+
+
+
+document.getElementById("profileName").innerText =
+user.username || "Игрок";
+
+
+document.getElementById("profileRole").innerText =
+user.role || "Пользователь";
+
+
+document.getElementById("avatarImage").src =
+user.avatar || "images/default-avatar.png";
+
+
+document.getElementById("registerDate").innerText =
+user.date || "-";
+
+
+
+});
+
+
+
+function logout(){
+
+localStorage.removeItem("user");
+
+location.href="profile.html";
+
+}
+
+
+</script>
+
+
+
 
     <!-- Блок пользователя -->
 
