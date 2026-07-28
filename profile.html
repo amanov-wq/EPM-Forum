@@ -4,10 +4,9 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ESTAMON — Профиль</title>
+<title>EPM — Профиль</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -15,32 +14,25 @@
 
 </head>
 
-
-<body>
-
-
-<div class="profile-page">
-
+<body class="profile-page">
 
 <header class="main-header">
 
-<div class="logo">
-ESTAMON
-</div>
+    <div class="logo">
+        EPM
+    </div>
 
+    <div class="header-actions">
 
-<div class="header-actions">
+        <a href="profile.html" class="profile-icon">
+            👤
+        </a>
 
-<a href="profile.html" class="profile-icon">
-👤
-</a>
+        <button class="menu-toggle" onclick="toggleMenu()">
+            ☰
+        </button>
 
-
-<button class="menu-toggle" onclick="toggleMenu()">
-☰
-</button>
-
-</div>
+    </div>
 
 </header>
 
@@ -48,574 +40,71 @@ ESTAMON
 
 <div class="mobile-menu" id="mobileMenu">
 
-<div class="menu-top">
+    <div class="menu-top">
 
-<span>
-ESTAMON
-</span>
+        <span>EPM</span>
 
+        <button onclick="toggleMenu()">
+            ✕
+        </button>
 
-<button onclick="toggleMenu()">
-✕
-</button>
+    </div>
 
-</div>
-
-
-<a href="server-info.html">
-⚔️ Информация
-</a>
-
-<a href="forum.html">
-💬 Форум
-</a>
-
-<a href="news.html">
-📰 Новости
-</a>
-
-<a href="rules.html">
-📜 Правила
-</a>
-
-<a href="donate.html">
-💎 Донат
-</a>
-
-<a href="profile.html">
-👤 Профиль
-</a>
-
-<a onclick="logout()" style="cursor:pointer;">
-🚪 Выйти
-</a>
-
+    <a href="server-info.html">⚔️ Информация</a>
+    <a href="forum.html">💬 Форум</a>
+    <a href="news.html">📰 Новости</a>
+    <a href="rules.html">📜 Правила</a>
+    <a href="donate.html">💎 Донат</a>
+    <a href="profile.html">👤 Профиль</a>
 
 </div>
 
 
 
-<div class="menu-background" id="menuBackground" onclick="toggleMenu()"></div>
-
-
+<div class="menu-background" id="menuBackground"></div>
 
 <div class="side-menu" id="sideMenu">
 
+    <div class="menu-header">
 
-<div class="menu-header">
+        <span>EPM</span>
 
-<span>
-ESTAMON
-</span>
+        <button class="close-btn" onclick="toggleMenu()">
+            ✕
+        </button>
 
+    </div>
 
-<button class="close-btn" onclick="toggleMenu()">
-✕
-</button>
-
-
-</div>
-
-
-<a href="server-info.html">
-⚔ Информация
-</a>
-
-<a href="forum.html">
-💬 Форум
-</a>
-
-<a href="news.html">
-📰 Новости
-</a>
-
-<a href="rules.html">
-📜 Правила
-</a>
-
-<a href="donate.html">
-💎 Донат
-</a>
-
-<a href="profile.html">
-👤 Профиль
-</a>
-
+    <a href="server-info.html">⚔ Информация</a>
+    <a href="forum.html">💬 Форум</a>
+    <a href="news.html">📰 Новости</a>
+    <a href="rules.html">📜 Правила</a>
+    <a href="donate.html">💎 Донат</a>
+    <a href="profile.html">👤 Профиль</a>
 
 </div>
 
-
-
-<div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
-
-
+<div class="menu-overlay" id="menuOverlay"></div>
 
 
 
 <div class="profile-wrapper">
 
+    <!-- Блок гостя -->
 
+    <section id="guestProfile" style="display:none;">
 
-<div class="game-profile">
+    </section>
 
+    <!-- Блок пользователя -->
 
+    <section id="userProfile" style="display:none;">
 
-<img 
-class="game-avatar"
-id="avatar"
-src="https://i.imgur.com/8Km9tLL.png"
->
-
-
-
-
-<h1 id="nickname">
-Игрок
-</h1>
-
-
-
-
-<div class="role role-user" id="role">
-Пользователь
-</div>
-
-
-
-
-
-<div class="stats">
-
-
-<div class="stat">
-
-<span>
-Уровень
-</span>
-
-<b id="level">
-1
-</b>
+    </section>
 
 </div>
-
-
-
-<div class="stat">
-
-<span>
-Сообщения
-</span>
-
-<b id="messages">
-0
-</b>
-
-</div>
-
-
-
-<div class="stat">
-
-<span>
-Дата регистрации
-</span>
-
-<b id="date">
-2026
-</b>
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="avatar-change">
-
-
-<input 
-id="avatarInput"
-placeholder="Ссылка на аватар">
-
-
-<button onclick="changeAvatar()">
-
-Сменить аватар
-
-</button>
-
-
-</div>
-
-
-
-
-
-<div class="profile-actions">
-
-
-<a href="forum.html">
-💬 Форум
-</a>
-
-
-<button onclick="logout()">
-🚪 Выйти
-</button>
-
-
-
-<div id="adminBlock" style="display:none;">
-
-
-<a href="admin.html">
-🛡 Админка
-</a>
-
-
-</div>
-
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-</div>
-<script src="auth.js"></script>
-
-
-<script>
-
-
-// проверка аккаунта
-
-if(typeof requireAuth === "function"){
-
-    if(!requireAuth()){
-
-        throw new Error("NO AUTH");
-
-    }
-
-}
-
-
-
-
-// данные пользователя
-
-let user = JSON.parse(
-    localStorage.getItem("user")
-);
-
-
-
-
-// заполнение профиля
-
-if(user){
-
-
-document.getElementById("nickname").innerText =
-user.login || "Игрок";
-
-
-
-let roleElement =
-document.getElementById("role");
-
-
-
-roleElement.innerText =
-user.role || "Пользователь";
-
-
-
-roleElement.className =
-"role " + getRoleClass(user.role);
-
-
-
-
-document.getElementById("avatar").src =
-user.avatar ||
-"https://i.imgur.com/8Km9tLL.png";
-
-
-
-document.getElementById("level").innerText =
-user.level || 1;
-
-
-
-document.getElementById("messages").innerText =
-user.messages || 0;
-
-
-
-document.getElementById("date").innerText =
-user.date || "2026";
-
-
-
-}
-
-
-
-
-
-// роли
-
-
-function getRoleClass(role){
-
-
-let roles={
-
-
-"Пользователь":"role-user",
-
-"Стример":"role-streamer",
-
-"Стажер":"role-trainee",
-
-"Мл.Хелпер":"role-jhelper",
-
-"Хелпер":"role-helper",
-
-"Ст.Хелпер":"role-shelper",
-
-"Мл.Модератор":"role-mod1",
-
-"Модератор":"role-mod",
-
-"Ст.Модератор":"role-smod",
-
-"Куратор по рекламе":"role-curator",
-
-"Куратор по команде проекта":"role-team",
-
-"Зам Куратор":"role-deputy",
-
-"Куратор режима":"role-mode",
-
-"Создатель":"role-owner"
-
-
-};
-
-
-return roles[role] || "role-user";
-
-
-}
-
-
-
-
-
-
-// смена аватара
-
-
-function changeAvatar(){
-
-
-if(!user){
-
-alert("Нет аккаунта");
-
-return;
-
-}
-
-
-
-let avatar =
-document.getElementById("avatarInput").value;
-
-
-
-if(!avatar){
-
-alert("Введите ссылку");
-
-return;
-
-}
-
-
-
-fetch("/profile/avatar",{
-
-
-method:"POST",
-
-
-headers:{
-
-
-"Content-Type":"application/json"
-
-
-},
-
-
-body:JSON.stringify({
-
-
-login:user.login,
-
-
-avatar:avatar
-
-
-})
-
-
-})
-
-
-.then(res=>res.json())
-
-
-.then(data=>{
-
-
-if(data.success){
-
-
-user.avatar = avatar;
-
-
-localStorage.setItem(
-
-"user",
-
-JSON.stringify(user)
-
-);
-
-
-
-document.getElementById("avatar").src =
-avatar;
-
-
-
-alert("Аватар изменён");
-
-
-}
-
-
-});
-
-
-}
-
-
-
-
-
-
-
-// проверка доступа к админке
-
-
-if(user){
-
-
-fetch("/check-admin/" + user.login)
-
-
-.then(res=>res.json())
-
-
-.then(data=>{
-
-
-if(data.allowed){
-
-
-document.getElementById(
-"adminBlock"
-).style.display = "block";
-
-
-}
-
-
-});
-
-
-}
-
-
-
-
-
-
-
-// выход
-
-
-function logout(){
-
-
-localStorage.removeItem("user");
-
-localStorage.removeItem("estamonUser");
-
-
-window.location.href =
-"login.html";
-
-
-}
-
-
-
-
-
-
-// меню
-
-
-function toggleMenu(){
-
-let menu = document.getElementById("sideMenu");
-let overlay = document.getElementById("menuOverlay");
-
-if(menu){
-    menu.classList.toggle("active");
-}
-
-if(overlay){
-    overlay.classList.toggle("active");
-}
-
-}
-
-
-
-
-</script>
-
 
 <script src="script.js"></script>
 
-
 </body>
-
 </html>
