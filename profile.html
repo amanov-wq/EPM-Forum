@@ -254,18 +254,8 @@ href="admin.html">
 </section>
 
 
-</div>
 
 
-</div>
-
-
-</section>
-
-
-</div>
-
-</section>
 
 <script>
 
@@ -275,121 +265,190 @@ document.addEventListener("DOMContentLoaded",()=>{
 const userData = localStorage.getItem("user");
 
 
-if(!userData) return;
+const guestProfile =
+document.getElementById("guestProfile");
+
+const userProfile =
+document.getElementById("userProfile");
+
+
+
+if(!userData){
+
+
+    if(guestProfile)
+    guestProfile.style.display="block";
+
+
+    if(userProfile)
+    userProfile.style.display="none";
+
+
+    return;
+
+}
+
+
 
 
 const user = JSON.parse(userData);
 
 
 
-document.getElementById("profileName").innerText =
-user.username || "Игрок";
+if(guestProfile)
+guestProfile.style.display="none";
 
 
-document.getElementById("profileRole").innerText =
-user.role || "Пользователь";
+if(userProfile)
+userProfile.style.display="block";
 
 
-document.getElementById("avatarImage").src =
-user.avatar || "images/default-avatar.png";
 
 
-document.getElementById("registerDate").innerText =
-user.date || "-";
+// Ник
+
+const name =
+document.getElementById("profileName");
+
+
+if(name){
+
+name.innerText =
+user.username ||
+user.nickname ||
+user.name ||
+"Игрок";
+
+}
+
+
+
+
+// Роль
+
+const role =
+document.getElementById("profileRole");
+
+
+if(role){
+
+role.innerText =
+user.role ||
+"Пользователь";
+
+}
+
+
+
+
+
+// Аватар
+
+const avatar =
+document.getElementById("avatarImage");
+
+
+if(avatar && user.avatar){
+
+avatar.src=user.avatar;
+
+}
+
+
+
+
+// Админка
+
+
+const adminRoles=[
+
+"Создатель",
+"Куратор",
+"Зам Куратор",
+"Куратор режима",
+"Модератор",
+"Ст.Модератор",
+"Администратор"
+
+];
+
+
+
+const adminButton =
+document.getElementById("adminButton");
+
+
+
+if(
+adminButton &&
+adminRoles.includes(user.role)
+){
+
+adminButton.style.display="block";
+
+}
+
 
 
 
 });
+
+
 
 
 
 function logout(){
 
+
 localStorage.removeItem("user");
 
-location.href="profile.html";
+
+window.location.href="profile.html";
+
 
 }
 
 
-</script>
 
 
-
-
-    <!-- Блок пользователя -->
-
-    <section id="userProfile" style="display:none;">
-
-    </section>
-
-</div>
-
-<script src="script.js"></script>
-
-<script>
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const user = localStorage.getItem("user");
-
-    const guestProfile = document.getElementById("guestProfile");
-    const userProfile = document.getElementById("userProfile");
-
-    if (!user) {
-
-        // Гость
-        if (guestProfile) {
-            guestProfile.style.display = "block";
-        }
-
-        if (userProfile) {
-            userProfile.style.display = "none";
-        }
-
-    } else {
-
-        // Авторизованный пользователь
-        if (guestProfile) {
-            guestProfile.style.display = "none";
-        }
-
-        if (userProfile) {
-            userProfile.style.display = "block";
-        }
-
-    }
-
-});
-
-</script>
-
-<script>
 
 function changeAvatar(){
 
 
-let url =
-document.getElementById("avatarUrl").value.trim();
+const input =
+document.getElementById("avatarUrl");
+
+
+const url =
+input.value.trim();
+
 
 
 if(
-!url.match(/\.(jpeg|jpg|png|gif|webp)$/i)
+!url.match(
+/\.(jpg|jpeg|png|gif|webp)$/i
+)
+
 ){
 
-alert("Это не ссылка на изображение");
+alert(
+"Введите ссылку на изображение"
+);
 
 return;
 
 }
 
 
-let user =
+
+
+const user =
 JSON.parse(localStorage.getItem("user"));
 
 
 
 user.avatar=url;
+
 
 
 localStorage.setItem(
@@ -399,65 +458,16 @@ JSON.stringify(user)
 
 
 
-document.getElementById("avatarImage").src=url;
+document.getElementById(
+"avatarImage"
+).src=url;
 
 
-alert("Аватар изменён");
+alert(
+"Автар изменён"
+);
 
 
-}
-
-
-
-
-document.addEventListener("DOMContentLoaded",()=>{
-
-
-let user =
-JSON.parse(localStorage.getItem("user"));
-
-
-if(!user) return;
-
-
-
-let roles=[
-
-"Создатель",
-"Куратор",
-"Зам Куратор",
-"Администратор"
-
-];
-
-
-
-if(
-roles.includes(user.role)
-){
-
-document.getElementById("adminButton")
-.style.display="block";
-
-}
-
-
-
-if(user.avatar){
-
-document.getElementById("avatarImage")
-.src=user.avatar;
-
-}
-
-
-});
-
-function logout(){
-
-    localStorage.removeItem("user");
-
-    window.location.href="profile.html";
 
 }
 
