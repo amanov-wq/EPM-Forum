@@ -147,6 +147,43 @@
 
 <section id="userProfile" style="display:none;">
 
+<div class="profile-settings">
+
+<div class="profile-settings">
+
+<h2>
+⚙️ Настройки профиля
+</h2>
+
+
+<div class="avatar-change">
+
+
+<input 
+id="avatarUrl"
+placeholder="Ссылка на аватар">
+
+
+<button onclick="changeAvatar()">
+🖼 Сменить аватар
+</button>
+
+
+</div>
+
+
+
+<div id="adminButton" style="display:none;">
+
+<a href="admin.html" class="admin-btn">
+🛡 Админ-панель
+</a>
+
+</div>
+
+
+</div>
+
 
 <div class="epm-profile-card">
 
@@ -333,6 +370,105 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+</script>
+
+<script>
+
+function changeAvatar(){
+
+
+let url =
+document.getElementById("avatarUrl").value.trim();
+
+
+if(
+!url.match(/\.(jpeg|jpg|png|gif|webp)$/i)
+){
+
+alert("Это не ссылка на изображение");
+
+return;
+
+}
+
+
+let user =
+JSON.parse(localStorage.getItem("user"));
+
+
+
+user.avatar=url;
+
+
+localStorage.setItem(
+"user",
+JSON.stringify(user)
+);
+
+
+
+document.getElementById("avatarImage").src=url;
+
+
+alert("Аватар изменён");
+
+
+}
+
+
+
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+
+let user =
+JSON.parse(localStorage.getItem("user"));
+
+
+if(!user) return;
+
+
+
+let roles=[
+
+"Создатель",
+"Куратор",
+"Зам Куратор",
+"Администратор"
+
+];
+
+
+
+if(
+roles.includes(user.role)
+){
+
+document.getElementById("adminButton")
+.style.display="block";
+
+}
+
+
+
+if(user.avatar){
+
+document.getElementById("avatarImage")
+.src=user.avatar;
+
+}
+
+
+});
+
+function logout(){
+
+    localStorage.removeItem("user");
+
+    window.location.href="profile.html";
+
+}
 
 </script>
 
