@@ -90,6 +90,59 @@
 
 <div class="profile-wrapper">
 
+
+<!-- ПРОФИЛЬ ДЛЯ ГОСТЯ -->
+<section id="guestProfile" style="display:none;">
+
+    <div class="game-profile guest-card">
+
+        <div class="guest-avatar">
+            👤
+        </div>
+
+        <h1>
+            Вы гость
+        </h1>
+
+        <p>
+            Вы можете просматривать форум EPM.
+
+            <br><br>
+
+            Для создания тем, ответов и общения
+            необходимо войти или зарегистрироваться.
+        </p>
+
+        <div class="guest-buttons">
+
+            <a href="login.html" class="guest-btn">
+                Войти
+            </a>
+
+            <a href="register.html" class="guest-btn register">
+                Регистрация
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ПРОФИЛЬ АВТОРИЗОВАННОГО ПОЛЬЗОВАТЕЛЯ -->
+<section id="userProfile" style="display:none;">
+
+    <!-- СЮДА ПЕРЕНОСИМ ТВОЙ СТАРЫЙ ПРОФИЛЬ -->
+
+</section>
+
+
+</main>
+
+
+
     <!-- Блок гостя -->
 
     <section id="guestProfile" style="display:none;">
@@ -140,6 +193,43 @@
 </div>
 
 <script src="script.js"></script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const user = localStorage.getItem("user");
+
+    const guestProfile = document.getElementById("guestProfile");
+    const userProfile = document.getElementById("userProfile");
+
+    if (!user) {
+
+        // Гость
+        if (guestProfile) {
+            guestProfile.style.display = "block";
+        }
+
+        if (userProfile) {
+            userProfile.style.display = "none";
+        }
+
+    } else {
+
+        // Авторизованный пользователь
+        if (guestProfile) {
+            guestProfile.style.display = "none";
+        }
+
+        if (userProfile) {
+            userProfile.style.display = "block";
+        }
+
+    }
+
+});
+
+</script>
 
 </body>
 </html>
