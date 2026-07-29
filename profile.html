@@ -137,55 +137,177 @@
 <section id="userProfile" style="display:none;">
 
 
-<div class="epm-profile-page">
+<div class="profile-container">
 
-<div class="epm-banner">
 
-<h2>EPM PROFILE</h2>
+    <!-- ШАПКА ПРОФИЛЯ -->
+
+    <div class="profile-card">
+
+        <div class="profile-avatar">
+
+            <img 
+            id="avatarImage"
+            src="images/default-avatar.png"
+            alt="avatar">
+
+        </div>
+
+
+        <div class="profile-info">
+
+            <h1 id="profileName">
+                Игрок
+            </h1>
+
+
+            <div 
+            id="profileRole"
+            class="profile-role">
+                Пользователь
+            </div>
+
+
+            <div class="profile-meta">
+
+                <div>
+                    📅 Регистрация:
+                    <span id="registerDate">
+                    неизвестно
+                    </span>
+                </div>
+
+
+                <div>
+                    🟢 Последний вход:
+                    <span id="lastLogin">
+                    сегодня
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="profile-actions">
+
+
+                <button>
+                    ⚙ Настройки
+                </button>
+
+
+                <a 
+                id="adminButton"
+                href="admin.html"
+                style="display:none;">
+                    🛡 Админка
+                </a>
+
+
+                <button onclick="logout()">
+                    🚪 Выйти
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+
+    <!-- СТАТИСТИКА -->
+
+    <div class="profile-stats">
+
+
+        <div class="stat-box">
+
+            <span>
+                🎮
+            </span>
+
+            <h3>
+                Темы
+            </h3>
+
+            <b id="topicCount">
+                0
+            </b>
+
+        </div>
+
+
+
+        <div class="stat-box">
+
+            <span>
+                💬
+            </span>
+
+            <h3>
+                Ответы
+            </h3>
+
+            <b id="answerCount">
+                0
+            </b>
+
+        </div>
+
+
+
+        <div class="stat-box">
+
+            <span>
+                ⭐
+            </span>
+
+            <h3>
+                Опыт
+            </h3>
+
+            <b id="xpCount">
+                0
+            </b>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <!-- ПОСЛЕДНИЕ ТЕМЫ -->
+
+    <div class="profile-topics">
+
+
+        <h2>
+            📌 Последние темы пользователя
+        </h2>
+
+
+        <div id="userTopics">
+
+            <p>
+                Пока нет созданных тем
+            </p>
+
+        </div>
+
+
+    </div>
+
 
 </div>
 
-<div class="epm-user-header">
 
-<div class="epm-avatar">
-
-<img
-id="avatarImage"
-src="images/default-avatar.png"
-alt="avatar">
-
-</div>
-
-<h1 id="profileName">
-Игрок
-</h1>
-
-<div id="profileRole" class="epm-role">
-Пользователь
-</div>
-
-</div>
-
-<div class="epm-buttons">
-
-<button>
-⚙ Настройки
-</button>
-
-<a
-id="adminButton"
-href="admin.html"
-style="display:none;">
-🛡 Админка
-</a>
-
-<button onclick="logout()">
-🚪 Выйти
-</button>
-
-</div>
-
-</div>
 
 
 </section>
