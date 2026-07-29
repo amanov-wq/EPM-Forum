@@ -137,116 +137,53 @@
 <section id="userProfile" style="display:none;">
 
 
-<div class="epm-profile">
+<div class="epm-profile-page">
 
+<div class="epm-banner">
 
-<div class="epm-avatar-big">
-
-<img id="avatarImage"
-src="images/default-avatar.png">
+<h2>EPM PROFILE</h2>
 
 </div>
 
+<div class="epm-user-header">
 
+<div class="epm-avatar">
+
+<img
+id="avatarImage"
+src="images/default-avatar.png"
+alt="avatar">
+
+</div>
 
 <h1 id="profileName">
 Игрок
 </h1>
 
-
-
-<div class="role-box">
-
-⭐ <span id="profileRole">
+<div id="profileRole" class="epm-role">
 Пользователь
-</span>
+</div>
 
 </div>
 
+<div class="epm-buttons">
 
-
-
-<div class="stats">
-
-
-<div>
-🎮
-<span id="messagesCount">
-0
-</span>
-<p>
-Сообщения
-</p>
-</div>
-
-
-<div>
-⭐
-<span id="profileXP">
-0
-</span>
-<p>
-Опыт
-</p>
-</div>
-
-
-<div>
-🏆
-<span>
-EPM
-</span>
-<p>
-Проект
-</p>
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="profile-menu">
-
-
-<div class="avatar-change">
-
-<input id="avatarUrl"
-placeholder="Ссылка на аватар">
-
-
-<button onclick="changeAvatar()">
-🖼 Сменить аватар
+<button>
+⚙ Настройки
 </button>
 
-</div>
-
-
-
-<a href="forum.html">
-💬 Форум
+<a
+id="adminButton"
+href="admin.html"
+style="display:none;">
+🛡 Админка
 </a>
-
-
-
-<a id="adminButton"
-style="display:none"
-href="admin.html">
-🛡 Админ-панель
-</a>
-
-
 
 <button onclick="logout()">
 🚪 Выйти
 </button>
 
-
-
 </div>
-
 
 </div>
 
