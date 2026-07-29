@@ -93,40 +93,43 @@
 
 <section id="guestProfile" style="display:none;">
 
-<div class="epm-profile">
-
-<div class="epm-avatar-big">
-👤
-</div>
-
-<h1>
-Вы гость
-</h1>
-
-<p>
-Добро пожаловать в
-<b>EPM — Estamon Project Minecraft</b>
-<br><br>
-Войдите или зарегистрируйтесь,
-чтобы создавать темы, отвечать
-и общаться на форуме.
-</p>
+    <div class="guest-card">
 
 
-<div class="epm-actions">
-
-<a href="login.html">
-Войти
-</a>
-
-<a href="register.html">
-Регистрация
-</a>
-
-</div>
+        <div class="guest-icon">
+            👤
+        </div>
 
 
-</div>
+        <h2>
+            Гость
+        </h2>
+
+
+        <p>
+            Войдите в аккаунт, чтобы получить доступ к профилю,
+            форуму и функциям ESTAMON.
+        </p>
+
+
+
+        <div class="guest-buttons">
+
+
+            <a href="login.html">
+                🔑 Войти
+            </a>
+
+
+            <a href="register.html">
+                📝 Регистрация
+            </a>
+
+
+        </div>
+
+
+    </div>
 
 </section>
 
@@ -136,82 +139,49 @@
 
 <section id="userProfile" style="display:none;">
 
-
 <div class="profile-container">
 
 
-    <!-- ШАПКА ПРОФИЛЯ -->
+    <!-- Аватар -->
+    <div class="profile-avatar-box">
 
-    <div class="profile-card">
+        <img 
+        id="userAvatar"
+        src="images/default-avatar.png"
+        alt="avatar">
 
-        <div class="profile-avatar">
 
-            <img 
-            id="avatarImage"
-            src="images/default-avatar.png"
-            alt="avatar">
+        <label class="avatar-button">
 
+            🖼 Сменить аватар
+
+            <input 
+            type="file"
+            id="avatarInput"
+            accept="image/*"
+            hidden>
+
+        </label>
+
+    </div>
+
+
+
+    <!-- Ник и роль -->
+    <div class="profile-main-info">
+
+        <h1 id="profileNickname">
+            Игрок
+        </h1>
+
+
+        <div id="profileRole">
+            Пользователь
         </div>
 
 
-        <div class="profile-info">
-
-            <h1 id="profileName">
-                Игрок
-            </h1>
-
-
-            <div 
-            id="profileRole"
-            class="profile-role">
-                Пользователь
-            </div>
-
-
-            <div class="profile-meta">
-
-                <div>
-                    📅 Регистрация:
-                    <span id="registerDate">
-                    неизвестно
-                    </span>
-                </div>
-
-
-                <div>
-                    🟢 Последний вход:
-                    <span id="lastLogin">
-                    сегодня
-                    </span>
-                </div>
-
-            </div>
-
-
-            <div class="profile-actions">
-
-
-                <button>
-                    ⚙ Настройки
-                </button>
-
-
-                <a 
-                id="adminButton"
-                href="admin.html"
-                style="display:none;">
-                    🛡 Админка
-                </a>
-
-
-                <button onclick="logout()">
-                    🚪 Выйти
-                </button>
-
-
-            </div>
-
-
+        <div class="profile-online">
+            🟢 Сейчас в сети
         </div>
 
     </div>
@@ -219,61 +189,65 @@
 
 
 
-    <!-- СТАТИСТИКА -->
+    <!-- Кнопки -->
+    <div class="profile-buttons">
 
+
+        <button onclick="openSettings()">
+            ⚙ Настройки
+        </button>
+
+
+        <a 
+        id="adminButton"
+        href="admin.html"
+        style="display:none;">
+            🛡 Админка
+        </a>
+
+
+        <button onclick="logout()">
+            🚪 Выйти
+        </button>
+
+
+    </div>
+
+
+
+
+
+    <!-- Статистика -->
     <div class="profile-stats">
 
 
-        <div class="stat-box">
-
+        <div>
+            <strong id="topicCount">
+                0
+            </strong>
             <span>
-                🎮
-            </span>
-
-            <h3>
                 Темы
-            </h3>
-
-            <b id="topicCount">
-                0
-            </b>
-
+            </span>
         </div>
 
 
-
-        <div class="stat-box">
-
+        <div>
+            <strong id="answerCount">
+                0
+            </strong>
             <span>
-                💬
-            </span>
-
-            <h3>
                 Ответы
-            </h3>
-
-            <b id="answerCount">
-                0
-            </b>
-
+            </span>
         </div>
 
 
-
-        <div class="stat-box">
-
-            <span>
-                ⭐
-            </span>
-
-            <h3>
-                Опыт
-            </h3>
-
-            <b id="xpCount">
+        <div>
+            <strong id="userXP">
                 0
-            </b>
-
+            </strong>
+            <span>
+                XP
+            </span>
         </div>
 
 
@@ -283,21 +257,17 @@
 
 
 
-    <!-- ПОСЛЕДНИЕ ТЕМЫ -->
-
+    <!-- Последние темы -->
     <div class="profile-topics">
 
-
         <h2>
-            📌 Последние темы пользователя
+            Последние темы
         </h2>
 
 
         <div id="userTopics">
 
-            <p>
-                Пока нет созданных тем
-            </p>
+            Пока нет тем
 
         </div>
 
@@ -305,10 +275,8 @@
     </div>
 
 
+
 </div>
-
-
-
 
 </section>
 

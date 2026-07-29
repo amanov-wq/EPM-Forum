@@ -8922,3 +8922,445 @@ font-size:30px;
 
 
 }
+
+/* =========================
+   GUEST PROFILE
+========================= */
+
+#guestProfile{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+}
+
+
+.guest-card{
+
+    width:360px;
+
+    background:
+    rgba(20,20,35,0.85);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:25px;
+
+    padding:35px;
+
+    text-align:center;
+
+    color:white;
+
+    border:1px solid rgba(160,90,255,.4);
+
+    box-shadow:
+    0 0 30px rgba(140,70,255,.35);
+
+}
+
+
+
+.guest-icon{
+
+    font-size:70px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.guest-card h2{
+
+    font-size:30px;
+
+    margin:10px 0;
+
+}
+
+
+
+.guest-card p{
+
+    color:#cfcfcf;
+
+    line-height:1.5;
+
+}
+
+
+
+.guest-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+    justify-content:center;
+
+    margin-top:25px;
+
+}
+
+
+
+.guest-buttons a{
+
+    padding:12px 25px;
+
+    border-radius:14px;
+
+    text-decoration:none;
+
+    color:white;
+
+    font-weight:700;
+
+    background:
+    linear-gradient(135deg,#8b45ff,#c35cff);
+
+    transition:.3s;
+
+}
+
+
+
+.guest-buttons a:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 0 20px #a75cff;
+
+}
+
+
+
+/* =========================
+   USER PROFILE
+========================= */
+
+
+#userProfile{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    padding:40px 20px;
+
+}
+
+
+
+.profile-container{
+
+    width:450px;
+
+    max-width:100%;
+
+    background:
+
+    rgba(18,18,30,.88);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:30px;
+
+    padding:35px;
+
+    text-align:center;
+
+    color:white;
+
+    border:
+
+    1px solid rgba(160,90,255,.45);
+
+
+    box-shadow:
+
+    0 0 40px rgba(140,70,255,.35);
+
+}
+
+
+
+
+/* Аватар */
+
+
+.profile-avatar-box{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+
+
+#userAvatar{
+
+    width:140px;
+
+    height:140px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:4px solid #a45cff;
+
+    box-shadow:
+
+    0 0 25px #a45cff;
+
+}
+
+
+
+.avatar-button{
+
+    cursor:pointer;
+
+    background:
+
+    linear-gradient(135deg,#7d3cff,#c55cff);
+
+    padding:10px 20px;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+}
+
+
+
+
+
+/* Ник */
+
+
+.profile-main-info h1{
+
+    margin:20px 0 5px;
+
+    font-size:32px;
+
+}
+
+
+
+#profileRole{
+
+    color:#c36cff;
+
+    font-weight:bold;
+
+    font-size:18px;
+
+}
+
+
+
+.profile-online{
+
+    margin-top:10px;
+
+    color:#63ff8a;
+
+}
+
+
+
+/* Кнопки */
+
+
+.profile-buttons{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin:30px 0;
+
+}
+
+
+
+.profile-buttons button,
+
+.profile-buttons a{
+
+    border:none;
+
+    text-decoration:none;
+
+    color:white;
+
+    cursor:pointer;
+
+    padding:12px 18px;
+
+    border-radius:14px;
+
+    background:
+
+    linear-gradient(135deg,#8545ff,#bd5cff);
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+
+
+.profile-buttons button:hover,
+
+.profile-buttons a:hover{
+
+    transform:scale(1.05);
+
+}
+
+
+
+/* Статистика */
+
+
+.profile-stats{
+
+    display:flex;
+
+    justify-content:space-around;
+
+    gap:10px;
+
+    padding:20px 0;
+
+    border-top:
+
+    1px solid rgba(255,255,255,.15);
+
+    border-bottom:
+
+    1px solid rgba(255,255,255,.15);
+
+}
+
+
+
+.profile-stats div{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+
+.profile-stats strong{
+
+    font-size:25px;
+
+    color:#c45cff;
+
+}
+
+
+
+.profile-stats span{
+
+    color:#ccc;
+
+}
+
+
+
+/* Темы */
+
+
+.profile-topics{
+
+    margin-top:25px;
+
+}
+
+
+
+.profile-topics h2{
+
+    font-size:22px;
+
+}
+
+
+
+#userTopics{
+
+    color:#bbb;
+
+}
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+
+@media(max-width:600px){
+
+
+.profile-container{
+
+    padding:25px 15px;
+
+    border-radius:20px;
+
+}
+
+
+
+.profile-buttons{
+
+    flex-direction:column;
+
+}
+
+
+
+.profile-buttons button,
+
+.profile-buttons a{
+
+    width:100%;
+
+}
+
+
+
+.profile-stats{
+
+    gap:5px;
+
+}
+
+
+}
