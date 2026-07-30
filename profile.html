@@ -137,144 +137,88 @@
 
 
 
+
 <section id="userProfile" style="display:none;">
 
-<div class="profile-container">
+<div class="epm-profile">
 
+    <div class="epm-avatar">
 
-    <!-- Аватар -->
-    <div class="profile-avatar-box">
-
-        <img 
+        <img
         id="userAvatar"
         src="images/default-avatar.png"
         alt="avatar">
 
-
-        <label class="avatar-button">
-
+        <label class="avatar-upload">
             🖼 Сменить аватар
-
-            <input 
+            <input
             type="file"
             id="avatarInput"
             accept="image/*"
             hidden>
-
         </label>
 
     </div>
 
+    <h1 id="profileNickname">
+        Игрок
+    </h1>
 
-
-    <!-- Ник и роль -->
-    <div class="profile-main-info">
-
-        <h1 id="profileNickname">
-            Игрок
-        </h1>
-
-
-        <div id="profileRole">
-            Пользователь
-        </div>
-
-
-        <div class="profile-online">
-            🟢 Сейчас в сети
-        </div>
-
+    <div id="profileRole" class="profile-role">
+        Пользователь
     </div>
 
+    <div class="profile-status">
+        🟢 Сейчас в сети
+    </div>
 
-
-
-    <!-- Кнопки -->
     <div class="profile-buttons">
-
 
         <button onclick="openSettings()">
             ⚙ Настройки
         </button>
 
-
-        <a 
-        id="adminButton"
+        <a
         href="admin.html"
+        id="adminButton"
         style="display:none;">
             🛡 Админка
         </a>
-
 
         <button onclick="logout()">
             🚪 Выйти
         </button>
 
-
     </div>
 
-
-
-
-
-    <!-- Статистика -->
     <div class="profile-stats">
 
-
-        <div>
-            <strong id="topicCount">
-                0
-            </strong>
-            <span>
-                Темы
-            </span>
+        <div class="stat-item">
+            <span id="topicCount">0</span>
+            <small>Темы</small>
         </div>
 
-
-        <div>
-            <strong id="answerCount">
-                0
-            </strong>
-            <span>
-                Ответы
-            </span>
+        <div class="stat-item">
+            <span id="answerCount">0</span>
+            <small>Ответы</small>
         </div>
 
-
-        <div>
-            <strong id="userXP">
-                0
-            </strong>
-            <span>
-                XP
-            </span>
+        <div class="stat-item">
+            <span id="userXP">0</span>
+            <small>XP</small>
         </div>
-
 
     </div>
 
-
-
-
-
-    <!-- Последние темы -->
     <div class="profile-topics">
 
-        <h2>
-            Последние темы
-        </h2>
-
+        <h2>Последние темы</h2>
 
         <div id="userTopics">
-
             Пока нет тем
-
         </div>
 
-
     </div>
-
-
 
 </div>
 
@@ -335,7 +279,7 @@ userProfile.style.display="block";
 // Ник
 
 const name =
-document.getElementById("profileName");
+document.getElementById("profileNickname");
 
 
 if(name){
@@ -372,7 +316,7 @@ user.role ||
 // Аватар
 
 const avatar =
-document.getElementById("avatarImage");
+document.getElementById("userAvatar");
 
 
 if(avatar && user.avatar){
@@ -486,7 +430,7 @@ JSON.stringify(user)
 
 
 document.getElementById(
-"avatarImage"
+"userAvatar"
 ).src=url;
 
 
