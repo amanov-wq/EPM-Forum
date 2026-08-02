@@ -95,39 +95,23 @@
 
     <div class="guest-card">
 
-
-        <div class="guest-icon">
-            👤
-        </div>
-
-
-        <h2>
-            Гость
-        </h2>
-
+        <h2>👤 Гость</h2>
 
         <p>
-            Войдите в аккаунт, чтобы получить доступ к профилю,
-            форуму и функциям ESTAMON.
+            Авторизуйтесь для доступа к профилю EPM.
         </p>
 
-
-
         <div class="guest-buttons">
-
 
             <a href="login.html">
                 🔑 Войти
             </a>
 
-
             <a href="register.html">
                 📝 Регистрация
             </a>
 
-
         </div>
-
 
     </div>
 
@@ -142,50 +126,64 @@
 
 <div class="epm-profile">
 
-    <div class="epm-avatar">
+    <div class="profile-banner">
+        <div class="banner-overlay"></div>
+    </div>
+
+    <div class="profile-avatar-wrapper">
 
         <img
         id="userAvatar"
         src="images/default-avatar.png"
         alt="avatar">
 
-        <label class="avatar-upload">
+    </div>
+
+    <div class="profile-info">
+
+        <h1 id="profileNickname">
+            Игрок
+        </h1>
+
+        <div id="profileRole" class="profile-role">
+            Пользователь
+        </div>
+
+        <div class="profile-status">
+            🟢 Сейчас в сети
+        </div>
+
+    </div>
+
+    <div class="profile-actions">
+
+        <label class="profile-btn">
+
             🖼 Сменить аватар
+
             <input
             type="file"
             id="avatarInput"
             accept="image/*"
             hidden>
+
         </label>
 
-    </div>
-
-    <h1 id="profileNickname">
-        Игрок
-    </h1>
-
-    <div id="profileRole" class="profile-role">
-        Пользователь
-    </div>
-
-    <div class="profile-status">
-        🟢 Сейчас в сети
-    </div>
-
-    <div class="profile-buttons">
-
-        <button onclick="openSettings()">
+        <button class="profile-btn">
             ⚙ Настройки
         </button>
 
         <a
         href="admin.html"
         id="adminButton"
+        class="profile-btn"
         style="display:none;">
             🛡 Админка
         </a>
 
-        <button onclick="logout()">
+        <button
+        class="profile-btn"
+        onclick="logout()">
             🚪 Выйти
         </button>
 
@@ -193,29 +191,74 @@
 
     <div class="profile-stats">
 
-        <div class="stat-item">
+        <div class="stat-card">
+
             <span id="topicCount">0</span>
-            <small>Темы</small>
+
+            <small>🎮 Темы</small>
+
         </div>
 
-        <div class="stat-item">
+        <div class="stat-card">
+
             <span id="answerCount">0</span>
-            <small>Ответы</small>
+
+            <small>💬 Ответы</small>
+
         </div>
 
-        <div class="stat-item">
+        <div class="stat-card">
+
             <span id="userXP">0</span>
-            <small>XP</small>
+
+            <small>⭐ XP</small>
+
+        </div>
+
+    </div>
+
+    <div class="battlepass-card">
+
+        <h2>
+            🎟 BATTLE PASS
+        </h2>
+
+        <div class="bp-level">
+
+            Уровень: <strong>12</strong>
+
+        </div>
+
+        <div class="bp-bar">
+
+            <div class="bp-progress"></div>
+
+        </div>
+
+        <div class="bp-text">
+
+            1200 / 2000 XP
+
+        </div>
+
+        <div class="bp-next">
+
+            До уровня 13 осталось: 800 XP
+
         </div>
 
     </div>
 
     <div class="profile-topics">
 
-        <h2>Последние темы</h2>
+        <h2>
+            Последние темы
+        </h2>
 
         <div id="userTopics">
-            Пока нет тем
+
+            Пока нет созданных тем
+
         </div>
 
     </div>
