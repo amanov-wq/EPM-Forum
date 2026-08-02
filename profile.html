@@ -4,489 +4,455 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>EPM — Профиль</title>
 
 <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
 
 </head>
 
-<body class="profile-page">
 
-<header class="main-header">
+<body>
 
-    <div class="logo">
-        EPM
-    </div>
 
-    <div class="header-actions">
+<header>
 
-        <a href="profile.html" class="profile-icon">
-            👤
-        </a>
+<div class="logo">
+EPM
+</div>
 
-        <button class="menu-toggle" onclick="toggleMenu()">
-            ☰
-        </button>
+<nav>
 
-    </div>
+<a href="index.html">
+Главная
+</a>
+
+<a href="forum.html">
+Форум
+</a>
+
+<a href="news.html">
+Новости
+</a>
+
+<a href="rules.html">
+Правила
+</a>
+
+<a href="donate.html">
+Донат
+</a>
+
+</nav>
 
 </header>
 
 
 
-<div class="mobile-menu" id="mobileMenu">
 
-    <div class="menu-top">
-
-        <span>EPM</span>
-
-        <button onclick="toggleMenu()">
-            ✕
-        </button>
-
-    </div>
-
-    <a href="server-info.html">⚔️ Информация</a>
-    <a href="forum.html">💬 Форум</a>
-    <a href="news.html">📰 Новости</a>
-    <a href="rules.html">📜 Правила</a>
-    <a href="donate.html">💎 Донат</a>
-    <a href="profile.html">👤 Профиль</a>
-
-</div>
+<main>
 
 
 
-<div class="menu-background" id="menuBackground"></div>
-
-<div class="side-menu" id="sideMenu">
-
-    <div class="menu-header">
-
-        <span>EPM</span>
-
-        <button class="close-btn" onclick="toggleMenu()">
-            ✕
-        </button>
-
-    </div>
-
-    <a href="server-info.html">⚔ Информация</a>
-    <a href="forum.html">💬 Форум</a>
-    <a href="news.html">📰 Новости</a>
-    <a href="rules.html">📜 Правила</a>
-    <a href="donate.html">💎 Донат</a>
-    <a href="profile.html">👤 Профиль</a>
-
-</div>
-
-<div class="menu-overlay" id="menuOverlay"></div>
+<!-- =====================
+       ГОСТЬ
+===================== -->
 
 
+<section id="guestProfile">
 
-<div class="profile-wrapper">
-
-
-<section id="guestProfile" style="display:none;">
 
 <div class="guest-card">
 
-<h2>
+
+<h1>
 👤 Гость
-</h2>
+</h1>
+
 
 <p>
-Авторизуйтесь для доступа к профилю EPM.
+Вы не авторизованы.
 </p>
+
+
+<p>
+Войдите или создайте аккаунт EPM.
+</p>
+
+
 
 <div class="guest-buttons">
 
+
 <a href="login.html">
+
 🔑 Войти
+
 </a>
+
+
 
 <a href="register.html">
+
 📝 Регистрация
+
 </a>
 
-</div>
+
 
 </div>
+
+
+</div>
+
 
 </section>
 
 
 
+
+
+<!-- =====================
+       ПРОФИЛЬ
+===================== -->
 
 
 <section id="userProfile" style="display:none;">
 
+
+
 <div class="epm-profile">
 
-    <div class="profile-banner">
-        <div class="banner-overlay"></div>
-    </div>
 
-    <div class="profile-avatar-wrapper">
 
-        <img
-        id="userAvatar"
-        src="images/default-avatar.png"
-        alt="avatar">
+<div class="profile-banner">
 
-    </div>
 
-    <div class="profile-info">
+<div class="banner-overlay"></div>
 
-        <h1 id="profileNickname">
-            Игрок
-        </h1>
-
-        <div id="profileRole" class="profile-role">
-            Пользователь
-        </div>
-
-        <div class="profile-status">
-            🟢 Сейчас в сети
-        </div>
-
-    </div>
-
-    <div class="profile-actions">
-
-        <label class="profile-btn">
-
-            🖼 Сменить аватар
-
-            <input
-            type="file"
-            id="avatarInput"
-            accept="image/*"
-            hidden>
-
-        </label>
-
-        <button class="profile-btn">
-            ⚙ Настройки
-        </button>
-
-        <a
-        href="admin.html"
-        id="adminButton"
-        class="profile-btn"
-        style="display:none;">
-            🛡 Админка
-        </a>
-
-        <button
-        class="profile-btn"
-        onclick="logout()">
-            🚪 Выйти
-        </button>
-
-    </div>
-
-    <div class="profile-stats">
-
-        <div class="stat-card">
-
-            <span id="topicCount">0</span>
-
-            <small>🎮 Темы</small>
-
-        </div>
-
-        <div class="stat-card">
-
-            <span id="answerCount">0</span>
-
-            <small>💬 Ответы</small>
-
-        </div>
-
-        <div class="stat-card">
-
-            <span id="userXP">0</span>
-
-            <small>⭐ XP</small>
-
-        </div>
-
-    </div>
-
-    <div class="battlepass-card">
-
-        <h2>
-            🎟 BATTLE PASS
-        </h2>
-
-        <div class="bp-level">
-
-            Уровень: <strong>12</strong>
-
-        </div>
-
-        <div class="bp-bar">
-
-            <div class="bp-progress"></div>
-
-        </div>
-
-        <div class="bp-text">
-
-            1200 / 2000 XP
-
-        </div>
-
-        <div class="bp-next">
-
-            До уровня 13 осталось: 800 XP
-
-        </div>
-
-    </div>
-
-    <div class="profile-topics">
-
-        <h2>
-            Последние темы
-        </h2>
-
-        <div id="userTopics">
-
-            Пока нет созданных тем
-
-        </div>
-
-    </div>
 
 </div>
+
+
+
+
+
+<div class="profile-avatar-wrapper">
+
+
+<img 
+id="userAvatar"
+src="images/default-avatar.png">
+
+
+</div>
+
+
+
+
+
+<div class="profile-info">
+
+
+<h1 id="profileNickname">
+
+Игрок
+
+</h1>
+
+
+
+<div id="profileRole" class="profile-role">
+
+Пользователь
+
+</div>
+
+
+
+<div class="profile-status">
+
+🟢 Сейчас в сети
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="profile-actions">
+
+
+
+<label class="profile-btn">
+
+
+🖼 Сменить аватар
+
+
+<input 
+type="file"
+id="avatarInput"
+accept="image/*"
+hidden>
+
+
+</label>
+
+
+
+
+
+<button class="profile-btn">
+
+⚙ Настройки
+
+</button>
+
+
+
+
+
+<a 
+href="admin.html"
+id="adminButton"
+class="profile-btn"
+style="display:none;">
+
+
+🛡 Админка
+
+
+</a>
+
+
+
+
+
+
+<button 
+onclick="logout()"
+class="profile-btn">
+
+
+🚪 Выйти
+
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="profile-stats">
+
+
+
+<div class="stat-card">
+
+
+<span id="topicCount">
+
+0
+
+</span>
+
+
+<small>
+
+🎮 Темы
+
+</small>
+
+
+</div>
+
+
+
+
+<div class="stat-card">
+
+
+<span id="answerCount">
+
+0
+
+</span>
+
+
+<small>
+
+💬 Ответы
+
+</small>
+
+
+</div>
+
+
+
+
+
+<div class="stat-card">
+
+
+<span id="userXP">
+
+0
+
+</span>
+
+
+<small>
+
+⭐ XP
+
+</small>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="battlepass-card">
+
+
+
+<h2>
+
+🎟 BATTLE PASS
+
+</h2>
+
+
+
+
+<div class="bp-level">
+
+
+Уровень:
+
+<strong>
+
+12
+
+</strong>
+
+
+</div>
+
+
+
+
+
+<div class="bp-bar">
+
+
+<div class="bp-progress">
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="bp-text">
+
+1200 / 2000 XP
+
+</div>
+
+
+
+<div class="bp-next">
+
+До уровня 13 осталось 800 XP
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="profile-topics">
+
+
+<h2>
+
+Последние темы
+
+</h2>
+
+
+
+<div id="userTopics">
+
+
+Пока нет созданных тем
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
 
 </section>
 
 
 
 
+</main>
 
-<script>
 
-document.addEventListener("DOMContentLoaded",()=>{
 
 
-const userData = localStorage.getItem("user");
 
+<script src="profile.js"></script>
 
-const guestProfile =
-document.getElementById("guestProfile");
-
-const userProfile =
-document.getElementById("userProfile");
-
-
-
-if(!userData){
-
-
-    if(guestProfile)
-    guestProfile.style.display="block";
-
-
-    if(userProfile)
-    userProfile.style.display="none";
-
-
-    return;
-
-}
-
-
-
-
-const user = JSON.parse(userData);
-
-
-
-if(guestProfile)
-guestProfile.style.display="none";
-
-
-if(userProfile)
-userProfile.style.display="block";
-
-
-
-
-// Ник
-
-const name =
-document.getElementById("profileNickname");
-
-
-if(name){
-
-name.innerText =
-user.username ||
-user.nickname ||
-user.name ||
-"Игрок";
-
-}
-
-
-
-
-// Роль
-
-const role =
-document.getElementById("profileRole");
-
-
-if(role){
-
-role.innerText =
-user.role ||
-"Пользователь";
-
-}
-
-
-
-
-
-// Аватар
-
-const avatar =
-document.getElementById("userAvatar");
-
-
-if(avatar && user.avatar){
-
-avatar.src=user.avatar;
-
-}
-
-
-
-
-// Админка
-
-
-const adminRoles=[
-
-"Создатель",
-"Куратор",
-"Зам Куратор",
-"Куратор режима",
-"Модератор",
-"Ст.Модератор",
-"Администратор"
-
-];
-
-
-
-const adminButton =
-document.getElementById("adminButton");
-
-
-
-if(
-adminButton &&
-adminRoles.includes(user.role)
-){
-
-adminButton.style.display="block";
-
-}
-
-
-
-
-});
-
-
-
-
-
-function logout(){
-
-
-localStorage.removeItem("user");
-
-
-window.location.href="profile.html";
-
-
-}
-
-
-
-
-
-function changeAvatar(){
-
-
-const input =
-document.getElementById("avatarUrl");
-
-
-const url =
-input.value.trim();
-
-
-
-if(
-!url.match(
-/\.(jpg|jpeg|png|gif|webp)$/i
-)
-
-){
-
-alert(
-"Введите ссылку на изображение"
-);
-
-return;
-
-}
-
-
-
-
-const user =
-JSON.parse(localStorage.getItem("user"));
-
-
-
-user.avatar=url;
-
-
-
-localStorage.setItem(
-"user",
-JSON.stringify(user)
-);
-
-
-
-document.getElementById(
-"userAvatar"
-).src=url;
-
-
-alert(
-"Автар изменён"
-);
-
-
-
-}
-
-</script>
 
 </body>
+
 </html>
