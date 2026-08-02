@@ -9917,3 +9917,18 @@ font-size:30px;
     }
 
 }
+/* FIX OLD PROFILE */
+
+.profile-card,
+.user-card,
+.old-profile,
+.profile-container{
+    display:none;
+}
+
+
+/* EPM PROFILE FORCE */
+
+.epm-profile{
+    display:block !important;
+}
