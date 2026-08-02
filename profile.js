@@ -1,189 +1,265 @@
+// ============================
+// EPM PROFILE JS
+// ============================
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
 
-    const login = localStorage.getItem("login");
 
+const userProfile = document.getElementById("userProfile");
+const guestProfile = document.getElementById("guestProfile");
 
-    const nickname = document.getElementById("nickname");
-    const avatar = document.getElementById("avatar");
-    const profileAvatar = document.getElementById("profileAvatar");
-    const roleBadge = document.getElementById("roleBadge");
 
 
-    if (!login) {
+let user = JSON.parse(localStorage.getItem("user"));
 
-        nickname.textContent = "Гость";
-        roleBadge.textContent = "Игрок";
 
-        return;
 
-    }
 
+// ============================
+// ПРОВЕРКА ВХОДА
+// ============================
 
 
-    fetch(`/profile/${login}`)
+if(!user){
 
-    .then(res => res.json())
 
-    .then(user => {
+    if(guestProfile)
+        guestProfile.style.display = "block";
 
 
+    if(userProfile)
+        userProfile.style.display = "none";
 
-        // НИК
 
-        nickname.textContent =
-            user.login;
+    return;
 
 
+}
 
-        // АВАТАР
 
-        if(user.avatar){
 
-            avatar.src =
-                user.avatar;
 
-            profileAvatar.src =
-                user.avatar;
+// ============================
+// ПОКАЗ ПРОФИЛЯ
+// ============================
 
-        }
 
+if(guestProfile)
+    guestProfile.style.display = "none";
 
 
-        // СТАТИСТИКА
+if(userProfile)
+    userProfile.style.display = "block";
 
-        document.getElementById("level").textContent =
-            user.level || 1;
 
 
-        document.getElementById("money").textContent =
-            user.money || 0;
 
 
-        document.getElementById("email").textContent =
-            user.email || "-";
+// ============================
+// ДАННЫЕ ПОЛЬЗОВАТЕЛЯ
+// ============================
 
 
 
+let nickname =
+user.nickname ||
+user.username ||
+"Игрок";
 
 
-        // РОЛИ ESTAMON
 
-        const roles = {
+let role =
+user.role ||
+"Пользователь";
 
 
-            "founder": [
-                "Создатель",
-                "role-founder"
-            ],
 
 
-            "mode_curator": [
-                "Куратор Режима",
-                "role-mode-curator"
-            ],
 
+let nick =
+document.getElementById("profileNickname");
 
-            "deputy_curator": [
-                "Зам. Куратора",
-                "role-deputy-curator"
-            ],
 
+let roleBlock =
+document.getElementById("profileRole");
 
-            "team_curator": [
-                "Куратор Команды Проекта",
-                "role-team-curator"
-            ],
 
 
-            "ads_curator": [
-                "Куратор по рекламе",
-                "role-ads-curator"
-            ],
 
+if(nick)
+    nick.textContent = nickname;
 
-            "senior_moderator": [
-                "Ст. Модератор",
-                "role-smoder"
-            ],
 
 
-            "moderator": [
-                "Модератор",
-                "role-moder"
-            ],
+if(roleBlock)
+    roleBlock.textContent = role;
 
 
-            "junior_moderator": [
-                "Мл. Модератор",
-                "role-jmoder"
-            ],
 
 
-            "senior_helper": [
-                "Ст. Хелпер",
-                "role-shelper"
-            ],
 
 
-            "helper": [
-                "Хелпер",
-                "role-helper"
-            ],
 
+// ============================
+// АДМИНКА
+// ============================
 
-            "junior_helper": [
-                "Мл. Хелпер",
-                "role-jhelper"
-            ],
 
 
-            "trainee": [
-                "Стажёр",
-                "role-trainee"
-            ],
+let adminButton =
+document.getElementById("adminButton");
 
 
-            "player": [
-                "Игрок",
-                "role-player"
-            ]
 
-        };
+if(
+role === "Создатель" ||
+role === "Админ" ||
+role === "Куратор"
+){
 
 
+    if(adminButton)
+        adminButton.style.display="inline-flex";
 
-        const role =
-            roles[user.role] || roles.player;
 
+}
 
+else{
 
-        roleBadge.textContent =
-            role[0];
 
+    if(adminButton)
+        adminButton.style.display="none";
 
-        roleBadge.classList.add(
-            role[1]
-        );
 
+}
 
 
-    })
 
 
-    .catch(err => {
 
-        console.error(
-            "Ошибка загрузки профиля:",
-            err
-        );
 
 
-        nickname.textContent =
-            "Ошибка загрузки";
 
-    });
+// ============================
+// АВАТАР
+// ============================
+
+
+let avatar =
+document.getElementById("userAvatar");
+
+
+
+if(
+user.avatar &&
+avatar
+){
+
+    avatar.src=user.avatar;
+
+}
+
+
+
+
+
+
+
+// ============================
+// СМЕНА АВАТАРА
+// ============================
+
+
+let avatarInput =
+document.getElementById("avatarInput");
+
+
+
+if(avatarInput){
+
+
+
+avatarInput.addEventListener(
+"change",
+function(){
+
+
+
+let file =
+this.files[0];
+
+
+
+if(!file)
+return;
+
+
+
+
+let reader =
+new FileReader();
+
+
+
+reader.onload=function(e){
+
+
+
+avatar.src=e.target.result;
+
+
+
+user.avatar=e.target.result;
+
+
+localStorage.setItem(
+"user",
+JSON.stringify(user)
+);
+
+
+
+};
+
+
+
+reader.readAsDataURL(file);
 
 
 
 });
+
+
+}
+
+
+
+
+
+
+
+
+});
+
+
+
+
+
+
+// ============================
+// ВЫХОД
+// ============================
+
+
+function logout(){
+
+
+localStorage.removeItem("user");
+
+
+location.href="login.html";
+
+
+}

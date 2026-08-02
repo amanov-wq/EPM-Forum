@@ -7,11 +7,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>EPM — Профиль</title>
+<title>EPM Profile</title>
 
 <link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -19,49 +17,33 @@
 <body>
 
 
-<header>
+<header class="main-header">
 
 <div class="logo">
 EPM
 </div>
 
+
 <nav>
 
-<a href="index.html">
-Главная
-</a>
-
-<a href="forum.html">
-Форум
-</a>
-
-<a href="news.html">
-Новости
-</a>
-
-<a href="rules.html">
-Правила
-</a>
-
-<a href="donate.html">
-Донат
-</a>
+<a href="index.html">Главная</a>
+<a href="forum.html">Форум</a>
+<a href="news.html">Новости</a>
+<a href="rules.html">Правила</a>
+<a href="donate.html">Донат</a>
 
 </nav>
+
 
 </header>
 
 
 
-
-<main>
-
+<main class="profile-page">
 
 
-<!-- =====================
-       ГОСТЬ
-===================== -->
 
+<!-- ГОСТЬ -->
 
 <section id="guestProfile">
 
@@ -69,18 +51,26 @@ EPM
 <div class="guest-card">
 
 
+<div class="guest-avatar">
+
+👤
+
+</div>
+
+
+
 <h1>
-👤 Гость
+
+Гость
+
 </h1>
 
 
-<p>
-Вы не авторизованы.
-</p>
-
 
 <p>
-Войдите или создайте аккаунт EPM.
+
+Войдите в аккаунт EPM чтобы открыть профиль
+
 </p>
 
 
@@ -90,18 +80,16 @@ EPM
 
 <a href="login.html">
 
-🔑 Войти
+Войти
 
 </a>
-
 
 
 <a href="register.html">
 
-📝 Регистрация
+Регистрация
 
 </a>
-
 
 
 </div>
@@ -116,10 +104,8 @@ EPM
 
 
 
-<!-- =====================
-       ПРОФИЛЬ
-===================== -->
 
+<!-- ИГРОК -->
 
 <section id="userProfile" style="display:none;">
 
@@ -131,26 +117,19 @@ EPM
 
 <div class="profile-banner">
 
-
-<div class="banner-overlay"></div>
-
-
 </div>
 
 
 
 
+<div class="avatar-box">
 
-<div class="profile-avatar-wrapper">
 
-
-<img 
-id="userAvatar"
+<img id="userAvatar"
 src="images/default-avatar.png">
 
 
 </div>
-
 
 
 
@@ -165,53 +144,42 @@ src="images/default-avatar.png">
 </h1>
 
 
-
-<div id="profileRole" class="profile-role">
+<div id="profileRole">
 
 Пользователь
 
 </div>
 
 
+<div class="online">
 
-<div class="profile-status">
-
-🟢 Сейчас в сети
-
-</div>
-
+🟢 Онлайн
 
 </div>
 
 
 
+</div>
 
 
 
-<div class="profile-actions">
 
 
 
-<label class="profile-btn">
+<div class="profile-buttons">
 
 
-🖼 Сменить аватар
+<label>
 
+🖼 Аватар
 
-<input 
-type="file"
-id="avatarInput"
-accept="image/*"
-hidden>
-
+<input id="avatarInput" type="file" hidden>
 
 </label>
 
 
 
-
-
-<button class="profile-btn">
+<button>
 
 ⚙ Настройки
 
@@ -219,32 +187,19 @@ hidden>
 
 
 
-
-
-<a 
+<a id="adminButton"
 href="admin.html"
-id="adminButton"
-class="profile-btn"
 style="display:none;">
 
-
 🛡 Админка
-
 
 </a>
 
 
 
-
-
-
-<button 
-onclick="logout()"
-class="profile-btn">
-
+<button onclick="logout()">
 
 🚪 Выйти
-
 
 </button>
 
@@ -257,71 +212,49 @@ class="profile-btn">
 
 
 
-<div class="profile-stats">
+
+
+<div class="stats">
 
 
 
-<div class="stat-card">
+<div>
 
-
-<span id="topicCount">
-
-0
-
-</span>
-
-
-<small>
-
-🎮 Темы
-
-</small>
-
-
-</div>
-
-
-
-
-<div class="stat-card">
-
-
-<span id="answerCount">
+<b id="topicCount">
 
 0
 
-</span>
+</b>
 
-
-<small>
-
-💬 Ответы
-
-</small>
-
+Темы
 
 </div>
 
 
 
+<div>
 
-
-<div class="stat-card">
-
-
-<span id="userXP">
+<b id="answerCount">
 
 0
 
-</span>
+</b>
+
+Ответы
+
+</div>
 
 
-<small>
 
-⭐ XP
+<div>
 
-</small>
+<b id="userXP">
 
+0
+
+</b>
+
+XP
 
 </div>
 
@@ -336,66 +269,38 @@ class="profile-btn">
 
 
 
-
-<div class="battlepass-card">
-
+<div class="battlepass">
 
 
 <h2>
 
-🎟 BATTLE PASS
+🎟 Battle Pass
 
 </h2>
 
 
+<h3>
+
+Уровень 12
+
+</h3>
 
 
-<div class="bp-level">
 
+<div class="bar">
 
-Уровень:
+<div>
 
-<strong>
-
-12
-
-</strong>
-
+</div>
 
 </div>
 
 
-
-
-
-<div class="bp-bar">
-
-
-<div class="bp-progress">
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="bp-text">
+<p>
 
 1200 / 2000 XP
 
-</div>
-
-
-
-<div class="bp-next">
-
-До уровня 13 осталось 800 XP
-
-</div>
-
+</p>
 
 
 </div>
@@ -407,8 +312,7 @@ class="profile-btn">
 
 
 
-
-<div class="profile-topics">
+<div class="topics">
 
 
 <h2>
@@ -418,29 +322,24 @@ class="profile-btn">
 </h2>
 
 
-
 <div id="userTopics">
 
+Пока нет тем
 
-Пока нет созданных тем
+</div>
 
 
 </div>
 
 
 
-</div>
-
-
 
 
 
 </div>
-
 
 
 </section>
-
 
 
 
