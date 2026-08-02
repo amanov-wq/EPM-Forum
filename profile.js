@@ -6,9 +6,19 @@
 document.addEventListener("DOMContentLoaded", () => {
 
 
-
 const userProfile = document.getElementById("userProfile");
 const guestProfile = document.getElementById("guestProfile");
+
+
+// Сначала скрываем оба блока
+if(userProfile)
+    userProfile.style.display="none";
+
+
+if(guestProfile)
+    guestProfile.style.display="none";
+
+
 
 
 
