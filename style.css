@@ -10580,3 +10580,608 @@ text-align:center;
 
 
 }
+/* ===================================
+        EPM PROFILE OLD STYLE REBUILD
+=================================== */
+
+
+.profile-wrapper{
+
+    min-height:calc(100vh - 80px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px 15px;
+
+}
+
+
+
+
+
+/* карточка */
+
+
+.profile-card{
+
+
+    width:430px;
+
+    background:
+
+    rgba(8,12,30,.92);
+
+
+    border-radius:28px;
+
+
+    padding:35px;
+
+
+    text-align:center;
+
+
+    border:
+
+    1px solid rgba(150,70,255,.5);
+
+
+    box-shadow:
+
+    0 0 50px rgba(130,40,255,.45);
+
+
+    backdrop-filter:blur(10px);
+
+
+}
+
+
+
+
+
+/* аватар */
+
+
+.avatar-box{
+
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-top:-10px;
+
+
+}
+
+
+
+.avatar-box img{
+
+
+    width:130px;
+
+    height:130px;
+
+
+    border-radius:50%;
+
+
+    object-fit:cover;
+
+
+    border:
+
+    4px solid #914dff;
+
+
+    box-shadow:
+
+    0 0 35px #9c4dff;
+
+
+}
+
+
+
+
+
+
+/* ник */
+
+
+#profileNickname{
+
+
+    margin-top:25px;
+
+
+    color:white;
+
+
+    font-size:34px;
+
+
+    font-weight:800;
+
+
+}
+
+
+
+
+
+
+/* роль */
+
+
+.role-button{
+
+
+    display:inline-block;
+
+
+    margin-top:10px;
+
+
+    padding:12px 55px;
+
+
+    border-radius:30px;
+
+
+    color:white;
+
+
+    font-size:20px;
+
+
+    font-weight:800;
+
+
+    background:
+
+
+    linear-gradient(
+    90deg,
+    #b900ff,
+    #00c8ff
+    );
+
+
+    box-shadow:
+
+
+    0 0 25px rgba(160,50,255,.8);
+
+
+}
+
+
+
+
+
+
+
+
+/* статистика */
+
+
+.profile-stats{
+
+
+    display:grid;
+
+
+    grid-template-columns:repeat(3,1fr);
+
+
+    gap:12px;
+
+
+    margin-top:45px;
+
+
+}
+
+
+
+.stat{
+
+
+    background:
+
+
+    rgba(255,255,255,.07);
+
+
+    border-radius:15px;
+
+
+    padding:14px 8px;
+
+
+
+}
+
+
+
+.stat span{
+
+
+    display:block;
+
+
+    color:#c68aff;
+
+
+    font-size:16px;
+
+
+}
+
+
+
+.stat b{
+
+
+    color:white;
+
+
+    font-size:22px;
+
+
+}
+
+
+
+
+
+
+/* смена аватара */
+
+
+.avatar-change{
+
+
+    margin-top:25px;
+
+
+    padding:20px;
+
+
+    border-radius:18px;
+
+
+    background:
+
+
+    rgba(255,255,255,.05);
+
+
+    border:
+
+    1px solid rgba(150,70,255,.3);
+
+
+}
+
+
+
+.avatar-change input{
+
+
+    width:90%;
+
+
+    padding:12px;
+
+
+    background:
+
+
+    rgba(20,10,30,.8);
+
+
+    border:none;
+
+
+    border-radius:10px;
+
+
+    color:white;
+
+
+}
+
+
+
+
+.avatar-change button{
+
+
+    width:90%;
+
+
+    margin-top:20px;
+
+
+    padding:14px;
+
+
+    border:none;
+
+
+    border-radius:12px;
+
+
+    background:
+
+
+    linear-gradient(
+    90deg,
+    #8c00ff,
+    #b950ff
+    );
+
+
+    color:white;
+
+
+    font-weight:800;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+
+
+
+/* ===================
+       BATTLE PASS
+=================== */
+
+
+.battlepass{
+
+
+    margin-top:25px;
+
+
+    padding:20px;
+
+
+    border-radius:20px;
+
+
+    background:
+
+
+    rgba(255,255,255,.06);
+
+
+    border:
+
+    1px solid rgba(150,70,255,.25);
+
+
+}
+
+
+
+.battlepass h2{
+
+
+    color:#c477ff;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+.bp-level{
+
+
+    color:white;
+
+
+    font-size:22px;
+
+
+}
+
+
+
+.bp-level strong{
+
+
+    color:#d58aff;
+
+
+}
+
+
+
+
+
+.bp-bar{
+
+
+    width:100%;
+
+
+    height:16px;
+
+
+    background:
+
+    rgba(255,255,255,.12);
+
+
+    border-radius:20px;
+
+
+    overflow:hidden;
+
+
+    margin-top:15px;
+
+
+}
+
+
+
+.bp-progress{
+
+
+    width:60%;
+
+
+    height:100%;
+
+
+    background:
+
+
+    linear-gradient(
+    90deg,
+    #8b00ff,
+    #00c8ff
+    );
+
+
+}
+
+
+
+
+
+.battlepass p{
+
+
+    color:#ddd;
+
+
+}
+
+
+
+
+
+
+
+/* кнопки */
+
+
+.profile-buttons{
+
+
+    display:flex;
+
+
+    gap:15px;
+
+
+    justify-content:center;
+
+
+    margin-top:30px;
+
+
+}
+
+
+
+.profile-buttons a,
+.profile-buttons button{
+
+
+    flex:1;
+
+
+    padding:14px;
+
+
+    border-radius:14px;
+
+
+    border:none;
+
+
+    color:white;
+
+
+    text-decoration:none;
+
+
+    font-weight:800;
+
+
+    background:
+
+
+    linear-gradient(
+    135deg,
+    #843dff,
+    #bb64ff
+    );
+
+
+    cursor:pointer;
+
+
+    box-shadow:
+
+
+    0 0 20px rgba(140,60,255,.5);
+
+
+}
+
+
+
+
+
+
+
+@media(max-width:600px){
+
+
+.profile-card{
+
+    width:100%;
+
+    padding:25px;
+
+}
+
+
+
+.profile-stats{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.profile-buttons{
+
+    flex-direction:column;
+
+}
+
+
+}

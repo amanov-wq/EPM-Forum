@@ -34,130 +34,49 @@ EPM
 
 </nav>
 
-
 </header>
 
 
 
-<main class="profile-page">
+<main class="profile-wrapper">
 
 
 
-<!-- ГОСТЬ -->
-
-<section id="guestProfile" style="display:none;">
-
-
-<div class="guest-card">
-
-
-<div class="guest-avatar">
-
-👤
-
-</div>
+<section id="userProfile">
 
 
 
-<h1>
-
-Гость
-
-</h1>
+<div class="profile-card">
 
 
 
-<p>
-
-Войдите в аккаунт EPM чтобы открыть профиль
-
-</p>
-
-
-
-<div class="guest-buttons">
-
-
-<a href="login.html">
-
-Войти
-
-</a>
-
-
-<a href="register.html">
-
-Регистрация
-
-</a>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<!-- ИГРОК -->
-
-<section id="userProfile" style="display:none;">
-
-
-
-<div class="epm-profile">
-
-
-
-<div class="profile-banner">
-
-</div>
-
-
+<!-- АВАТАР -->
 
 
 <div class="avatar-box">
 
-
-<img id="userAvatar"
+<img 
+id="userAvatar"
 src="images/default-avatar.png">
-
 
 </div>
 
 
 
-
-<div class="profile-info">
 
 
 <h1 id="profileNickname">
 
-Игрок
+Amanov
 
 </h1>
 
 
-<div id="profileRole">
-
-Пользователь
-
-</div>
 
 
-<div class="online">
+<div id="profileRole" class="role-button">
 
-🟢 Онлайн
-
-</div>
-
-
+Создатель
 
 </div>
 
@@ -166,45 +85,105 @@ src="images/default-avatar.png">
 
 
 
-<div class="profile-buttons">
+<!-- СТАТИСТИКА -->
 
 
-<label>
+<div class="profile-stats">
 
-🖼 Аватар
 
-<input id="avatarInput" type="file" hidden>
 
-</label>
+<div class="stat">
+
+<span>
+
+Уровень
+
+</span>
+
+
+<b id="userLevel">
+
+25
+
+</b>
+
+
+</div>
+
+
+
+
+<div class="stat">
+
+
+<span>
+
+Сообщения
+
+</span>
+
+
+<b id="messageCount">
+
+125
+
+</b>
+
+
+</div>
+
+
+
+
+
+<div class="stat">
+
+
+<span>
+
+Дата регистрации
+
+</span>
+
+
+<b id="registerDate">
+
+2026
+
+</b>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- АВАТАР СМЕНА -->
+
+
+<div class="avatar-change">
+
+
+<input 
+id="avatarInput"
+placeholder="Ссылка на аватар">
 
 
 
 <button>
 
-⚙ Настройки
+Сменить аватар
 
 </button>
 
 
-
-<a id="adminButton"
-href="admin.html"
-style="display:none;">
-
-🛡 Админка
-
-</a>
-
-
-
-<button onclick="logout()">
-
-🚪 Выйти
-
-</button>
-
-
-
 </div>
 
 
@@ -214,62 +193,11 @@ style="display:none;">
 
 
 
-<div class="stats">
-
-
-
-<div>
-
-<b id="topicCount">
-
-0
-
-</b>
-
-Темы
-
-</div>
-
-
-
-<div>
-
-<b id="answerCount">
-
-0
-
-</b>
-
-Ответы
-
-</div>
-
-
-
-<div>
-
-<b id="userXP">
-
-0
-
-</b>
-
-XP
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
+<!-- BATTLE PASS -->
 
 
 <div class="battlepass">
+
 
 
 <h2>
@@ -279,21 +207,34 @@ XP
 </h2>
 
 
-<h3>
-
-Уровень 12
-
-</h3>
 
 
+<div class="bp-level">
 
-<div class="bar">
+Уровень:
 
-<div>
+<strong>
+
+12
+
+</strong>
+
 
 </div>
 
+
+
+
+<div class="bp-bar">
+
+
+<div class="bp-progress">
+
 </div>
+
+
+</div>
+
 
 
 <p>
@@ -303,35 +244,39 @@ XP
 </p>
 
 
-</div>
-
-
-
-
-
-
-
-
-<div class="topics">
-
-
-<h2>
-
-Последние темы
-
-</h2>
-
-
-<div id="userTopics">
-
-Пока нет тем
 
 </div>
 
 
+
+
+
+
+
+<!-- КНОПКИ -->
+
+
+<div class="profile-buttons">
+
+
+
+<a href="forum.html">
+
+Форум
+
+</a>
+
+
+
+<button onclick="logout()">
+
+Выйти
+
+</button>
+
+
+
 </div>
-
-
 
 
 
@@ -344,7 +289,6 @@ XP
 
 
 </main>
-
 
 
 

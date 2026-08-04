@@ -1,0 +1,18 @@
+document.addEventListener("DOMContentLoaded",()=>{
+
+
+let user = JSON.parse(localStorage.getItem("user"));
+
+
+
+if(user){
+
+
+location.href="profile.html";
+
+
+}
+
+
+
+});
